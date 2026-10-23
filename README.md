@@ -1,49 +1,76 @@
-# GraphBPMS Documentation (مستندات دانشنامه گراف)
+# GraphBPMS Enterprise Documentation
 
-[![Docs Status](https://img.shields.io/badge/Docs-Production_Ready-2ea44f.svg)](#)
-[![Total Articles](https://img.shields.io/badge/Canonical_Articles-125-blue.svg)](#)
-[![Modules](https://img.shields.io/badge/Modules-9-orange.svg)](#)
-[![Status](https://img.shields.io/badge/Live_URLs-100%25_Active-brightgreen.svg)](#)
+[![Platform](https://img.shields.io/badge/Platform-GraphBPMS_Enterprise-0A84FF.svg)](#)
+[![Articles](https://img.shields.io/badge/Verified_Articles-125-2ea44f.svg)](#)
+[![Modules](https://img.shields.io/badge/Architecture_Modules-9-blue.svg)](#)
+[![Standard](https://img.shields.io/badge/Compliance-BPMN_2.0_%7C_DMN_1.3-orange.svg)](#)
+[![Status](https://img.shields.io/badge/Live_Portal-100%25_Active-brightgreen.svg)](https://wiki.graphbpms.ir)
 
-به مخزن رسمی و ساختاریافته مستندات جامع سامانه **GraphBPMS** خوش آمدید.
-این مستندات به صورت پالایش‌شده و اصیل، با حذف کلیه رکوردهای تکراری و نودهای منسوخ، بر پایه ساختار ناوبری رسمی وب‌سایت دانشنامه (`wiki.graphbpms.ir`) سازمان‌دهی شده‌اند.
+Welcome to the official, enterprise-grade documentation repository for the **GraphBPMS** Low-Code Application & Business Process Management Suite.
 
-## 📦 ساختار ماژولار مستندات
+**GraphBPMS** is an advanced, high-performance enterprise platform engineered for large-scale digital transformation. It enables organizations to model, automate, orchestrate, and monitor complex cross-departmental business workflows while radically accelerating software development through modern low-code capabilities.
 
-مستندات سامانه در ۹ شاخه اصلی ماژولار تفکیک شده‌اند. در هر شاخه یک فایل `README.md` به عنوان پیش‌خوان و هاب ماژول قرار دارد:
+---
 
-| ماژول | شرح بخش | تعداد مقالات | پیش‌خوان ماژول | نسخه برخط در دانشنامه |
+## 🏛️ Platform Architecture Overview
+
+```
+GraphBPMS Enterprise Core Platform
+├── 01. Form Builder Studio          [Visual Drag-and-Drop Canvas, 25+ Controls, CustomJS, Business Rules]
+├── 02. Process Modeling Engine      [BPMN 2.0 Compliant Modeler, Multi-Lane Orchestration, Process Simulator]
+├── 03. Dynamic Reporting Studio     [Analytical Grids, Interactive Charts, Stimulsoft Templates, GIS Spatial]
+├── 04. Enterprise Integration Bus   [Universal Data Providers, REST/SOAP Adapters, Service Bus Gateway]
+├── 05. System Governance & RBAC     [Multi-Tenant Administration, Role Hierarchy, License Management]
+├── 06. Headless Service APIs        [REST APIs for Remote Process Initiation, Auth, Signal Dispatching]
+├── 07. Infrastructure Deployment    [Enterprise On-Premise Installation, IIS Hardening, High Availability]
+├── 08. Academy & Masterclasses      [Curriculum of Video Courses & Hands-On Engineering Workshops]
+└── 10. Shared Assets & Annex        [Central File Storage, Architecture Diagrams & Shared Specifications]
+```
+
+---
+
+## 📚 Architectural Modules Directory
+
+All documentation is hierarchically categorized in standard English directories to guarantee cross-platform compatibility, clean URL routing, and seamless integration with AI-powered RAG systems:
+
+| Module | Architectural Domain | Verified Articles | Module Hub | Live Knowledge Base |
 | :--- | :--- | :---: | :---: | :---: |
-| `01-form-builder` | فرم‌ساز پیشرفته، ابزارها و فیلدها | ۲۴ | [مشاهده پیش‌خوان](01-form-builder/README.md) | [wiki.graphbpms.ir/modules/forms](https://wiki.graphbpms.ir/modules/forms) |
-| `02-process` | مدیریت و مدل‌سازی فرآیندها (BPMN) | ۲۲ | [مشاهده پیش‌خوان](02-process/README.md) | [wiki.graphbpms.ir/modules/process](https://wiki.graphbpms.ir/modules/process) |
-| `03-report` | گزارش‌ساز پیشرفته، نمودارها و GIS | ۹ | [مشاهده پیش‌خوان](03-report/README.md) | [wiki.graphbpms.ir/modules/reports](https://wiki.graphbpms.ir/modules/reports) |
-| `04-provider` | منابع داده، سرویس‌ها و وب‌سرویس‌ها | ۳۸ | [مشاهده پیش‌خوان](04-provider/README.md) | [wiki.graphbpms.ir/modules/providers](https://wiki.graphbpms.ir/modules/providers) |
-| `05-system` | مدیریت سیستم، کاربران، نقش‌ها و لایه‌ها | ۹ | [مشاهده پیش‌خوان](05-system/README.md) | [wiki.graphbpms.ir/modules/system](https://wiki.graphbpms.ir/modules/system) |
-| `06-services` | سرویس‌های عمومی سامانه (Login, RunProcess...) | ۷ | [مشاهده پیش‌خوان](06-services/README.md) | [wiki.graphbpms.ir/modules/services](https://wiki.graphbpms.ir/modules/services) |
-| `07-installation` | راهنمای نصب، بروزرسانی و WebConfig | ۴ | [مشاهده پیش‌خوان](07-installation/README.md) | [wiki.graphbpms.ir/modules/install](https://wiki.graphbpms.ir/modules/install) |
-| `08-video-tutorials` | فیلم‌ها و دوره‌های ویدئویی آموزشی | ۱۱ | [مشاهده پیش‌خوان](08-video-tutorials/README.md) | [wiki.graphbpms.ir/modules/videos](https://wiki.graphbpms.ir/modules/videos) |
-| `10-general` | فایل‌ها، ضمیمه‌ها و مستندات تکمیلی | ۱ | [مشاهده پیش‌خوان](10-general/README.md) | [wiki.graphbpms.ir/1509](https://wiki.graphbpms.ir/1509) |
+| [`01-form-builder/`](01-form-builder/README.md) | Form Builder Studio & CustomJS | **24** | [Explore Hub](01-form-builder/README.md) | [wiki.graphbpms.ir/modules/forms](https://wiki.graphbpms.ir/modules/forms) |
+| [`02-process/`](02-process/README.md) | BPMN 2.0 Process Engine & Human Inbox | **22** | [Explore Hub](02-process/README.md) | [wiki.graphbpms.ir/modules/process](https://wiki.graphbpms.ir/modules/process) |
+| [`03-report/`](03-report/README.md) | Dynamic Reporting, Charts & GIS | **9** | [Explore Hub](03-report/README.md) | [wiki.graphbpms.ir/modules/reports](https://wiki.graphbpms.ir/modules/reports) |
+| [`04-provider/`](04-provider/README.md) | Integration Bus (ESB) & Data Providers | **38** | [Explore Hub](04-provider/README.md) | [wiki.graphbpms.ir/modules/providers](https://wiki.graphbpms.ir/modules/providers) |
+| [`05-system/`](05-system/README.md) | System Governance, RBAC & Licenses | **9** | [Explore Hub](05-system/README.md) | [wiki.graphbpms.ir/modules/system](https://wiki.graphbpms.ir/modules/system) |
+| [`06-services/`](06-services/README.md) | Headless Platform REST APIs | **7** | [Explore Hub](06-services/README.md) | [wiki.graphbpms.ir/modules/services](https://wiki.graphbpms.ir/modules/services) |
+| [`07-installation/`](07-installation/README.md) | Enterprise Deployment & Infrastructure | **4** | [Explore Hub](07-installation/README.md) | [wiki.graphbpms.ir/modules/install](https://wiki.graphbpms.ir/modules/install) |
+| [`08-video-tutorials/`](08-video-tutorials/README.md) | Academy Masterclasses & Workshops | **11** | [Explore Hub](08-video-tutorials/README.md) | [wiki.graphbpms.ir/modules/videos](https://wiki.graphbpms.ir/modules/videos) |
+| [`10-general/`](10-general/README.md) | Shared Assets & Auxiliary References | **1** | [Explore Hub](10-general/README.md) | [wiki.graphbpms.ir/1509](https://wiki.graphbpms.ir/1509) |
+| **Total** | **Comprehensive Enterprise Suite** | **125 Articles** | **10 Hubs** | **100% Code 200 OK** |
 
-## 📚 نحوه ناوبری و مطالعه
-* **[فهرست جامع دانشنامه (SUMMARY.md)](SUMMARY.md)**: فهرست کامل درختی تمام ۱۲۵ مقاله به تفکیک ماژول‌ها.
-* **فایل متادیتا [manifest.json](manifest.json)**: متادیتای ساختاریافته JSON شامل شناسه‌ها، بردکرامب‌ها و مسیرهای URL جهت استفاده در موتورهای هوش مصنوعی و RAG.
+---
 
-## ⚙️ استاندارد فایل‌های مارک‌داون
-تمام صفحات شامل یک بلوک استاندارد **Frontmatter (YAML)** در ابتدای فایل هستند که متادیتای کامل سند را ذخیره کرده است:
+## 🧭 Navigation & Knowledge Graph
+
+* **[Master Table of Contents (SUMMARY.md)](SUMMARY.md)**: Hierarchical index linking to all 125 technical articles across all sub-categories.
+* **[Machine-Readable Manifest (manifest.json)](manifest.json)**: Normalized JSON metadata containing unique IDs, breadcrumb hierarchies, and live canonical URLs for automation and RAG ingestion.
+
+## ⚙️ Standard Markdown Specification
+
+Each technical article is enriched with a standardized YAML Frontmatter block:
 ```yaml
 ---
 id: 1398
 title: "Text - متنی"
-module: "01-form-builder"
+englishTitle: "Text Field (Nvarchar)"
+category: "01-form-builder/form-studio/fields/basic"
 wikiPath: "Form/1394/1396/1397/1398"
 wikiUrl: "https://wiki.graphbpms.ir/Form/1394/1396/1397/1398"
 breadcrumbs: ["فرم‌ساز پیشرفته", "استودیوی فرم‌ساز", "فیلدهای فرم", "فیلدهای پایه", "Text - متنی"]
-parentId: 1397
 priority: 1
 language: 1
-showInNavigation: true
+isCanonical: true
+updatedAt: "2026-10-18T16:08:51"
 ---
 ```
 
 ---
-*سامانه مستندات GraphBPMS — نسخه تولید نهایی*
+*Official Enterprise Documentation — Graph Information Technology Corp. ([graphbpms.com](https://graphbpms.com))*

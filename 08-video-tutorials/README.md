@@ -1,40 +1,32 @@
----
-id: 47
-graphDocId: 1327
-title: "فیلم های آموزشی"
-subTitle: "فیلم های آموزشی"
-module: "08-video-tutorials"
-wikiPath: "/modules/videos"
-url: "VideoTraining"
-isModuleHub: true
----
+# GraphBPMS Academy & Masterclasses
 
-# 📦 فیلم های آموزشی
-> فیلم های آموزشی
+> **Domain:** `08-video-tutorials`  
+> Comprehensive curriculum of video masterclasses covering Form Studio, BPMN orchestration, DMN rules, and GIS.
 
 > [!NOTE]
-> **مسیر وب‌سایت دانشنامه:** [/modules/videos](https://wiki.graphbpms.ir/modules/videos)  
-> این صفحه معادل پیش‌خوان و هاب ماژول (Module Landing Page) در سامانه دانشنامه آنلاین گراف است.
+> **Live Knowledge Base:** [https://wiki.graphbpms.ir/modules/videos](https://wiki.graphbpms.ir/modules/videos)  
+> This landing page corresponds to the official module overview on the GraphBPMS Enterprise Portal.
 
 ---
 
-## 📚 فهرست مقالات و مستندات این بخش
+## 📚 Technical Articles in this Section
 
-در این بخش مجموعاً **11 مقاله مستندشده** در دسترس است:
+Total Articles: **11 verified technical documents**
 
-| # | عنوان مقاله | شناسه سند | اولویت | نسخه برخط در دانشنامه |
-| :---: | :--- | :---: | :---: | :---: |
-| 1 | [آشنایی با ماژول گزارش ساز (دوره جدید)](./204-ReportGeneratorTutorialNew.md) | `204` | 3 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/VideoTraining/ReportGeneratorTutorialNew) |
-| 2 | [فرم ساز](./178-فرم-ساز.md) | `178` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/178) |
-| 3 | [فیلم های آموزش DMN](./203-فیلم-های-آموزش-DMN.md) | `203` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/203) |
-| 4 | [فیلم های آموزشی ](./177-فیلم-های-آموزشی.md) | `177` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/177) |
-| 5 | [فیلم های آموزشی فرآیند](./196-فیلم-های-آموزشی-فرآیند.md) | `196` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/196) |
-| 6 | [فیلم های آموزشی گزارش ساز ](./198-فیلم-های-آموزشی-گزارش-ساز.md) | `198` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/198) |
-| 7 | [آموزش CustomJs](./201-آموزش-CustomJs.md) | `201` | 0 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/201) |
-| 8 | [آموزش ماژول مکان‌محور (GIS) GraphBPMS](./208-آموزش-ماژول-مکان‌محور-(GIS)-GraphBPMS.md) | `208` | 0 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/208) |
-| 9 | [آموزش ماژول میزکار (داشبورد)](./207-آموزش-ماژول-میزکار-(داشبورد).md) | `207` | 0 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/207) |
-| 10 | [تست](./364-تست.md) | `364` | 0 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/364) |
-| 11 | [فیلم های آموزش گزارش ساز دوره جدید](./205-فیلم-های-آموزش-گزارش-ساز-دوره-جدید.md) | `205` | 0 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/205) |
+| # | Article Title | ID | Topic Area | Live Portal Link |
+| :---: | :--- | :---: | :--- | :---: |
+| 1 | [**آشنایی با ماژول گزارش ساز (دوره جدید)**](./report-generator-tutorial-new-pid-204.md) | `204` | Next-Gen Analytics & Visualizations | [View Live ↗](https://wiki.graphbpms.ir/VideoTraining/ReportGeneratorTutorialNew) |
+| 2 | [**فرم ساز**](./form-builder-tutorial-pid-178.md) | `178` | Form Builder Masterclass | [View Live ↗](https://wiki.graphbpms.ir/178) |
+| 3 | [**فیلم های آموزش DMN**](./dmn-tutorial-pid-203.md) | `203` | DMN Business Rules & Decision Tables | [View Live ↗](https://wiki.graphbpms.ir/203) |
+| 4 | [**فیلم های آموزشی **](./video-tutorials-overview-pid-177.md) | `177` | Academy & Video Training Curriculum | [View Live ↗](https://wiki.graphbpms.ir/177) |
+| 5 | [**فیلم های آموزشی فرآیند**](./process-tutorial-pid-196.md) | `196` | BPMN Process Modeling Workshop | [View Live ↗](https://wiki.graphbpms.ir/196) |
+| 6 | [**فیلم های آموزشی گزارش ساز **](./report-tutorial-pid-198.md) | `198` | Report Studio Comprehensive Course | [View Live ↗](https://wiki.graphbpms.ir/198) |
+| 7 | [**آموزش CustomJs**](./custom-js-tutorial-pid-201.md) | `201` | Enterprise JavaScript & SDK Scripting | [View Live ↗](https://wiki.graphbpms.ir/201) |
+| 8 | [**آموزش ماژول مکان‌محور (GIS) GraphBPMS**](./gis-tutorial-pid-208.md) | `208` | Spatial Analytics & GIS Map Integration | [View Live ↗](https://wiki.graphbpms.ir/208) |
+| 9 | [**آموزش ماژول میزکار (داشبورد)**](./dashboard-tutorial-pid-207.md) | `207` | Executive Cockpit & Dashboard Design | [View Live ↗](https://wiki.graphbpms.ir/207) |
+| 10 | [**تست**](./testing-tutorial-pid-364.md) | `364` | Quality Assurance & Automated Verification | [View Live ↗](https://wiki.graphbpms.ir/364) |
+| 11 | [**فیلم های آموزش گزارش ساز دوره جدید**](./new-report-tutorial-pid-205.md) | `205` | Modern Business Intelligence Walkthrough | [View Live ↗](https://wiki.graphbpms.ir/205) |
 
 ---
-*تولید شده به صورت خودکار توسط موتور استخراج مستندات GraphBPMS*
+
+*GraphBPMS Enterprise Documentation System*

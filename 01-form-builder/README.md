@@ -1,52 +1,22 @@
----
-id: 1390
-graphDocId: 1320
-title: "فرم‌ساز پیشرفته"
-subTitle: ""
-module: "01-form-builder"
-wikiPath: "/modules/forms"
-url: "Form"
-isModuleHub: true
----
+# Form Builder Studio
 
-# 📦 فرم‌ساز پیشرفته
+> **Domain:** `01-form-builder`  
+> Enterprise visual form designer, responsive layouts, data binding, and dynamic business rules.
 
 > [!NOTE]
-> **مسیر وب‌سایت دانشنامه:** [/modules/forms](https://wiki.graphbpms.ir/modules/forms)  
-> این صفحه معادل پیش‌خوان و هاب ماژول (Module Landing Page) در سامانه دانشنامه آنلاین گراف است.
+> **Live Knowledge Base:** [https://wiki.graphbpms.ir/modules/forms](https://wiki.graphbpms.ir/modules/forms)  
+> This landing page corresponds to the official module overview on the GraphBPMS Enterprise Portal.
 
 ---
 
-## 📚 فهرست مقالات و مستندات این بخش
+## 📁 Sub-Categories
 
-در این بخش مجموعاً **24 مقاله مستندشده** در دسترس است:
-
-| # | عنوان مقاله | شناسه سند | اولویت | نسخه برخط در دانشنامه |
-| :---: | :--- | :---: | :---: | :---: |
-| 1 | [ساخت فرم جدید و آشنایی با استودیوی فرم‌ساز](./1393-ساخت-فرم-جدید-و-آشنایی-با-استودیوی-فرم‌ساز.md) | `1393` | 2 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1391/1393) |
-| 2 | [Bit - بله/خیر](./1402-Bit-بله-خیر.md) | `1402` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1397/1402) |
-| 3 | [Button / Event - دکمه و رویداد](./1413-Button-Event-دکمه-و-رویداد.md) | `1413` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1412/1413) |
-| 4 | [Computed - محاسباتی](./1419-Computed-محاسباتی.md) | `1419` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1416/1419) |
-| 5 | [Container - نگهدارنده](./1414-Container-نگهدارنده.md) | `1414` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1412/1414) |
-| 6 | [Custom JavaScript و تنظیمات سفارشی](./1498-Custom-JavaScript-و-تنظیمات-سفارشی.md) | `1498` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/1498) |
-| 7 | [Date - تاریخ](./1400-Date-تاریخ.md) | `1400` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1397/1400) |
-| 8 | [File - فایل](./1405-File-فایل.md) | `1405` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1403/1405) |
-| 9 | [HTML - محتوای HTML](./1417-HTML-محتوای-HTML.md) | `1417` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1416/1417) |
-| 10 | [Map - نقشه](./1406-Map-نقشه.md) | `1406` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1403/1406) |
-| 11 | [Number - عددی](./1399-Number-عددی.md) | `1399` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1397/1399) |
-| 12 | [Questioner - پرسشنامه](./1410-Questioner-پرسشنامه.md) | `1410` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1407/1410) |
-| 13 | [Report - گزارش](./1418-Report-گزارش.md) | `1418` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1416/1418) |
-| 14 | [Selective - انتخابی](./1404-Selective-انتخابی.md) | `1404` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1403/1404) |
-| 15 | [SignaturePad - امضا](./1409-SignaturePad-امضا.md) | `1409` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1407/1409) |
-| 16 | [SubForm - فرم تودرتو](./1411-SubForm-فرم-تودرتو.md) | `1411` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1407/1411) |
-| 17 | [TabPanel - تب](./1415-TabPanel-تب.md) | `1415` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1412/1415) |
-| 18 | [Text - متنی](./1398-Text-متنی.md) | `1398` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1397/1398) |
-| 19 | [Time - زمان](./1401-Time-زمان.md) | `1401` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1397/1401) |
-| 20 | [TreeList - لیست درختی](./1408-TreeList-لیست-درختی.md) | `1408` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1396/1407/1408) |
-| 21 | [ابزارهای طراحی فرم](./1395-ابزارهای-طراحی-فرم.md) | `1395` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1395) |
-| 22 | [ارتباطات فیلدها و Business Rule](./1421-ارتباطات-فیلدها-و-Business-Rule.md) | `1421` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1394/1420/1421) |
-| 23 | [عملیات مدیریتی و امکانات هر فرم](./1425-عملیات-مدیریتی-و-امکانات-هر-فرم.md) | `1425` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1424/1425) |
-| 24 | [مدیریت فرم‌ها](./1392-مدیریت-فرم‌ها.md) | `1392` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Form/1391/1392) |
+| Category Folder | Domain Title | Description |
+| :--- | :--- | :--- |
+| [**`advanced-management/`**](./advanced-management/README.md) | **Advanced Form Operations** | Form versioning, revision history, permission matrix, multi-tenancy, and export/import packages. |
+| [**`form-studio/`**](./form-studio/README.md) | **Form Studio & Design Workspace** | Deep-dive into the visual drag-and-drop canvas, control toolbox, layout containers, and styling engines. |
+| [**`getting-started/`**](./getting-started/README.md) | **Getting Started with Forms** | Foundational concepts of form lifecycle, form repository management, and creating your first enterprise form. |
 
 ---
-*تولید شده به صورت خودکار توسط موتور استخراج مستندات GraphBPMS*
+
+*GraphBPMS Enterprise Documentation System*

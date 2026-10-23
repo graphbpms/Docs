@@ -1,38 +1,23 @@
----
-id: 8
-graphDocId: 1324
-title: "مدیریت سیستم"
-subTitle: "مدیریت سیستم"
-module: "05-system"
-wikiPath: "/modules/system"
-url: "SystemSetting"
-isModuleHub: true
----
+# Enterprise System Administration & Governance
 
-# 📦 مدیریت سیستم
-> مدیریت سیستم
+> **Domain:** `05-system`  
+> Centralized tenant management, licensing, organizational hierarchy, RBAC security, and dynamic portal configuration.
 
 > [!NOTE]
-> **مسیر وب‌سایت دانشنامه:** [/modules/system](https://wiki.graphbpms.ir/modules/system)  
-> این صفحه معادل پیش‌خوان و هاب ماژول (Module Landing Page) در سامانه دانشنامه آنلاین گراف است.
+> **Live Knowledge Base:** [https://wiki.graphbpms.ir/modules/system](https://wiki.graphbpms.ir/modules/system)  
+> This landing page corresponds to the official module overview on the GraphBPMS Enterprise Portal.
 
 ---
 
-## 📚 فهرست مقالات و مستندات این بخش
+## 📁 Sub-Categories
 
-در این بخش مجموعاً **9 مقاله مستندشده** در دسترس است:
-
-| # | عنوان مقاله | شناسه سند | اولویت | نسخه برخط در دانشنامه |
-| :---: | :--- | :---: | :---: | :---: |
-| 1 | [مدیریت صفحات پویا](./126-مدیریت-صفحات-پویا.md) | `126` | 6 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/126) |
-| 2 | [مدیریت لایه های نقشه](./125-مدیریت-لایه-های-نقشه.md) | `125` | 5 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/125) |
-| 3 | [غیر فعال کردن مجوز](./110-غیر-فعال-کردن-مجوز.md) | `110` | 3 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/110) |
-| 4 | [مدیریت سطوح دسترسی](./62-مدیریت-سطوح-دسترسی.md) | `62` | 3 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/62) |
-| 5 | [ساخت داشبورد](./60-ساخت-داشبورد.md) | `60` | 2 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/60) |
-| 6 | [فعال سازی آفلاین](./109-فعال-سازی-آفلاین.md) | `109` | 2 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/109) |
-| 7 | [مدیریت نقش ها](./61-مدیریت-نقش-ها.md) | `61` | 2 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/61) |
-| 8 | [فعال سازی آنلاین](./54-فعال-سازی-آنلاین.md) | `54` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/54) |
-| 9 | [مدیریت کاربران ](./56-مدیریت-کاربران.md) | `56` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/56) |
+| Category Folder | Domain Title | Description |
+| :--- | :--- | :--- |
+| [**`dashboard/`**](./dashboard/README.md) | **Executive Dashboards** | Designing enterprise cockpits, executive summaries, widget layouts, and real-time operational feeds. |
+| [**`dynamic-pages/`**](./dynamic-pages/README.md) | **Dynamic Portal & Spatial Configuration** | Custom portal navigation pages, CMS widgets, GIS map base layers, and spatial projection catalogs. |
+| [**`identity-access/`**](./identity-access/README.md) | **Identity & Access Management (IAM)** | User lifecycle, organizational chart definition, role hierarchies, and granular Role-Based Access Control. |
+| [**`license/`**](./license/README.md) | **License Management** | Online license activation, air-gapped offline certificates, hardware-bound tokens, and license migration. |
 
 ---
-*تولید شده به صورت خودکار توسط موتور استخراج مستندات GraphBPMS*
+
+*GraphBPMS Enterprise Documentation System*

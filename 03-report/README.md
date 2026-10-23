@@ -1,38 +1,23 @@
----
-id: 3
-graphDocId: 1321
-title: "گزارش ساز پیشرفته"
-subTitle: "مدیریت گزارش ها"
-module: "03-report"
-wikiPath: "/modules/reports"
-url: "Report"
-isModuleHub: true
----
+# Dynamic Reporting & Analytics Studio
 
-# 📦 گزارش ساز پیشرفته
-> مدیریت گزارش ها
+> **Domain:** `03-report`  
+> Enterprise business intelligence engine supporting tabular grids, pivot analytics, Stimulsoft reports, and GIS maps.
 
 > [!NOTE]
-> **مسیر وب‌سایت دانشنامه:** [/modules/reports](https://wiki.graphbpms.ir/modules/reports)  
-> این صفحه معادل پیش‌خوان و هاب ماژول (Module Landing Page) در سامانه دانشنامه آنلاین گراف است.
+> **Live Knowledge Base:** [https://wiki.graphbpms.ir/modules/reports](https://wiki.graphbpms.ir/modules/reports)  
+> This landing page corresponds to the official module overview on the GraphBPMS Enterprise Portal.
 
 ---
 
-## 📚 فهرست مقالات و مستندات این بخش
+## 📁 Sub-Categories
 
-در این بخش مجموعاً **9 مقاله مستندشده** در دسترس است:
-
-| # | عنوان مقاله | شناسه سند | اولویت | نسخه برخط در دانشنامه |
-| :---: | :--- | :---: | :---: | :---: |
-| 1 | [استودیوی خروجی مکان‌محور (GIS)](./1653-استودیوی-خروجی-مکان‌محور-(GIS).md) | `1653` | 4 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1649/1653) |
-| 2 | [استودیوی خروجی نمودار](./1652-استودیوی-خروجی-نمودار.md) | `1652` | 3 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1649/1652) |
-| 3 | [Notification و اطلاع‌رسانی شرطی](./1646-Notification-و-اطلاع‌رسانی-شرطی.md) | `1646` | 2 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1644/1646) |
-| 4 | [استودیوی خروجی گالری و مدیا](./1651-استودیوی-خروجی-گالری-و-مدیا.md) | `1651` | 2 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1649/1651) |
-| 5 | [استودیوی خروجی قالب چاپ](./1650-استودیوی-خروجی-قالب-چاپ.md) | `1650` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1649/1650) |
-| 6 | [استودیوی ساخت گزارش](./1648-استودیوی-ساخت-گزارش.md) | `1648` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1647/1648) |
-| 7 | [کارگاه جامع گزارش‌ساز (سناریوی Master-Detail)](./1655-کارگاه-جامع-گزارش‌ساز-(سناریوی-Master-Detail).md) | `1655` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1654/1655) |
-| 8 | [گزارش ساز پیشرفته](./52-گزارش-ساز-پیشرفته.md) | `52` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/52) |
-| 9 | [مدیریت گزارش‌ها](./1645-مدیریت-گزارش‌ها.md) | `1645` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/Report/1644/1645) |
+| Category Folder | Domain Title | Description |
+| :--- | :--- | :--- |
+| [**`outputs/`**](./outputs/README.md) | **Report Output Channels** | High-fidelity print templates, media galleries, interactive charting pivots, and spatial GIS dashboards. |
+| [**`overview/`**](./overview/README.md) | **Report Management Overview** | Core architecture of the GraphBPMS reporting pipeline, data sources, and conditional event notifications. |
+| [**`report-studio/`**](./report-studio/README.md) | **Report Design Studio** | Interactive report builder, parameterized queries, multi-level grouping, and dynamic runtime filters. |
+| [**`workshops/`**](./workshops/README.md) | **Report Workshops & Case Studies** | End-to-end practical scenarios, master-detail reports, and business intelligence implementations. |
 
 ---
-*تولید شده به صورت خودکار توسط موتور استخراج مستندات GraphBPMS*
+
+*GraphBPMS Enterprise Documentation System*

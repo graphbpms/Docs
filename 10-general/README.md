@@ -1,29 +1,22 @@
----
-id: 1509
-graphDocId: 1316
-title: "File - فایل"
-subTitle: ""
-module: "10-general"
-wikiPath: "/modules/general"
-url: "1509"
-isModuleHub: true
----
+# Shared Assets & Documentation Annex
 
-# 📦 File - فایل
+> **Domain:** `10-general`  
+> System attachment catalogs, architecture diagrams, and auxiliary enterprise references.
 
 > [!NOTE]
-> **مسیر وب‌سایت دانشنامه:** [/modules/general](https://wiki.graphbpms.ir/modules/general)  
-> این صفحه معادل پیش‌خوان و هاب ماژول (Module Landing Page) در سامانه دانشنامه آنلاین گراف است.
+> **Live Knowledge Base:** [https://wiki.graphbpms.ir/1509](https://wiki.graphbpms.ir/1509)  
+> This landing page corresponds to the official module overview on the GraphBPMS Enterprise Portal.
 
 ---
 
-## 📚 فهرست مقالات و مستندات این بخش
+## 📚 Technical Articles in this Section
 
-در این بخش مجموعاً **1 مقاله مستندشده** در دسترس است:
+Total Articles: **1 verified technical documents**
 
-| # | عنوان مقاله | شناسه سند | اولویت | نسخه برخط در دانشنامه |
-| :---: | :--- | :---: | :---: | :---: |
-| 1 | [File - فایل](./1509-File-فایل.md) | `1509` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/1509) |
+| # | Article Title | ID | Topic Area | Live Portal Link |
+| :---: | :--- | :---: | :--- | :---: |
+| 1 | [**File - فایل**](./files-and-attachments-pid-1509.md) | `1509` | Static File Storage & Attachment Repository | [View Live ↗](https://wiki.graphbpms.ir/1509) |
 
 ---
-*تولید شده به صورت خودکار توسط موتور استخراج مستندات GraphBPMS*
+
+*GraphBPMS Enterprise Documentation System*

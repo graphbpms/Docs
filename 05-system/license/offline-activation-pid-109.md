@@ -1,0 +1,120 @@
+---
+id: 109
+title: "فعال سازی آفلاین"
+englishTitle: "Offline License Activation"
+category: "05-system/license"
+wikiPath: "109"
+wikiUrl: "https://wiki.graphbpms.ir/109"
+breadcrumbs: ["مدیریت سیستم","مدیریت مجوز گراف","فعال سازی آفلاین"]
+priority: 2
+language: 1
+isCanonical: true
+updatedAt: "2026-10-04T11:22:48"
+---
+
+# فعال سازی آفلاین
+
+> [!NOTE]
+> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت سیستم` ❯ `مدیریت مجوز گراف` ❯ `فعال سازی آفلاین`  
+> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/109](https://wiki.graphbpms.ir/109)
+
+مجوز
+
+بعد از اتمام فرایند نصب سامانه هنگامی که سامانه را در مرور گر خود باز می کنید صفحه سیستم مدیریت مجوز های گراف برای شما باز می شود
+
+![license7.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=0CEB7612-BA75-477D-B889-3787484A994F.png)
+
+صفحه سیستم مدیریت مجوزهای گراف
+
+با فشردن دکمه فعال سازی آفلاین صفحه زیر برای شما باز می شود
+
+![license8.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=29E0F4D9-84B7-4A69-9962-45D6EE57C206.png)
+
+صفحه فعال سازی آفلاین
+
+در این بخش با فشردن دکمه ایجاد توکن فعال سازی آفلاین با صفحه زیر مواجه خواهید شد :
+
+![license9.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=374257C0-1686-41F1-8978-7607425DEF88.png)
+
+ایجاد توکن فعال سازی آفلاین
+
+بعد از تایید این مورد که بیانگر اطمینان شما از فعال سازی این مجوز با رشته بانک اطلاعاتی موجود در Web.config شماست وارد مرحله بعدی می شوید :
+
+![license10.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=EC56B282-8C14-4408-BD28-E521D05ABB1B.png)
+
+تایید رشته بانک اطلاعاتی
+
+در این بخش بعد مطالعه راهنما فعال سازی آفلاین مجوز ، برای اعمال مراحل باید دکمه بله را کلیک کرده و بعد از آن توکن ایجاد شده در کادر توکن فعال سازی مجوز مواجه می شوید :
+
+![license11.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=67DDB1B4-5CB0-488D-A27E-B24DBA46EBDA.png)
+
+نمایش توکن فعال سازی مجوز
+
+در این مرحله باید توکن را کپی کنید
+
+> [!NOTE]
+> **نکته**
+> 
+> می توانید با فشردن دکمه کپی در حافظه ، توکن را در کیپ بورد سیستم عامل خود ذخیره کنید .
+
+## فعال سازی توکن در سامانه graphbpms.ir
+
+وارد سامانه [https://graphbpms.ir](https://graphbpms.ir) شوید
+
+![license12.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=846A4710-BA06-4B3F-8A86-F6C5D28B8633.png)
+
+ورود به سامانه graphbpms.ir
+
+در صفحه اول وارد تب دریافت مجوز شوید و بعد از مشاهده ردیف مجوز مورد نظر که قصد فعال سازی آن را دارید و کلیک بر روی دکمه فعال سازی وارد صفحه زیر می شوید :
+
+![license13.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=D5E7D88B-2FE5-4BA5-8413-40A4E46B4C4E.png)
+
+تب دریافت مجوز
+
+در این قسمت با جایگذاری توکن کپی شده و فشردن دکمه "فعال سازی" با پیغام زیر مواجه خواهید شد :
+
+![license14.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=98DA19A6-5DF9-4063-BDE4-7452C298E13D.png)
+
+جایگذاری توکن و فعال سازی
+
+در این مرحله تایید و اطمینان خود را از فعال سازی محوز برای سامانه مورد نظر با فشردن دکمه "بله" ثبت کنید
+
+![license15.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=D2978CBE-8CBD-43E4-A0A5-6612A92066A8.png)
+
+تایید فعال سازی مجوز
+
+> [!WARNING]
+> **توجه**
+> 
+> توجه داشته باشید که فایل فعال سازی آفلاین را دانلود نمایید
+
+## اعمال فایل مجوز دانلود شده
+
+برای ادامه فرایند فعال سازی افلاین به صفحه مدیریت مجوز های گراف بازگردید و دکمه "اعمال کردن فایل مجوز دانلود شده " انتخاب کنید تا کادر زیر برای شما باز شود .
+
+![license16.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=2232C9B5-5AC1-4369-BDAE-5D8C3142628B.png)
+
+اعمال فایل مجوز دانلود شده
+
+در این بخش باید فایل دانلود شده در مراحل قبل از سامانه graphbpms.ir را انتخاب کنید و دکمه open را کلیک کنید
+
+![license17.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=04328599-DC0B-4A3B-BC39-F378E103E02D.png)
+
+انتخاب فایل مجوز
+
+در این بخش با فشردن دکمه "بله" تایید نهایی خود از فعال سازی مجوز را ثبت نمایید.
+
+> [!WARNING]
+> **توجه**
+> 
+> توجه داشته باشید که این بخش آخرین مرحله برای فعال سازی مجوز گراف به صورت آفلاین می باشد و در صورت موفقیت سامانه شما ریستارت شده و به صفحه ورود منتقل خواهید شد
+
+![license18.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=2DB851A3-3A73-426F-A336-AFF147FA32E6.png)
+
+تایید نهایی فعال سازی
+
+در این مرحله سامانه شما با موفقیت فعال سازی شده است .
+
+![license19.png](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=97084E68-59F5-41A8-8A21-DC2B7C9DC27B.png)
+
+فعال سازی موفق سامانه

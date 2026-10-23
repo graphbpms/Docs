@@ -1,33 +1,25 @@
----
-id: 4
-graphDocId: 1326
-title: "نصب و بروزرسانی سامانه"
-subTitle: "نحوه نصب و بروزرسانی سامانه گراف"
-module: "07-installation"
-wikiPath: "/modules/install"
-url: "Install"
-isModuleHub: true
----
+# Deployment, Upgrades & Infrastructure
 
-# 📦 نصب و بروزرسانی سامانه
-> نحوه نصب و بروزرسانی سامانه گراف
+> **Domain:** `07-installation`  
+> Enterprise on-premise and private cloud installation guide, IIS web farm tuning, and version upgrade playbooks.
 
 > [!NOTE]
-> **مسیر وب‌سایت دانشنامه:** [/modules/install](https://wiki.graphbpms.ir/modules/install)  
-> این صفحه معادل پیش‌خوان و هاب ماژول (Module Landing Page) در سامانه دانشنامه آنلاین گراف است.
+> **Live Knowledge Base:** [https://wiki.graphbpms.ir/modules/install](https://wiki.graphbpms.ir/modules/install)  
+> This landing page corresponds to the official module overview on the GraphBPMS Enterprise Portal.
 
 ---
 
-## 📚 فهرست مقالات و مستندات این بخش
+## 📚 Technical Articles in this Section
 
-در این بخش مجموعاً **4 مقاله مستندشده** در دسترس است:
+Total Articles: **4 verified technical documents**
 
-| # | عنوان مقاله | شناسه سند | اولویت | نسخه برخط در دانشنامه |
-| :---: | :--- | :---: | :---: | :---: |
-| 1 | [تنظیمات WebConfig](./163-تنظیمات-WebConfig.md) | `163` | 4 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/163) |
-| 2 | [قابلیت Compression ](./98-قابلیت-Compression.md) | `98` | 3 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/98) |
-| 3 | [بروزرسانی سامانه گراف](./63-بروزرسانی-سامانه-گراف.md) | `63` | 2 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/63) |
-| 4 | [نصب سامانه گراف](./53-نصب-سامانه-گراف.md) | `53` | 1 | [مشاهده در دانشنامه ↗](https://wiki.graphbpms.ir/53) |
+| # | Article Title | ID | Topic Area | Live Portal Link |
+| :---: | :--- | :---: | :--- | :---: |
+| 1 | [**تنظیمات WebConfig**](./webconfig-settings-pid-163.md) | `163` | Web.config Enterprise Hardening | [View Live ↗](https://wiki.graphbpms.ir/163) |
+| 2 | [**قابلیت Compression **](./compression-feature-pid-98.md) | `98` | IIS Compression & Static Asset Optimization | [View Live ↗](https://wiki.graphbpms.ir/98) |
+| 3 | [**بروزرسانی سامانه گراف**](./system-update-pid-63.md) | `63` | Rolling Upgrades & Migration Guide | [View Live ↗](https://wiki.graphbpms.ir/63) |
+| 4 | [**نصب سامانه گراف**](./system-installation-pid-53.md) | `53` | Enterprise Installation & Deployment | [View Live ↗](https://wiki.graphbpms.ir/53) |
 
 ---
-*تولید شده به صورت خودکار توسط موتور استخراج مستندات GraphBPMS*
+
+*GraphBPMS Enterprise Documentation System*
