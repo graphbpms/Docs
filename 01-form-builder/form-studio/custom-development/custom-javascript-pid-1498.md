@@ -5,17 +5,16 @@ englishTitle: "Custom JavaScript & Extension"
 category: "01-form-builder/form-studio/custom-development"
 wikiPath: "1423"
 wikiUrl: "https://wiki.graphbpms.ir/1423"
-breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","توسعه و سفارشی‌سازی","Custom JavaScript و تنظیمات سفارشی"]
+breadcrumbs: ["Custom JavaScript و تنظیمات سفارشی"]
 priority: 1
-language: 1
 isCanonical: true
-updatedAt: "2026-09-26T01:27:09"
+updatedAt: "2026-11-01T19:29:06"
 ---
 
 # Custom JavaScript و تنظیمات سفارشی
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `توسعه و سفارشی‌سازی` ❯ `Custom JavaScript و تنظیمات سفارشی`  
+> 🧭 **سلسلهمراتب موضوعی:** `Custom JavaScript و تنظیمات سفارشی`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1423](https://wiki.graphbpms.ir/1423)
 
 # تنظیمات سفارشی فرم در GraphBPMS
@@ -28,25 +27,39 @@ updatedAt: "2026-09-26T01:27:09"
 
 در این آموزش
 
--   [آشنایی با تب تنظیمات سفارشی در استدیو فرم ساز](#custom-settings-tab)
--   [مدل ذهنی توسعه Custom JS در GraphBPMS](#mental-model)
--   [چرخه اجرای فرم و Hookهای Custom JS](#lifecycle-hooks)
--   [معماری viewModel و مسیرهای دسترسی](#viewmodel)
--   [رویدادهای Component از مسیر \_Instance](#component-events)
--   [الگوهای پایه کار با داده و وضعیت فیلدها](#viewmodel-patterns)
--   [کار مستقیم با Instance و Componentهای UI](#component-instances)
--   [الگوهای اختصاصی فیلدهای پیچیده در فرم ساز GraphBPMS](#complex-fields)
--   [absoluteMethodHelper و Integrationهای سمت Client](#absolute-method-helper)
--   [کار با Toast، Alert و Confirm](#toast-dialog)
--   [برنامه‌نویسی ناهمزمان در JavaScript](#async-js)
--   [اسکریپت سمت سرور C#](#server-csharp)
--   [پیوست — فایل نمونه کامل Custom JS در استدیو فرم ساز](#studio-custom-js-sample)
+- [آشنایی با تب تنظیمات سفارشی در استدیو فرم ساز](#custom-settings-tab)
+
+- [مدل ذهنی توسعه Custom JS در GraphBPMS](#mental-model)
+
+- [چرخه اجرای فرم و Hookهای Custom JS](#lifecycle-hooks)
+
+- [معماری viewModel و مسیرهای دسترسی](#viewmodel)
+
+- [رویدادهای Component از مسیر _Instance](#component-events)
+
+- [الگوهای پایه کار با داده و وضعیت فیلدها](#viewmodel-patterns)
+
+- [کار مستقیم با Instance و Componentهای UI](#component-instances)
+
+- [الگوهای اختصاصی فیلدهای پیچیده در فرم ساز GraphBPMS](#complex-fields)
+
+- [absoluteMethodHelper و Integrationهای سمت Client](#absolute-method-helper)
+
+- [کار با Toast، Alert و Confirm](#toast-dialog)
+
+- [برنامه‌نویسی ناهمزمان در JavaScript](#async-js)
+
+- [اسکریپت سمت سرور C#](#server-csharp)
+
+- [پیوست — فایل نمونه کامل Custom JS در استدیو فرم ساز](#studio-custom-js-sample)
+
+- [متدهای نقشه در viewModel: لایه‌ها و عملیات هندسی](#map-layer-methods)
+
+- [متدهای اطلاع‌رسانی در absoluteMethodHelper](#notification-methods)
 
 ## آشنایی با تب تنظیمات سفارشی در استدیو فرم ساز
 
 تب **تنظیمات سفارشی** در استدیو فرم ساز سه مسیر اصلی برای توسعه رفتار و ظاهر فرم در اختیار شما قرار می‌دهد: اسکریپت سمت سرور C#، اسکریپت سمت کلاینت JavaScript و استایل سفارشی CSS. هر بخش با Switch مربوط فعال می‌شود و از طریق دکمه **IDE** به محیط ویرایش کد همان بخش دسترسی دارید.
-
-![سه بخش تنظیمات سفارشی شامل C#، JavaScript و CSS در استدیو فرم ساز](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=BF4EECFE-B884-469E-8B11-1AF97055D55C)
 
 سه بخش اصلی تب تنظیمات سفارشی: اسکریپت سمت سرور، Custom JS و Custom CSS.
 
@@ -56,8 +69,6 @@ updatedAt: "2026-09-26T01:27:09"
 
 ساختار کلاس، متدهای چرخه اجرا و نمونه‌های این بخش در فصل [اسکریپت سمت سرور C#](#server-csharp) همین مقاله توضیح داده شده است.
 
-![محیط IDE اسکریپت سمت سرور C# در استدیو فرم ساز](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=D026DE13-031A-4F2D-9174-3EEE710AB54A)
-
 محیط ویرایش C# Script در استدیو فرم ساز.
 
 ### 2) اسکریپت سمت کلاینت یا Custom JS
@@ -65,8 +76,6 @@ updatedAt: "2026-09-26T01:27:09"
 بخش دوم برای **سفارشی‌سازی JavaScript سمت کلاینت** است و بخش اصلی این مقاله روی همین محیط تمرکز دارد. با فعال کردن گزینه **استفاده از کد JavaScript** و انتخاب **IDE**، محیط کدنویسی Custom JS باز می‌شود.
 
 در ادامه، ساختار `viewModel`، داده و وضعیت فیلدها، `_Instance`، Eventها، Hookها، Providerها و Helperهای مورد استفاده در این محیط به‌صورت کامل بررسی می‌شوند.
-
-![محیط IDE مربوط به Custom JavaScript در استدیو فرم ساز](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=100C7D10-640B-4402-B4F1-18B02917D485)
 
 محیط ویرایش Custom JS در استدیو فرم ساز.
 
@@ -76,8 +85,6 @@ updatedAt: "2026-09-26T01:27:09"
 
 با توجه به قابلیت درج Attribute و Class برای المان‌ها و کنترل‌های فرم‌ساز، می‌توانید همان Classها را در Custom CSS هدف قرار دهید و ظاهر کنترل‌ها یا بخش‌های مختلف فرم را تغییر دهید.
 
-![محیط IDE مربوط به Custom CSS در استدیو فرم ساز](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=4EC0F2D4-A2D8-4B57-A57F-D7E80186EA4B)
-
 محیط ویرایش Custom CSS در استدیو فرم ساز.
 
 **نکته:** اگر در فرم از **HTML Block** استفاده کنید، Classها و Styleهای آن نیز از طریق Custom CSS قابل هدف‌گیری هستند. در نتیجه می‌توانید استایل بخش‌های HTML و در صورت نیاز ظاهر کلی فرم را نیز سفارشی کنید.
@@ -86,19 +93,19 @@ updatedAt: "2026-09-26T01:27:09"
 
 برای اینکه کدهای سفارشی قابل نگهداری بمانند، بهتر است مسئله را از چهار لایه ببینید: **زمان اجرا**، **داده و وضعیت فرم**، **Component رابط کاربری** و **Integration**. این تفکیک کمک می‌کند برای هر کار از مسیر مناسب استفاده شود و کد به DOM یا Selectorهای شکننده وابسته نشود.
 
-**1\. Lifecycle Hook**`onLoad`، `beforeSubmit`، Hookهای Tab/SubForm و...
+**1. Lifecycle Hook**`onLoad`، `beforeSubmit`، Hookهای Tab/SubForm و...
 
 ←
 
-**2\. viewModel**`data()` برای داده، `fields` برای وضعیت، `events` برای رویدادهای GraphBPMS
+**2. viewModel**`data()` برای داده، `fields` برای وضعیت، `events` برای رویدادهای GraphBPMS
 
 ←
 
-**3\. \_Instance**فقط وقتی به Option / Method / Event خود Component نیاز دارید
+**3. _Instance**فقط وقتی به Option / Method / Event خود Component نیاز دارید
 
 ←
 
-**4\. Integration**`absoluteMethodHelper` برای Provider و Helperهای مستندشده
+**4. Integration**`absoluteMethodHelper` برای Provider و Helperهای مستندشده
 
 **قاعده پیشنهادی:** برای تغییر مقدار داده ابتدا `viewModel.data()` را ترجیح دهید؛ برای Visibility/ReadOnly از مسیرهای GraphBPMS استفاده کنید؛ و فقط برای قابلیت‌های خود Component سراغ `_Instance` بروید.
 
@@ -141,7 +148,9 @@ export const beforeSubmit = function (viewModel) {
 
 این تابع زمانی اجرا می‌شود که کاربر روی دکمه ارسال فرم کلیک کرده، اما داده‌های فرم هنوز به سرور ارسال نشده‌اند.
 
-> **نکته مهم:** اگر این تابع مقدار `false` یا Promiseای با مقدار `false` برگرداند، فرم ارسال نمی‌شود.
+> 
+
+**نکته مهم:** اگر این تابع مقدار `false` یا Promiseای با مقدار `false` برگرداند، فرم ارسال نمی‌شود.
 
 در مثال زیر، قبل از ارسال فرم از کاربر تأیید گرفته می‌شود:
 
@@ -159,8 +168,6 @@ export const beforeSubmit = function(viewModel) {
 }
 ```
 
-![نتیجه تأیید قبل از ارسال فرم](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=6215CF83-7DE2-4127-9639-1C8CF35D852B&download=true)
-
 نتیجه تأیید قبل از ارسال فرم
 
 ### `onSubmitSuccess`
@@ -173,7 +180,9 @@ export const onSubmitSuccess = function (viewModel) {
 
 این تابع زمانی اجرا می‌شود که فرم با موفقیت ارسال شده و عملیات اصلی فرم، یعنی ثبت داده در پایگاه داده، انجام شده است. از آن می‌توان برای اجرای رخداد دیگری بعد از Submit، مانند نمایش یک فرم دیگر یا شروع یک فرایند خارجی، استفاده کرد.
 
-> **نکته مهم:** اگر این تابع مقدار `false` یا Promiseای با مقدار `false` برگرداند، صفحه Reload نخواهد شد.
+> 
+
+**نکته مهم:** اگر این تابع مقدار `false` یا Promiseای با مقدار `false` برگرداند، صفحه Reload نخواهد شد.
 
 برای هدایت کاربر به Dashboard یک ثانیه بعد از ثبت موفق فرم:
 
@@ -189,8 +198,6 @@ export const onSubmitSuccess = function(viewModel) {
 }
 ```
 
-![نتیجه هدایت کاربر بعد از ثبت موفق فرم](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=430B734A-3782-4AB7-A519-CE6C0DF7F246&download=true)
-
 نتیجه هدایت کاربر بعد از ثبت موفق فرم
 
 ### `onSubmitFailed`
@@ -205,7 +212,7 @@ export const onSubmitFailed = function (viewModel, error) {
 
 ### رویدادهای SubForm
 
-#### `beforeSubSubmit`
+`beforeSubSubmit`
 
 ```
 export const beforeSubSubmit = function (name, record, viewModel) {
@@ -213,12 +220,13 @@ export const beforeSubSubmit = function (name, record, viewModel) {
 }
 ```
 
--   **`name`**: نام فیلد تودرتو (SubForm).
--   **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
+- **`name`**: نام فیلد تودرتو (SubForm).
+
+- **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
 
 این تابع زمانی اجرا می‌شود که کاربر قصد ارسال رکورد در سطح SubForm را داشته باشد. اگر مقدار `false` یا Promiseای با مقدار `false` برگردانده شود، فرم ارسال نمی‌شود.
 
-#### `onSubSubmit`
+`onSubSubmit`
 
 ```
 export const onSubSubmit = function (name, record, viewModel) {
@@ -226,12 +234,13 @@ export const onSubSubmit = function (name, record, viewModel) {
 }
 ```
 
--   **`name`**: نام فیلد تودرتو (SubForm).
--   **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
+- **`name`**: نام فیلد تودرتو (SubForm).
+
+- **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
 
 این تابع زمانی اجرا می‌شود که فرم با موفقیت ارسال شده است؛ یعنی زمانی که عملیات اصلی فرم، ثبت داده در پایگاه داده، انجام شده است. برای مثال می‌توانید بعد از Submit رخداد دیگری اجرا کنید؛ مانند نمایش فرم دیگر یا شروع فرایند خارجی.
 
-#### `beforeSubDelete`
+`beforeSubDelete`
 
 ```
 export const beforeSubDelete = function (name, record, viewModel) {
@@ -241,7 +250,7 @@ export const beforeSubDelete = function (name, record, viewModel) {
 
 این تابع زمانی اجرا می‌شود که کاربر قصد حذف یک رکورد از SubForm را داشته باشد. اگر مقدار `false` یا Promiseای با مقدار `false` برگرداند، رکورد حذف نمی‌شود.
 
-#### `onSubDelete`
+`onSubDelete`
 
 ```
 export const onSubDelete = function (name, record, viewModel) {
@@ -249,12 +258,13 @@ export const onSubDelete = function (name, record, viewModel) {
 }
 ```
 
--   **`name`**: نام فیلد تودرتو (SubForm).
--   **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
+- **`name`**: نام فیلد تودرتو (SubForm).
+
+- **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
 
 این تابع زمانی اجرا می‌شود که کاربر رکوردی از SubForm را با موفقیت حذف کند.
 
-#### `onLoadSubForm`
+`onLoadSubForm`
 
 ```
 export const onLoadSubForm = function (name, record, viewModel) {
@@ -262,12 +272,13 @@ export const onLoadSubForm = function (name, record, viewModel) {
 }
 ```
 
--   **`name`**: نام فیلد تودرتو (SubForm).
--   **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
+- **`name`**: نام فیلد تودرتو (SubForm).
+
+- **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
 
 این تابع زمانی اجرا می‌شود که کاربر قصد افزودن رکوردی را در قالب Modal دارد؛ یعنی با باز شدن Modal افزودن رکورد.
 
-#### `onLoadEditSubForm`
+`onLoadEditSubForm`
 
 ```
 export const onLoadEditSubForm = function (name, record, viewModel) {
@@ -275,14 +286,15 @@ export const onLoadEditSubForm = function (name, record, viewModel) {
 }
 ```
 
--   **`name`**: نام فیلد تودرتو (SubForm).
--   **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
+- **`name`**: نام فیلد تودرتو (SubForm).
+
+- **`record`**: رکوردی که کاربر قصد ارسال آن را دارد.
 
 این تابع زمانی اجرا می‌شود که کاربر قصد ویرایش رکوردی را در قالب Modal دارد؛ یعنی با باز شدن Modal ویرایش.
 
 ### رویدادهای Tab
 
-#### `onTabLoad`
+`onTabLoad`
 
 ```
 export const onTabLoad = function (tabPanelName, tabPanelItemName, viewModel) {
@@ -296,12 +308,15 @@ export const onTabLoad = function (tabPanelName, tabPanelItemName, viewModel) {
 
 این Function به‌محض Load شدن یک Tab اجرا می‌شود. اگر فیلدی داخل Tab باشد، تا زمانی که کاربر وارد زبانه مربوطه نشود فیلدهای آن زبانه Load نمی‌شوند. به همین دلیل کدی که برای Instance چنین فیلدی در `onLoad` نوشته شود، پیش از ساخته شدن فیلد می‌تواند با خطا مواجه شود.
 
-> **نکته بسیار مهم:** این تابع برای هر زبانه از هر Tab فقط یک بار اجرا می‌شود.
+> 
+
+**نکته بسیار مهم:** این تابع برای هر زبانه از هر Tab فقط یک بار اجرا می‌شود.
 
 پارامترها:
 
--   **`tabPanelName`**: نام فیلد Tab. اگر چند فیلد Tab در فرم وجود داشته باشد، با این پارامتر می‌توانید کدهای هر Tab را تفکیک کنید.
--   **`tabPanelItemName`**: نام زبانه Tab که در فرم‌ساز مشخص شده است.
+- **`tabPanelName`**: نام فیلد Tab. اگر چند فیلد Tab در فرم وجود داشته باشد، با این پارامتر می‌توانید کدهای هر Tab را تفکیک کنید.
+
+- **`tabPanelItemName`**: نام زبانه Tab که در فرم‌ساز مشخص شده است.
 
 مثال: با Load شدن Tab Item دوم، روی فیلد داخلی آن Focus شود:
 
@@ -315,11 +330,8 @@ export const onTabLoad = function (tabPanelName, tabPanelItemName, viewModel) {
 }
 ```
 
-![نتیجه اجرای onTabLoad و Focus روی فیلد داخل تب](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=D5638AB6-B312-4560-9FD4-0082656F971D&download=true)
-
 نتیجه اجرای onTabLoad و Focus روی فیلد داخل تب
-
-#### `onTabNext`
+`onTabNext`
 
 ```
 export const onTabNext = function (tabPanelName, currentTabPanelItemName, targetTabPanelItemName, viewModel) {
@@ -333,9 +345,11 @@ export const onTabNext = function (tabPanelName, currentTabPanelItemName, target
 
 این تابع زمانی اجرا می‌شود که کاربر در فیلد Tab به زبانه بعدی برود.
 
--   **`tabPanelName`**: نام فیلد Tab.
--   **`currentTabPanelItemName`**: نام زبانه‌ای که کاربر هم‌اکنون در آن است.
--   **`targetTabPanelItemName`**: نام زبانه‌ای که کاربر قصد رفتن به آن را دارد.
+- **`tabPanelName`**: نام فیلد Tab.
+
+- **`currentTabPanelItemName`**: نام زبانه‌ای که کاربر هم‌اکنون در آن است.
+
+- **`targetTabPanelItemName`**: نام زبانه‌ای که کاربر قصد رفتن به آن را دارد.
 
 اگر مقدار `false` یا Promiseای با مقدار `false` برگردانده شود، کاربر به Tab بعدی نمی‌رود.
 
@@ -356,11 +370,8 @@ export const onTabNext = function (tabPanelName, currentTabPanelItemName, target
 }
 ```
 
-![نتیجه جلوگیری از رفتن به تب بعدی تا زمان پذیرش قوانین](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=7C09E5A9-0248-462E-B189-344751A070F6&download=true)
-
 نتیجه جلوگیری از رفتن به تب بعدی تا زمان پذیرش قوانین
-
-#### `onTabPrevious`
+`onTabPrevious`
 
 ```
 export const onTabPrevious = function (tabPanelName, currentTabPanelItemName, targetTabPanelItemName, viewModel) {
@@ -374,9 +385,11 @@ export const onTabPrevious = function (tabPanelName, currentTabPanelItemName, ta
 
 این تابع زمانی اجرا می‌شود که کاربر در فیلد Tab به زبانه قبلی برود.
 
--   **`tabPanelName`**: نام فیلد Tab.
--   **`currentTabPanelItemName`**: نام زبانه‌ای که کاربر هم‌اکنون در آن است.
--   **`targetTabPanelItemName`**: نام زبانه‌ای که کاربر قصد رفتن به آن را دارد.
+- **`tabPanelName`**: نام فیلد Tab.
+
+- **`currentTabPanelItemName`**: نام زبانه‌ای که کاربر هم‌اکنون در آن است.
+
+- **`targetTabPanelItemName`**: نام زبانه‌ای که کاربر قصد رفتن به آن را دارد.
 
 اگر مقدار `false` یا Promiseای با مقدار `false` برگردانده شود، کاربر به Tab قبلی نمی‌رود.
 
@@ -429,32 +442,27 @@ export const onButtonFieldClick = function (buttonName, viewModel, record) {
 }
 ```
 
-![نتیجه کنترل نام کاربری پیش از اجرای عملیات دکمه](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=8C34EDA8-3AF8-4E7B-938D-B7B95CC85A91&download=true)
-
 نتیجه کنترل نام کاربری پیش از اجرای عملیات دکمه
 
 پارامترها:
 
--   **`buttonName`**: نام فیلد دکمه‌ای که کاربر روی آن کلیک کرده است.
--   **`record`**: اگر فیلد دکمه داخل SubForm باشد، با این پارامتر می‌توانید به رکورد مربوطه دسترسی داشته باشید.
+- **`buttonName`**: نام فیلد دکمه‌ای که کاربر روی آن کلیک کرده است.
+
+- **`record`**: اگر فیلد دکمه داخل SubForm باشد، با این پارامتر می‌توانید به رکورد مربوطه دسترسی داشته باشید.
 
 ### Hookهای اکشن لیست رکوردها
 
 پیش از بررسی Hookهای اکشن، محل استفاده آن را در تجربه کاربر نهایی در نظر بگیرید. زمانی که یک فرم برای کاربر نهایی به‌صورت **رونوشت** در دسترس قرار می‌گیرد، کاربر آن فرم را از منوی **لیست فرم‌ها (فرم‌های من)** مشاهده می‌کند.
 
-![منوی لیست فرم‌ها و فرم‌های در دسترس کاربر نهایی](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=43323DED-E7AB-4928-A5DA-BEB4F4F2170C)
-
 فرم‌های رونوشت‌شده در بخش «لیست فرم‌ها» در دسترس کاربر نهایی قرار می‌گیرند.
 
 اگر فرم دارای جدول باشد، با باز کردن فرم، لیست داده‌های ثبت‌شده آن نمایش داده می‌شود.
-
-![نمای لیست داده‌های یک فرم دارای جدول در GraphBPMS](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=876227C1-76D8-4636-8430-4EB9DD2FBEC9)
 
 لیست داده‌های ثبت‌شده برای یک فرم دارای جدول.
 
 در حالت پیش‌فرض، اکشن‌های لیست رکوردها شامل **ویرایش** و **حذف** هستند. با Hookهای این بخش می‌توانید برای هر رکورد اکشن‌های جدید بسازید و اکشن‌های موجود مانند ویرایش یا حذف را نیز تغییر دهید.
 
-#### `onBuildActions`
+`onBuildActions`
 
 ```
 export const onBuildActions = function (container, options) {
@@ -481,7 +489,7 @@ export const onBuildActions = function (container, options) {
 
 این Hook هنگام ساخت Actionهای لیست رکوردها فراخوانی می‌شود. `options.component` به Grid جاری و `options.data` به داده رکوردی که Action برای آن ساخته می‌شود دسترسی می‌دهد. در Sample Studio، همچنین می‌توان به Actionهای زیرساختی ویرایش و حذف از طریق `.gi-edit` و `.gi-delete` دسترسی داشت.
 
-#### `onBeforeDelete`
+`onBeforeDelete`
 
 ```
 export const onBeforeDelete = function (container, options) {
@@ -525,14 +533,33 @@ export const onSubmitFailed = function (viewModel, error) {
 
 در Custom JS، `viewModel` نقطه ورود اصلی به فرم است. پیش از رفتن سراغ Instance یا DOM، مشخص کنید به **داده**، **وضعیت فیلد**، **رویداد GraphBPMS** یا **UI Component** نیاز دارید.
 
-| نیاز | مسیر پیشنهادی | نمونه |
-| --- | --- | --- |
-| خواندن/نوشتن داده فرم | `viewModel.data()` | `viewModel.data().UserName()` |
-| Config و وضعیت فیلد | `viewModel.fields` | `viewModel.fields.UserNameConfig` |
-| API خود Component | `..._Instance` | `viewModel.fields.UserName_Instance.option(...)` |
-| اجرای Button Event | `viewModel.events` | `viewModel.events.MyButton()` |
-| داده Modal یک SubForm | `SubFormName_Record()` | `viewModel.MySubForm_Record()` |
-| پارامتر ورودی فرم | `getParam(...)` | `viewModel.getParam('RecordId')` |
+نیاز
+مسیر پیشنهادی
+نمونه
+
+خواندن/نوشتن داده فرم
+`viewModel.data()`
+`viewModel.data().UserName()`
+
+Config و وضعیت فیلد
+`viewModel.fields`
+`viewModel.fields.UserNameConfig`
+
+API خود Component
+`..._Instance`
+`viewModel.fields.UserName_Instance.option(...)`
+
+اجرای Button Event
+`viewModel.events`
+`viewModel.events.MyButton()`
+
+داده Modal یک SubForm
+`SubFormName_Record()`
+`viewModel.MySubForm_Record()`
+
+پارامتر ورودی فرم
+`getParam(...)`
+`viewModel.getParam('RecordId')`
 
 برای استفاده مطمئن‌تر از Custom JS، شناخت `viewModel` مهم است. فرم‌ساز در هسته خود از Knockout.js استفاده می‌کند و مفهوم `viewModel` در اینجا به مفهوم View Model در Knockout.js اشاره دارد.
 
@@ -540,9 +567,11 @@ View Model در Knockout.js یک پل ارتباطی بین بخش نمایش (*
 
 ### View Model چگونه کار می‌کند؟
 
--   **ایجاد View Model:** یک Object جاوااسکریپت شامل Propertyها و Methodهایی که داده‌ها را نمایش می‌دهند.
--   **اتصال به HTML:** از طریق ویژگی‌های `data-bind` در عناصر HTML، Propertyها و Methodها به عناصر HTML مرتبط می‌شوند.
--   **به‌روزرسانی خودکار:** تغییرات View Model به‌صورت خودکار در عناصر HTML مرتبط منعکس می‌شود. این ویژگی **Two-way data binding** است.
+- **ایجاد View Model:** یک Object جاوااسکریپت شامل Propertyها و Methodهایی که داده‌ها را نمایش می‌دهند.
+
+- **اتصال به HTML:** از طریق ویژگی‌های `data-bind` در عناصر HTML، Propertyها و Methodها به عناصر HTML مرتبط می‌شوند.
+
+- **به‌روزرسانی خودکار:** تغییرات View Model به‌صورت خودکار در عناصر HTML مرتبط منعکس می‌شود. این ویژگی **Two-way data binding** است.
 
 در Custom JS نیازی نیست View Model را خودتان بسازید یا آن را به HTML Bind کنید؛ این اتصال از قبل انجام شده است. Functionهای Custom JS پارامتری به نام `viewModel` دریافت می‌کنند و این همان View Modelای است که روی HTML فرم Bind شده است.
 
@@ -552,7 +581,9 @@ View Model در Knockout.js یک پل ارتباطی بین بخش نمایش (*
 
 تابع `getViewModel`، View Model آخرین فرم نمایش‌داده‌شده در صفحه را برمی‌گرداند.
 
-> **هشدار:** از `getViewModel` داخل Custom JS استفاده نکنید. هدف این تابع فقط تست فرم در Console مرورگر است. ممکن است استفاده از آن در شرایط اولیه مشکلی نشان ندهد، اما اگر فرم در شرایط خاصی باز شود با مشکل مواجه شود.
+> 
+
+**هشدار:** از `getViewModel` داخل Custom JS استفاده نکنید. هدف این تابع فقط تست فرم در Console مرورگر است. ممکن است استفاده از آن در شرایط اولیه مشکلی نشان ندهد، اما اگر فرم در شرایط خاصی باز شود با مشکل مواجه شود.
 
 ### Property `data`
 
@@ -566,7 +597,7 @@ View Model در Knockout.js یک پل ارتباطی بین بخش نمایش (*
 viewModel.data().UserFullName()
 ```
 
-#### Observable چیست؟
+Observable چیست؟
 
 Observable در Knockout.js به داده قابلیت اطلاع‌رسانی تغییرات می‌دهد. وقتی یک داده Observable باشد، تغییر آن به بخش‌های مرتبط برنامه اطلاع داده می‌شود؛ همان ویژگی Two-way data binding.
 
@@ -580,22 +611,21 @@ viewModel.data().UserFullName('Mahdi Hamedi')
 
 این الگو فقط مخصوص فیلد متنی نیست و برای فیلدهای دیگر مانند SubForm و فیلد عددی نیز به همین صورت استفاده می‌شود.
 
-![کار با data فرم از طریق getViewModel در Console](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=2AD1D232-D88F-44F4-AE8F-171E122D5563&download=true)
-
 کار با data فرم از طریق getViewModel در Console
 
 ### Property `fields`
 
 برای هر فیلد فرم، مقادیری برای دسترسی به تنظیمات و Instance آن ساخته می‌شود که از طریق `fields` قابل دسترسی هستند:
 
--   **`Config`**: پیکربندی فیلد. فرم‌ساز علاوه بر Knockout.js برای کتابخانه‌های UI از DevExtreme استفاده می‌کند و این مقدار Config فیلد را نگه می‌دارد.
--   **`_Instance`**: فیلدهایی که با DevExtreme ساخته می‌شوند یک Object از کلاس Component مربوطه دارند. با `_Instance` می‌توانید مستقیماً به Component دسترسی داشته باشید و مطابق مستندات DevExtreme آن را تغییر دهید.
--   **`_Visibility`**: یک Observable با مقدار `true` یا `false` برای کنترل دستی نمایش یا عدم نمایش فیلد. اگر این مقدار را در Custom JS به‌صورت دستی کنترل کنید، قواعد نمایشی فرم‌ساز روی فیلد اثر نخواهند گذاشت.
--   **`_ReadOnly`**: یک Observable با مقدار `true` یا `false` برای کنترل دستی فقط‌خواندنی یا قابل‌ویرایش بودن فیلد. اگر این مقدار را در Custom JS به‌صورت دستی کنترل کنید، قواعد نمایشی فرم‌ساز روی فیلد اثر نخواهند گذاشت.
+- **`Config`**: پیکربندی فیلد. فرم‌ساز علاوه بر Knockout.js برای کتابخانه‌های UI از DevExtreme استفاده می‌کند و این مقدار Config فیلد را نگه می‌دارد.
+
+- **`_Instance`**: فیلدهایی که با DevExtreme ساخته می‌شوند یک Object از کلاس Component مربوطه دارند. با `_Instance` می‌توانید مستقیماً به Component دسترسی داشته باشید و مطابق مستندات DevExtreme آن را تغییر دهید.
+
+- **`_Visibility`**: یک Observable با مقدار `true` یا `false` برای کنترل دستی نمایش یا عدم نمایش فیلد. اگر این مقدار را در Custom JS به‌صورت دستی کنترل کنید، قواعد نمایشی فرم‌ساز روی فیلد اثر نخواهند گذاشت.
+
+- **`_ReadOnly`**: یک Observable با مقدار `true` یا `false` برای کنترل دستی فقط‌خواندنی یا قابل‌ویرایش بودن فیلد. اگر این مقدار را در Custom JS به‌صورت دستی کنترل کنید، قواعد نمایشی فرم‌ساز روی فیلد اثر نخواهند گذاشت.
 
 برای دسترسی، نام فیلد در ابتدای این نام‌ها قرار می‌گیرد.
-
-![نمونه مقادیر ساخته‌شده برای فیلد NumberField](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=FDDD1FFC-41EF-43A9-B576-682DFE755CBB&download=true)
 
 نمونه مقادیر ساخته‌شده برای فیلد NumberField
 
@@ -611,8 +641,6 @@ viewModel.fields.NumberField_Visibility(false);
 viewModel.fields.MySubForm.MyNumberField_Visibility(false);
 ```
 
-![نمونه دسترسی به فیلد داخل SubForm](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=C475597A-8F12-448A-96C4-D2B9D57D7750&download=true)
-
 نمونه دسترسی به فیلد داخل SubForm
 
 ### Property `events`
@@ -624,8 +652,6 @@ viewModel.fields.MySubForm.MyNumberField_Visibility(false);
 ```
 viewModel.events.MyButtonField();
 ```
-
-![اجرای دستی رویداد فیلد دکمه](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=AB388604-452F-4BE8-B8DB-D6211EC88A11&download=true)
 
 اجرای دستی رویداد فیلد دکمه
 
@@ -673,10 +699,13 @@ viewModel.MySubForm_Record().MyTextBox('Mahdi Hamedi');// تنظیم مقدار
 
 نوع ماژولی که فرم در آن باز شده است را برمی‌گرداند:
 
--   `anonymous`: فرم در حالت ناشناس باز شده است.
--   `process`: فرم در حالت فرآیند باز شده است.
--   `task`: فرم در حالت وظیفه موبایلی باز شده است.
--   `independent`: فرم در حالت معمولی باز شده است.
+- `anonymous`: فرم در حالت ناشناس باز شده است.
+
+- `process`: فرم در حالت فرآیند باز شده است.
+
+- `task`: فرم در حالت وظیفه موبایلی باز شده است.
+
+- `independent`: فرم در حالت معمولی باز شده است.
 
 ### Property `formElement`
 
@@ -690,9 +719,11 @@ viewModel.formElement
 
 حالت فرم را برمی‌گرداند:
 
--   `new`: فرم در حالت جدید باز شده است.
--   `edit`: فرم در حالت ویرایش باز شده است.
--   `view`: فرم در حالت مشاهده، فقط‌خواندنی، باز شده است.
+- `new`: فرم در حالت جدید باز شده است.
+
+- `edit`: فرم در حالت ویرایش باز شده است.
+
+- `view`: فرم در حالت مشاهده، فقط‌خواندنی، باز شده است.
 
 ### Property `isAnonymous`
 
@@ -754,20 +785,57 @@ instance.on('focusIn', e => {
 
 ### رویدادهای پراستفاده در Editorها
 
-| Event / Option | کاربرد معمول | داده مهم |
-| --- | --- | --- |
-| `onValueChanged` / `valueChanged` | بعد از تغییر مقدار Component | `e.value` و در بسیاری از Editorها `e.previousValue` |
-| `onFocusIn` / `focusIn` | وقتی Component فوکوس می‌گیرد | `e.component`، `e.element`، `e.event` |
-| `onFocusOut` / `focusOut` | وقتی Component فوکوس را از دست می‌دهد | `e.component`، `e.element`، `e.event` |
-| `onInput` / `input` | هنگام تغییر ورودی در حالی که Editor در Focus است | `e.event` |
-| `onKeyUp` / `keyUp` | بعد از رها شدن کلید | `e.event` |
-| `onPaste` / `paste` | هنگام Paste در Editorهای پشتیبانی‌شده | `e.event` |
-| `onCopy` / `copy` | هنگام Copy در Editorهای پشتیبانی‌شده | `e.event` |
-| `onCut` / `cut` | هنگام Cut در Editorهای پشتیبانی‌شده | `e.event` |
-| `onOptionChanged` / `optionChanged` | بعد از تغییر یکی از Optionهای Component | `e.name`، `e.fullName`، `e.value` |
-| `onChange` / `change` | در TextBox وقتی مقدار با Keyboard تغییر کرده و کنترل Focus را از دست می‌دهد | `e.event` |
-| `onEnterKey` / `enterKey` | فشردن Enter در Editorهای پشتیبانی‌شده | `e.event` |
-| `onUploadStarted` / `uploadStarted` | اختصاصی FileUploader؛ شروع Upload | `e.file`، `e.request` |
+Event / Option
+کاربرد معمول
+داده مهم
+
+`onValueChanged` / `valueChanged`
+بعد از تغییر مقدار Component
+`e.value` و در بسیاری از Editorها `e.previousValue`
+
+`onFocusIn` / `focusIn`
+وقتی Component فوکوس می‌گیرد
+`e.component`، `e.element`، `e.event`
+
+`onFocusOut` / `focusOut`
+وقتی Component فوکوس را از دست می‌دهد
+`e.component`، `e.element`، `e.event`
+
+`onInput` / `input`
+هنگام تغییر ورودی در حالی که Editor در Focus است
+`e.event`
+
+`onKeyUp` / `keyUp`
+بعد از رها شدن کلید
+`e.event`
+
+`onPaste` / `paste`
+هنگام Paste در Editorهای پشتیبانی‌شده
+`e.event`
+
+`onCopy` / `copy`
+هنگام Copy در Editorهای پشتیبانی‌شده
+`e.event`
+
+`onCut` / `cut`
+هنگام Cut در Editorهای پشتیبانی‌شده
+`e.event`
+
+`onOptionChanged` / `optionChanged`
+بعد از تغییر یکی از Optionهای Component
+`e.name`، `e.fullName`، `e.value`
+
+`onChange` / `change`
+در TextBox وقتی مقدار با Keyboard تغییر کرده و کنترل Focus را از دست می‌دهد
+`e.event`
+
+`onEnterKey` / `enterKey`
+فشردن Enter در Editorهای پشتیبانی‌شده
+`e.event`
+
+`onUploadStarted` / `uploadStarted`
+اختصاصی FileUploader؛ شروع Upload
+`e.file`، `e.request`
 
 ### مثال: واکنش به تغییر مقدار فیلد متنی
 
@@ -811,17 +879,29 @@ export const onLoad = function (viewModel) {
 }
 ```
 
-> **مرجع رسمی DevExtreme v22.2:** ساختار Eventها به Component وابسته است. برای TextBox، Eventهایی مانند `onValueChanged`، `onInput`، `onFocusIn` و `onKeyUp` مستند شده‌اند؛ FileUploader نیز Eventهای اختصاصی Upload دارد. [dxTextBox](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxTextBox/) · [dxFileUploader](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxFileUploader/)
+> 
+
+**مرجع رسمی DevExtreme v22.2:** ساختار Eventها به Component وابسته است. برای TextBox، Eventهایی مانند `onValueChanged`، `onInput`، `onFocusIn` و `onKeyUp` مستند شده‌اند؛ FileUploader نیز Eventهای اختصاصی Upload دارد. [dxTextBox](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxTextBox/) · [dxFileUploader](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxFileUploader/)
 
 ## الگوهای پایه کار با داده و وضعیت فیلدها
 
 برای کار با یک فیلد در Custom JS سه مسیر اصلی وجود دارد و بهتر است قبل از نوشتن کد مشخص کنید دقیقاً کدام لایه را می‌خواهید تغییر دهید:
 
-| مسیر | برای چه کاری مناسب است؟ | نمونه |
-| --- | --- | --- |
-| `viewModel.data()` | خواندن و تغییر **داده‌ای که قرار است همراه فرم ذخیره شود** | `viewModel.data().CustomerName()` |
-| `viewModel.fields...Config / _Visibility / _ReadOnly` | کنترل State و Bindingهای GraphBPMS مانند نمایش، فقط‌خواندنی و Required | `viewModel.fields.CustomerName_Visibility(false)` |
-| `viewModel.fields..._Instance` | کار مستقیم با Component زنده؛ Option، Method و Event | `viewModel.fields.CustomerName_Instance.option('hint', '...')` |
+مسیر
+برای چه کاری مناسب است؟
+نمونه
+
+`viewModel.data()`
+خواندن و تغییر **داده‌ای که قرار است همراه فرم ذخیره شود**
+`viewModel.data().CustomerName()`
+
+`viewModel.fields...Config / _Visibility / _ReadOnly`
+کنترل State و Bindingهای GraphBPMS مانند نمایش، فقط‌خواندنی و Required
+`viewModel.fields.CustomerName_Visibility(false)`
+
+`viewModel.fields..._Instance`
+کار مستقیم با Component زنده؛ Option، Method و Event
+`viewModel.fields.CustomerName_Instance.option('hint', '...')`
 
 **راهنمای انتخاب:** برای مقدار Business Data معمولاً از `data()` شروع کنید. وقتی نیاز به رفتار UI یا قابلیت اختصاصی Component دارید سراغ `_Instance` بروید. برای Visibility/ReadOnly/Required نیز مسیرهای GraphBPMS را به تغییر مستقیم DOM ترجیح دهید.
 
@@ -857,7 +937,9 @@ viewModel.fields.CustomerName_Instance.option('disabled', true);
 viewModel.fields.CustomerName_Instance.option('disabled', false);
 ```
 
-> **تفاوت مهم:** `readOnly` و `disabled` یک مفهوم واحد نیستند. در Componentهای DevExtreme، `disabled` تعامل کاربر با Component را غیرفعال می‌کند؛ `readOnly` Editor را فقط‌خواندنی می‌کند. برای منطق فرم ابتدا Stateهای GraphBPMS را در نظر بگیرید و فقط در صورت نیاز سطح Component را تغییر دهید.
+> 
+
+**تفاوت مهم:** `readOnly` و `disabled` یک مفهوم واحد نیستند. در Componentهای DevExtreme، `disabled` تعامل کاربر با Component را غیرفعال می‌کند؛ `readOnly` Editor را فقط‌خواندنی می‌کند. برای منطق فرم ابتدا Stateهای GraphBPMS را در نظر بگیرید و فقط در صورت نیاز سطح Component را تغییر دهید.
 
 ### Required و Validation
 
@@ -919,7 +1001,7 @@ const customerId = viewModel.getParam('CustomerId');
 
 `_Instance` زمانی به کار می‌آید که نیاز شما از خواندن/نوشتن داده فراتر است و باید Option، Method یا Event خود Component را کنترل کنید. مسیر Instance را از GraphBPMS می‌گیریم؛ سپس فقط API همان Component را از مستند رسمی Library استفاده می‌کنیم.
 
-**\[وابسته به نسخه/استقرار\]** لینک‌های DevExtreme در این مقاله بر مبنای نسخه `22.2` هستند. وجود یک Option در DevExtreme به‌تنهایی به معنی قابل‌استفاده بودن آن در همه فیلدهای GraphBPMS نیست. ابتدا Mapping فیلد به Component را از همین راهنما بررسی کنید.
+**[وابسته به نسخه/استقرار]** لینک‌های DevExtreme در این مقاله بر مبنای نسخه `22.2` هستند. وجود یک Option در DevExtreme به‌تنهایی به معنی قابل‌استفاده بودن آن در همه فیلدهای GraphBPMS نیست. ابتدا Mapping فیلد به Component را از همین راهنما بررسی کنید.
 
 ### الگوی پایه Instance
 
@@ -963,7 +1045,7 @@ export const onLoad = function (viewModel) {
 
 [مرجع رسمی dxTextBox v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxTextBox/)
 
-#### کنترل طول، نوع ورودی و Mask
+کنترل طول، نوع ورودی و Mask
 
 برای ورودی‌هایی مانند شماره همراه، کد یا داده‌های ساختاریافته، بهتر است Optionهای Component را روی همان `_Instance` تنظیم کنید. در `dxTextBox` v22.2، `maxLength` سقف کاراکتر، `mode` نوع ورودی و Keyboard موبایل، و `mask` الگوی ورود را کنترل می‌کنند.
 
@@ -1008,7 +1090,7 @@ export const onLoad = function (viewModel) {
 
 [مرجع رسمی dxNumberBox v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxNumberBox/)
 
-#### مثال: مبلغ با جداکننده ارقام و کنترل بازه
+مثال: مبلغ با جداکننده ارقام و کنترل بازه
 
 ```
 export const onLoad = function (viewModel) {
@@ -1042,16 +1124,41 @@ const instance =
         .gbDatePicker('instance');
 ```
 
-| Option | کاربرد | نمونه |
-| --- | --- | --- |
-| `disabledDates` | روزهای غیرفعال | `['1379/06/13', '1400/07/01']` |
-| `disabled` | غیرفعال بودن کنترل | `true` |
-| `readOnly` | فقط‌خواندنی بودن | `true` |
-| `showClearButton` | نمایش دکمه پاک‌کردن مقدار | `false` |
-| `startFrom` | شروع بازه انتخاب | `'1403/01/01'` |
-| `endsWith` | پایان بازه انتخاب | `'1404/01/01'` |
-| `placeholder` | متن راهنما | `'تاریخ را انتخاب کنید'` |
-| `includeTime` | انتخاب زمان همراه تاریخ | `false` |
+Option
+کاربرد
+نمونه
+
+`disabledDates`
+روزهای غیرفعال
+`['1379/06/13', '1400/07/01']`
+
+`disabled`
+غیرفعال بودن کنترل
+`true`
+
+`readOnly`
+فقط‌خواندنی بودن
+`true`
+
+`showClearButton`
+نمایش دکمه پاک‌کردن مقدار
+`false`
+
+`startFrom`
+شروع بازه انتخاب
+`'1403/01/01'`
+
+`endsWith`
+پایان بازه انتخاب
+`'1404/01/01'`
+
+`placeholder`
+متن راهنما
+`'تاریخ را انتخاب کنید'`
+
+`includeTime`
+انتخاب زمان همراه تاریخ
+`false`
 
 Eventهای مستندشده برای این Component عبارت‌اند از `changeDay`، `changeMonth`، `changeYear` و `input`.
 
@@ -1066,14 +1173,26 @@ const instance =
         .gbTimePicker('instance');
 ```
 
-| Option | کاربرد |
-| --- | --- |
-| `disabled` | غیرفعال بودن کنترل |
-| `readOnly` | فقط‌خواندنی بودن |
-| `showClearButton` | نمایش دکمه پاک‌کردن |
-| `placeholder` | متن راهنما |
-| `showSecound` | نمایش ثانیه؛ نام Option در مستند فعلی با همین املاء آمده است |
-| `showMillisecond` | نمایش میلی‌ثانیه |
+Option
+کاربرد
+
+`disabled`
+غیرفعال بودن کنترل
+
+`readOnly`
+فقط‌خواندنی بودن
+
+`showClearButton`
+نمایش دکمه پاک‌کردن
+
+`placeholder`
+متن راهنما
+
+`showSecound`
+نمایش ثانیه؛ نام Option در مستند فعلی با همین املاء آمده است
+
+`showMillisecond`
+نمایش میلی‌ثانیه
 
 Event مورد استفاده برای این Component `input` است.
 
@@ -1096,7 +1215,7 @@ accept.on('valueChanged', e => {
 
 [dxCheckBox v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxCheckBox/) · [dxSwitch v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxSwitch/)
 
-#### مثال: CheckBox سه‌وضعیتی
+مثال: CheckBox سه‌وضعیتی
 
 ```
 const checkbox = viewModel.fields.Approval_Instance;
@@ -1114,7 +1233,7 @@ checkbox.on('valueChanged', e => {
 
 اگر فیلد در حالت Switch باشد، از Optionهای همان `dxSwitch` استفاده کنید؛ برای مثال `switchedOnText` و `switchedOffText` متن دو وضعیت را تغییر می‌دهند.
 
-**\[وابسته به نسخه/استقرار\]** خود `dxCheckBox` حالت سوم را پشتیبانی می‌کند؛ اما اگر قصد ذخیره `null` در فیلد Bit GraphBPMS را دارید، سازگاری Data Model و Validation همان Build را جداگانه تست کنید.
+**[وابسته به نسخه/استقرار]** خود `dxCheckBox` حالت سوم را پشتیبانی می‌کند؛ اما اگر قصد ذخیره `null` در فیلد Bit GraphBPMS را دارید، سازگاری Data Model و Validation همان Build را جداگانه تست کنید.
 
 ### فیلد انتخابی — `dxSelectBox`
 
@@ -1154,7 +1273,7 @@ if (Array.isArray(items)) {
 
 [مرجع رسمی dxSelectBox v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxSelectBox/)
 
-#### مثال: جستجو و نمایش مقدار خوانا
+مثال: جستجو و نمایش مقدار خوانا
 
 ```
 const select = viewModel.fields.City_Instance;
@@ -1165,14 +1284,14 @@ select.option({
     showClearButton: true
 });
 
-// در DataSourceهای Object-based فقط وقتی ��ام فیلدهای واقعی منبع داده را می‌دانید:
+// در DataSourceهای Object-based فقط وقتی نام فیلدهای واقعی منبع داده را می‌دانید:
 select.option('valueExpr', 'Id');
 select.option('displayExpr', 'Title');
 ```
 
 **نکته:** نام‌های `Id`، `Title` و `Code` در مثال بالا نمونه‌اند و باید با Contract واقعی Data Source همان فیلد جایگزین شوند.
 
-#### مثال: بازکردن SelectBox و Reload کردن DataSource
+مثال: بازکردن SelectBox و Reload کردن DataSource
 
 ```
 const select = viewModel.fields.City_Instance;
@@ -1292,7 +1411,7 @@ grid.refresh();
 
 [dxPopup v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxPopup/) · [dxDataGrid v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxDataGrid/)
 
-#### مثال: کنترل Popup و ستون‌های Grid
+مثال: کنترل Popup و ستون‌های Grid
 
 ```
 const popup =
@@ -1338,7 +1457,7 @@ export const onTabLoad = function (
 
 [مرجع رسمی dxTabPanel v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxTabPanel/)
 
-#### انتخاب زبانه: GraphBPMS Config یا Component
+انتخاب زبانه: GraphBPMS Config یا Component
 
 اگر هدف شما کنترل Flow خود GraphBPMS است، APIهای مستندشده Config مانند `next()`، `prev()` و `selectedIndex(...)` را ترجیح دهید. اگر صرفاً به Option خود Component نیاز دارید و Instance ساخته شده است، `dxTabPanel` نیز `selectedIndex` و `onSelectionChanged` دارد.
 
@@ -1375,8 +1494,6 @@ console.log(tabPanel.option('selectedIndex'));
 
 [](https://en.wikipedia.org/wiki/GeoJSON)[https://en.wikipedia.org/wiki/GeoJSON](https://en.wikipedia.org/wiki/GeoJSON)
 
-* * *
-
 **تشخیص تغییر مقدار نقشه:**
 
 برای بسیاری از فیلدهای مبتنی بر DevExtreme می‌توان تغییر مقدار را از Eventهایی مانند `onValueChanged` تشخیص داد، اما فیلد نقشه از مسیر Observable داده کنترل می‌شود.
@@ -1392,8 +1509,6 @@ viewModel.data().MyMapField.subscribe(newValue => {
 البته این روش برای فیلد های دیگر هم جوابگو است، اما پیشنهاد می‌شود برای فیلد های دیگر از همان روش ذکر شده استفاده کنید.
 
 در این مثال، به محض تغییر مقدار فیلد نقشه (اضافه کردن point، rectangle، حذف آنها و...) تابع ما اجرا می‌شود که مقدار جدید فیلد نقشه را در قالب GeoJSON به صورت رشته میگیرد.
-
-* * *
 
 **تشخیص ساخت لایه جدید:**
 
@@ -1420,8 +1535,6 @@ viewModel.data().MyMapField.subscribe(newValue => {
 در کد بالا یک آرایه به اسم oldLayers تعریف شده است که لایه هایی که کاربر از قبل ساخته را در خود نگه میدارد و طبیعتا این آرایه به طور پیش فرض خالی است.
 
 به محض اینکه مقدار فیلد نقشه تغییر کرد در ابتدا مقدار رشته ای به مقدار JSON تغییر میکند و سپس روی لایه های GeoJSON بررسی می‌شود که هر لایه ای که در آرایه oldLayers وجود نداشت پس قطعا به تازگی ساخته شده، در ابتدا آن لایه را داخل oldLayer میریزیم و سپس عملیات مورد نظر را روی آن انجام میدهیم.
-
-* * *
 
 **نمایش point بر اساس Lat و Lng روی نقشه:**
 
@@ -1450,8 +1563,6 @@ viewModel.data().MyMapField(JSON.stringify({
 
 در این مثال ما فقط یک point روی نقشه ایجاد کردیم، شما می‌توانید به تعداد دلخواه روی نقشه لایه ایجاد کنید.
 
-* * *
-
 **تغییر زوم نقشه:**
 
 برای تغییر زوم نقشه باید Instance مربوط به leaflet را داشته باشیم.
@@ -1467,8 +1578,6 @@ const myMapField__leafletInstance = viewModel.fields.MyMapField_Instance.mapInst
 ```
 myMapField__leafletInstance.setZoom(10);
 ```
-
-* * *
 
 **تغییر موقعیت نمایشی نقشه:**
 
@@ -1487,8 +1596,6 @@ myMapField__leafletInstance.setView({
 
 [](https://leafletjs.com/reference.html)[https://leafletjs.com/reference.html](https://leafletjs.com/reference.html)
 
-* * *
-
 ### Tab: چرخه عمر فیلدهای داخل زبانه (Lifecycle)
 
 در این بخش به بررسی فیلد تب میپردازیم.
@@ -1501,9 +1608,9 @@ myMapField__leafletInstance.setView({
 
 **سفارشی سازی فیلد های داخل تب:**
 
-به طور پیش فرض، موقع لود فرم تمامی فیلد های فرم لود میشوند، شامل data، \_Config و... . اما در صورتی که فیلد مورد نظر شما داخل تب باشد تا زمانی که کاربر وارد آن تب نشود \_Instance آن فیلد لود نخواهد شد.
+به طور پیش فرض، موقع لود فرم تمامی فیلد های فرم لود میشوند، شامل data، _Config و... . اما در صورتی که فیلد مورد نظر شما داخل تب باشد تا زمانی که کاربر وارد آن تب نشود _Instance آن فیلد لود نخواهد شد.
 
-به عبارتی دیگر، فیلد هایی که داخل تب هستند و تب آنها لود نشده است تمامی Config و data های آن فیلد داخل viewModel هستند به غیر از \_Instance که زمانی لود می‌شود که کاربر وارد آن تب مربوطه شود.
+به عبارتی دیگر، فیلد هایی که داخل تب هستند و تب آنها لود نشده است تمامی Config و data های آن فیلد داخل viewModel هستند به غیر از _Instance که زمانی لود می‌شود که کاربر وارد آن تب مربوطه شود.
 
 بنابراین به این نکته دقت کنید که در صورتی که در Custom JS خود می‌خواهید از Instance یک فیلد استفاده کنید حواستان باشد که آن فیلد خارج از تب باشد.
 
@@ -1521,8 +1628,6 @@ export const onTabLoad = function (tabPanelName, tabPanelItemName, viewModel) {
 
 در مثال بالا، فرم ما یک فیلد متنی با نام MyTextField دارد که داخل تب است و ما میخواهیم hint آن را تغییر دهیم.
 
-* * *
-
 ### Tab: کنترل زبانه‌ها از Config
 
 **نحوه دسترسی به زبانه های تب:**
@@ -1533,8 +1638,6 @@ export const onTabLoad = function (tabPanelName, tabPanelItemName, viewModel) {
 const myTabItems = viewModel.fields.MyTabFieldConfig.dataSource;
 ```
 
-* * *
-
 **نحوه بررسی اینکه آیا یک زبانه خاص قابل پیمایش است یا خیر:**
 
 ```
@@ -1542,8 +1645,6 @@ viewModel.fields.MyTabConfig.dataSource[0].navigable();
 ```
 
 دقت کنید که پراپرتی navigable داده نمیگیرد و فقط صرفا اینکه تب قابل پیمایش است یا خبر را برمیگرداند.
-
-* * *
 
 **تنظیم اجباری بودن یا نبودن فیلد های داخل زبانه تب:**
 
@@ -1553,8 +1654,6 @@ viewModel.fields.MyTabConfig.dataSource[0].isRequired(true/*or false*/);
 
 دقت کنید که در صورتی که به صورت دستی اجباری بودن یا نبودن زبانه تب را مشخص کنید دیگر قوائد نمایشی و... هیچ تاثیری روی آن نخواهند گذاشت.
 
-* * *
-
 **تنظیم فقط خواندنی بودن فیلد های داخل زبانه تب:**
 
 ```
@@ -1562,8 +1661,6 @@ viewModel.fields.MyTabConfig.dataSource[0].readOnly(true /* or false */);
 ```
 
 دقت کنید که در صورتی که به صورت دستی فقط خواندنی بودن یا نبودن زبانه تب را مشخص کنید دیگر قوائد نمایشی و... هیچ تاثیری روی آن نخواهند گذاشت.
-
-* * *
 
 **تنظیم نمایش یا عدم نمایش بودن زبانه تب:**
 
@@ -1573,15 +1670,11 @@ viewModel.fields.MyTabConfig.dataSource[0].visible(false/*or true*/);
 
 دقت کنید که در صورتی که به صورت دستی نمایش یا عدم نمایش زبانه تب را مشخص کنید دیگر قوائد نمایشی و... هیچ تاثیری روی آن نخواهند گذاشت.
 
-* * *
-
 **رفتن به مرحله بعدی:**
 
 ```
 viewModel.fields.MyTabConfig.next();
 ```
-
-* * *
 
 **رفتن به مرحله قبلی:**
 
@@ -1589,15 +1682,11 @@ viewModel.fields.MyTabConfig.next();
 viewModel.fields.MyTabConfig.prev();
 ```
 
-* * *
-
 **تنظیم ایندکس تب انتخاب شده:**
 
 ```
 viewModel.fields.MyTabConfig.selectedIndex(3);
 ```
-
-* * *
 
 **بررسی اینکه آیا رفتن به مرحله قبلی قابل انجام است یا خیر:**
 
@@ -1605,15 +1694,11 @@ viewModel.fields.MyTabConfig.selectedIndex(3);
 viewModel.fields.MyTabConfig.prevIsAvailable();// true or false
 ```
 
-* * *
-
 **بررسی اینکه رفتن به مرحله بعدی قابل انجام است یا خیر:**
 
 ```
 viewModel.fields.MyTabConfig.nextIsAvailable();//true or false
 ```
-
-* * *
 
 ### SubForm: داده رکورد، RecordState، Modal و Grid
 
@@ -1646,22 +1731,25 @@ viewModel.fields.MyTabConfig.nextIsAvailable();//true or false
 
 که البته تمامی مقادیر object ها بصورت observable هستند.
 
-در اینجا علاوه بر MyNumberField و MyTextField دو مقدار دیگر هم می‌بینیم: Id و gb\_state.
+در اینجا علاوه بر MyNumberField و MyTextField دو مقدار دیگر هم می‌بینیم: Id و gb_state.
 
 **فیلد Id چیست؟** وقتی شما یک فرمی بسازید معادل آن فرم در پایگاه داده یک جدول ذخیره خواهد شد. در صورتی که فرم شما شامل یک SubForm باشد معادل آن SubForm هم یک جدول در پایگاه داده ایجاد می‌شود که با استفاده از کلید خارجی با هم مرتبط میشوند.
 
 Id در واقع شناسه رکورد SubForm شماست که بعد از ذخیره فرم در جدول SubForm ذخیره خواهد شد.
 
-**فیلد gb\_state چیست؟** این فیلد در واقع وضعیت این رکورد را مشخص میکند:
+**فیلد gb_state چیست؟** این فیلد در واقع وضعیت این رکورد را مشخص میکند:
 
-1.  **مقدار 1 یا RecordStateType.new:** این مقدار به این معنی است که این رکورد به تازگی ایجاد شده است و به بک اند میگوید که این رکورد بایستی در پایگاه داده ایجاد شود. بنابراین اگر با استفاده از CustomJS رکورد جدیدی بصورت دستی برای SubForm بسازید و این فیلد را به درستی مقدار دهی نکنید موقع ذخیره نهایی فرم رکورد شما در پایگاه داده ایجاد نخواهد شد. **پس به طور کلی هرموقع رکورد جدیدی برای SubForm ساختید حتما باید مقدار gb\_state برابر با 1 باشد.**
-    
-2.  اگر مقدار یک رکورد را در SubForm به‌صورت دستی تغییر دادید اما مقدار gb\_state که قبلاً برابر با 0 بوده را به مقدار 2 تغییر ندهید، تغییر جدید در پایگاه داده ثبت نخواهد شد.
-    
-3.  **مقدار 2 یا RecordStateType.edit:** این مقدار فقط در حالت ویرایش بکار میرود و به این معنی است که این رکورد تغییراتی داشته و بک اند باید آن تغییرات را در پایگاه داده لحاظ کند.
-    
-4.  **مقدار 3 یا RecordStateType.del:** این مقدار فقط در حالت ویرایش به کار میرود و به این معنی است که این رکورد باید از پایگاه داده حذف شود، بنابراین اگر رکوردی در حالت ویرایش داشتید و صرفا فقط از آرایه SubForm آن را پاک کردید بعد از ذخیره فرم این رکورد همچنان در پایگاه داده وجود خواهد داشت.
-    
+- 
+**مقدار 1 یا RecordStateType.new:** این مقدار به این معنی است که این رکورد به تازگی ایجاد شده است و به بک اند میگوید که این رکورد بایستی در پایگاه داده ایجاد شود. بنابراین اگر با استفاده از CustomJS رکورد جدیدی بصورت دستی برای SubForm بسازید و این فیلد را به درستی مقدار دهی نکنید موقع ذخیره نهایی فرم رکورد شما در پایگاه داده ایجاد نخواهد شد. **پس به طور کلی هرموقع رکورد جدیدی برای SubForm ساختید حتما باید مقدار gb_state برابر با 1 باشد.**
+
+- 
+اگر مقدار یک رکورد را در SubForm به‌صورت دستی تغییر دادید اما مقدار gb_state که قبلاً برابر با 0 بوده را به مقدار 2 تغییر ندهید، تغییر جدید در پایگاه داده ثبت نخواهد شد.
+
+- 
+**مقدار 2 یا RecordStateType.edit:** این مقدار فقط در حالت ویرایش بکار میرود و به این معنی است که این رکورد تغییراتی داشته و بک اند باید آن تغییرات را در پایگاه داده لحاظ کند.
+
+- 
+**مقدار 3 یا RecordStateType.del:** این مقدار فقط در حالت ویرایش به کار میرود و به این معنی است که این رکورد باید از پایگاه داده حذف شود، بنابراین اگر رکوردی در حالت ویرایش داشتید و صرفا فقط از آرایه SubForm آن را پاک کردید بعد از ذخیره فرم این رکورد همچنان در پایگاه داده وجود خواهد داشت.
 
 **دسترسی به داده های مدال فیلد تودرتو:**
 
@@ -1671,11 +1759,11 @@ Id در واقع شناسه رکورد SubForm شماست که بعد از ذخ�
 viewModel.MySubForm_Record()
 ```
 
-وقتی شما روی دکمه جدید SubForm کلیک کنید، فرم‌ساز با توجه به فیلد های SubForm یک سری داده خام را میسازد و داخل این پراپرتی میریزد، سپس مدال باز شده و فیلد های آن به این داده ها متصل میشوند و بعد از اینکه کاربر روی دکمه ثبت کلیک شد فرم‌ساز داده هارا از \_Record میخواند و داخل دیتا های اصلی (viewModel.data()) میریزد.
+وقتی شما روی دکمه جدید SubForm کلیک کنید، فرم‌ساز با توجه به فیلد های SubForm یک سری داده خام را میسازد و داخل این پراپرتی میریزد، سپس مدال باز شده و فیلد های آن به این داده ها متصل میشوند و بعد از اینکه کاربر روی دکمه ثبت کلیک شد فرم‌ساز داده هارا از _Record میخواند و داخل دیتا های اصلی (viewModel.data()) میریزد.
 
 و برای ویرایش هم همینطور، فرم‌ساز در پس زمینه از رکوردی که قصد ویرایش آن را دارید یک کپی میگیرد و داخل این پراپرتی میریزد و ادامه ماجرا.
 
--   نکته: در حالت ویرایش یا درج رکورد به صورت اینلاین فرم‌ساز به \_Record هیچ کاری ندارد و مستقیما به viewModel.data() وصل می‌شود.
+- نکته: در حالت ویرایش یا درج رکورد به صورت اینلاین فرم‌ساز به _Record هیچ کاری ندارد و مستقیما به viewModel.data() وصل می‌شود.
 
 **سفارشی سازی مدال فیلد تودرتو:**
 
@@ -1697,9 +1785,11 @@ mySubForm__modalInstance.option('width', '500px');
 
 جهت مشاهده لیست متد ها، آپشن ها و رویداد های Popup به این صفحه مراجعه نمایید:
 
-[](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxPopup/)[https://js.devexpress.com/jQuery/Documentation/22\_2/ApiReference/UI\_Components/dxPopup](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxPopup)
+[](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxPopup/)[https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxPopup](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxPopup)
 
-> **مرجع فنی — v22.2:** `width` و `height` اندازه Popup را می‌پذیرند و `fullScreen` حالت تمام‌صفحه را کنترل می‌کند.
+> 
+
+**مرجع فنی — v22.2:** `width` و `height` اندازه Popup را می‌پذیرند و `fullScreen` حالت تمام‌صفحه را کنترل می‌کند.
 
 **سفارشی سازی گرید فیلد تودرتو:**
 
@@ -1721,23 +1811,21 @@ mySubForm__dataGridInstance.option('columns[0].visible', false);
 
 جهت مشاهده لیست متد ها، آپشن ها و رویداد های DataGrid به این صفحه مراجعه نمایید:
 
-[](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxDataGrid/)[https://js.devexpress.com/jQuery/Documentation/22\_2/ApiReference/UI\_Components/dxDataGrid](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxDataGrid)
+[](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxDataGrid/)[https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxDataGrid](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxDataGrid)
 
-> **مرجع فنی — v22.2:** `columns` مجموعه تنظیمات ستون‌های DataGrid است و تنظیم `visible` در سطح ستون برای نمایش یا مخفی‌کردن آن استفاده می‌شود.
+> 
 
-* * *
+**مرجع فنی — v22.2:** `columns` مجموعه تنظیمات ستون‌های DataGrid است و تنظیم `visible` در سطح ستون برای نمایش یا مخفی‌کردن آن استفاده می‌شود.
 
 ### FileUpload: محدودیت فایل، پیام‌ها و رویدادها
 
-![نمای کلی فیلد FileUpload](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=E947B575-94B4-47B5-9A43-56A714AFE81A.png)
-
 نمای کلی فیلد FileUpload
 
-برای کارهای مربوط به UI فیلد فایل، از `viewModel.fields.FIELD_NAME_Instance` استفاده کنید. در API پای�� `dxFileUploader` می‌توان محدودیت نوع و اندازه فایل، انتخاب چندفایلی، متن‌های رابط و Eventهای انتخاب/شروع Upload را کنترل کرد.
+برای کارهای مربوط به UI فیلد فایل، از `viewModel.fields.FIELD_NAME_Instance` استفاده کنید. در API پایه `dxFileUploader` می‌توان محدودیت نوع و اندازه فایل، انتخاب چندفایلی، متن‌های رابط و Eventهای انتخاب/شروع Upload را کنترل کرد.
 
 **تفکیک مهم:** این Optionها رفتار Component رابط کاربری را کنترل می‌کنند. ارسال فایل به Provider با `absoluteMethodHelper.runProvider` یک سناریوی Integration جداست که در بخش Provider توضیح داده شده است.
 
-#### خواندن فایل‌های انتخاب‌شده و شمارش آن‌ها
+خواندن فایل‌های انتخاب‌شده و شمارش آن‌ها
 
 ```
 const uploader = viewModel.fields.Attachments_Instance;
@@ -1747,7 +1835,7 @@ console.log('File count:', files.length);
 console.log('First file:', files[0]);
 ```
 
-#### محدودکردن نوع، اندازه و تعداد فایل‌ها
+محدودکردن نوع، اندازه و تعداد فایل‌ها
 
 ```
 const uploader = viewModel.fields.Attachments_Instance;
@@ -1763,7 +1851,7 @@ uploader.option({
 
 `minFileSize` و `maxFileSize` در DevExtreme بر حسب **Byte** هستند. `allowedFileExtensions` اعتبار Extension را کنترل می‌کند و `accept` برای فیلتر File Picker مرورگر کاربرد دارد.
 
-#### شخصی‌سازی متن‌های FileUploader
+شخصی‌سازی متن‌های FileUploader
 
 ```
 const uploader = viewModel.fields.Attachments_Instance;
@@ -1778,7 +1866,7 @@ uploader.option({
 });
 ```
 
-#### واکنش به انتخاب فایل و شروع Upload
+واکنش به انتخاب فایل و شروع Upload
 
 ```
 const uploader = viewModel.fields.Attachments_Instance;
@@ -1793,13 +1881,13 @@ uploader.option('onUploadStarted', e => {
 });
 ```
 
-**\[وابسته به نسخه/استقرار\]** `acceptExtensionWithSize` جزو API پایه `dxFileUploader` v22.2 نیست. اگر Build مقصد این Option را به‌صورت اختصاصی پشتیبانی نمی‌کند، از `allowedFileExtensions` و `accept` استفاده کنید.
+**[وابسته به نسخه/استقرار]** `acceptExtensionWithSize` جزو API پایه `dxFileUploader` v22.2 نیست. اگر Build مقصد این Option را به‌صورت اختصاصی پشتیبانی نمی‌کند، از `allowedFileExtensions` و `accept` استفاده کنید.
 
 [مرجع رسمی dxFileUploader v22.2](https://js.devexpress.com/jQuery/Documentation/22_2/ApiReference/UI_Components/dxFileUploader/)
 
 ### Container: کنترل ReadOnly و Visibility
 
-**\[نیازمند تأیید فنی\]** این الگو به Helperها و Constantهای داخلی مانند `formHelper`، `FormBuilderStatics` و `GBFieldType` متکی است. پیش از استفاده، وجود همین APIها را در Build مقصد بررسی کنید.
+**[نیازمند تأیید فنی]** این الگو به Helperها و Constantهای داخلی مانند `formHelper`، `FormBuilderStatics` و `GBFieldType` متکی است. پیش از استفاده، وجود همین APIها را در Build مقصد بررسی کنید.
 
 **تعریف فعال کردن و غیر فعال کردن Container :**
 
@@ -1842,8 +1930,6 @@ viewModel.fields.CONTAINER_FIELD_NAME_Visibility(true); // یا false
 // CONTAINER_FIELD_NAME = نام لاتین Container
 ```
 
-* * *
-
 ## absoluteMethodHelper و Integrationهای سمت Client
 
 `absoluteMethodHelper` مجموعه Helperهای سمت Client GraphBPMS برای اجرای عملیات مستندشده‌ای مانند Provider و برخی عملیات فرم/فرآیند/گزارش است. در این بخش، الگوهای جاری و نمونه‌های قدیمی از هم تفکیک می‌شوند تا توسعه‌دهنده از Contract صحیح همان Build استفاده کند.
@@ -1858,8 +1944,6 @@ viewModel.fields.CONTAINER_FIELD_NAME_Visibility(true); // یا false
 absoluteMethodHelper.getPersianDate()
 ```
 
-* * *
-
 ### اجرای Provider با runProvider — الگوی جاری
 
 امضای جاری برای Providerهای غیر Paging به‌صورت زیر است:
@@ -1870,7 +1954,7 @@ absoluteMethodHelper.runProvider(providerId, parameters = [])
 
 `providerId` شناسه Provider و `parameters` آرایه‌ای از Objectهای `{ name, value }` است. نام Parameter باید دقیقاً با Parameter تعریف‌شده در Provider هماهنگ باشد.
 
-#### Provider بدون پارامتر
+Provider بدون پارامتر
 
 ```
 absoluteMethodHelper
@@ -1883,7 +1967,7 @@ absoluteMethodHelper
     });
 ```
 
-#### Provider با پارامتر و خروجی Structured
+Provider با پارامتر و خروجی Structured
 
 ```
 const parameters = [
@@ -1907,7 +1991,7 @@ absoluteMethodHelper
 
 **رفتار خطا در Helper جاری:** در Helper جاری، پاسخ GraphBPMS با `HasError === true` باعث Reject شدن Promise می‌شود؛ بنابراین `.catch(...)` مسیر مرجع مدیریت خطاست. الگوی قدیمی بررسی `HasError` داخل `.then(...)` ممکن است در Legacy دیده شود و باید با Build مقصد تطبیق داده شود.
 
-#### مثال GraphBPMS: دریافت داده و قرار دادن نتیجه در viewModel
+مثال GraphBPMS: دریافت داده و قرار دادن نتیجه در viewModel
 
 ```
 export const onLoad = function (viewModel) {
@@ -1937,7 +2021,7 @@ export const onLoad = function (viewModel) {
 
 در این مثال نام‌های `UserId`، `UserFullName` و `FullName` نمونه‌اند و باید با Field/Output واقعی فرم و Provider جایگزین شوند.
 
-#### ارسال File به Provider
+ارسال File به Provider
 
 Helper جاری اگر در Parameterها یک مقدار از نوع `File` تشخیص دهد، Request را خودکار به `FormData` تبدیل می‌کند؛ بنابراین در Custom JS لازم نیست FormData را دستی بسازید.
 
@@ -1963,7 +2047,7 @@ global
     });
 ```
 
-#### تبدیل Blob به File پیش از ارسال
+تبدیل Blob به File پیش از ارسال
 
 File Detection در Helper جاری با `instanceof File` انجام می‌شود. اگر خروجی شما Blob است، آن را ابتدا به File تبدیل کنید:
 
@@ -1979,7 +2063,7 @@ absoluteMethodHelper.runProvider(
 );
 ```
 
-#### دریافت File از Provider
+دریافت File از Provider
 
 اگر Provider خروجی Attachment با Header مناسب برگرداند، Helper فایل را در `result.Content` قرار می‌دهد.
 
@@ -2001,7 +2085,7 @@ absoluteMethodHelper
 
 **نکته:** `saveAs` در Sample Code فعلی محصول استفاده می‌شود، اما عضو `absoluteMethodHelper` نیست. برای File Output، Endpoint مقصد باید Contract مناسب Attachment از جمله `Content-Disposition` را برگرداند.
 
-#### File Input + File Output در یک فراخوانی
+File Input + File Output در یک فراخوانی
 
 ```
 global
@@ -2030,7 +2114,7 @@ global
     });
 ```
 
-#### Providerهای Paging
+Providerهای Paging
 
 برای Providerهای Paging از `providerDesigner.runProviderPaging(...)` استفاده می‌شود. این مسیر از `absoluteMethodHelper.runProvider(...)` جداست و برای Paging نباید این دو API با هم جایگزین شوند.
 
@@ -2059,7 +2143,7 @@ providerDesigner
 
 **از Transport داخلی عبور نکنید:** برای Provider غیر Paging، فراخوانی مستقیم Endpoint داخلی با `fetch` یا `$.ajax` را جایگزین `absoluteMethodHelper.runProvider` نکنید، مگر برای Build مقصد API رسمی دیگری مستند شده باشد. Helper جاری جزئیاتی مانند Anti-forgery، JSON/FormData، Attachment و Reject کردن خطا را مدیریت می‌کند.
 
-#### استفاده با `async/await`
+استفاده با `async/await`
 
 از آنجا که `runProvider(...)` یک Promise برمی‌گرداند، می‌توان همان Contract را با `async/await` نیز مصرف کرد. مدیریت خطا همچنان باید با `try/catch` انجام شود.
 
@@ -2097,22 +2181,42 @@ export const onButtonFieldClick = async function (buttonName, viewModel, record)
 
 ### کار با فرآیندها در absoluteMethodHelper
 
-#### اطلاعات Process جاری با `getProcessInfo()`
+اطلاعات Process جاری با `getProcessInfo()`
 
 `absoluteMethodHelper.getProcessInfo()` اطلاعات Context فرایندی فرم جاری را برمی‌گرداند. Propertyهای اصلی عبارت‌اند از:
 
-| Property | کاربرد |
-| --- | --- |
-| `ProcessCreationID` | شناسه ایجاد/نمونه فرایند |
-| `ProcessID` | شناسه فرایند |
-| `ReferencesID` | شناسه مرجع فرایند |
-| `TaskID` | شناسه Service Task یا User Task |
-| `ElementConfigID` | شناسه ElementConfig مربوط به User Task |
-| `EntityConfigID` | شناسه رکورد ثبت‌شده در ProcessEntityConfig |
-| `EntityID` | شناسه فرم |
-| `EntityMode` | حالت نمایش فرم: جدید، ویرایش یا مشاهده |
-| `EntityTypeID` | نوع Element فرایند |
-| `FormsRecordID` | شناسه رکورد فرم |
+Property
+کاربرد
+
+`ProcessCreationID`
+شناسه ایجاد/نمونه فرایند
+
+`ProcessID`
+شناسه فرایند
+
+`ReferencesID`
+شناسه مرجع فرایند
+
+`TaskID`
+شناسه Service Task یا User Task
+
+`ElementConfigID`
+شناسه ElementConfig مربوط به User Task
+
+`EntityConfigID`
+شناسه رکورد ثبت‌شده در ProcessEntityConfig
+
+`EntityID`
+شناسه فرم
+
+`EntityMode`
+حالت نمایش فرم: جدید، ویرایش یا مشاهده
+
+`EntityTypeID`
+نوع Element فرایند
+
+`FormsRecordID`
+شناسه رکورد فرم
 
 ```
 const processInfo = absoluteMethodHelper.getProcessInfo();
@@ -2122,31 +2226,67 @@ const taskId = processInfo.data.TaskID;
 const formRecordId = processInfo.data.FormsRecordID;
 ```
 
-#### شروع فرایند — روش جاری
+شروع فرایند — روش جاری
 
 برای شروع فرایند، متد `runProcessWithVerbosityLevel(...)` است. پارامترهای اصلی این متد:
 
-| پارامتر | کاربرد |
-| --- | --- |
-| `processGroupID` | شناسه گروه فرایند |
-| `variables` | متغیرهای ارسالی به فرایند به‌صورت آرایه Objectهای Name/Value |
-| `customTitle` | عنوان نمونه فرایند در کارتابل |
-| `runType` | نوع Element شروع فرایند |
-| `anonymous` | شروع فرایند بدون احراز هویت |
-| `formId` | شناسه فرم در صورت نیاز |
-| `verboseLevel` | سطح جزئیات خروجی از 0 تا 6 |
+پارامتر
+کاربرد
 
-#### سطح جزئیات خروجی با `verboseLevel`
+`processGroupID`
+شناسه گروه فرایند
 
-| مقدار | نام | خلاصه خروجی |
-| --- | --- | --- |
-| `6` | Full | خروجی کامل؛ شامل جزئیات Process/Node و متغیرهای انتهایی. مقدار پیش‌فرض در صورت ارسال null. |
-| `5` | Detailed | جزئیات نسبتاً کامل بدون متغیرهای انتهایی. |
-| `4` | Basic | جزئیات محدود، از جمله ProcessCreationID و وضعیت کلی اجرا. |
-| `3` | Minimum | حداقل جزئیات وضعیت اجرا؛ Content در نمونه null است. |
-| `2` | PlainLite | وضعیت اجرا به‌همراه متغیرهای انتهایی به‌صورت آرایه Name/Value. |
-| `1` | Lite | مانند PlainLite، با تبدیل مقدارهای رشته‌ای JSON به ساختار اصلی آرایه/Object در صورت امکان. |
-| `0` | BoostLite | مانند Lite، اما خروجی متغیرها به‌صورت Dictionary از Name به Value. |
+`variables`
+متغیرهای ارسالی به فرایند به‌صورت آرایه Objectهای Name/Value
+
+`customTitle`
+عنوان نمونه فرایند در کارتابل
+
+`runType`
+نوع Element شروع فرایند
+
+`anonymous`
+شروع فرایند بدون احراز هویت
+
+`formId`
+شناسه فرم در صورت نیاز
+
+`verboseLevel`
+سطح جزئیات خروجی از 0 تا 6
+
+سطح جزئیات خروجی با `verboseLevel`
+
+مقدار
+نام
+خلاصه خروجی
+
+`6`
+Full
+خروجی کامل؛ شامل جزئیات Process/Node و متغیرهای انتهایی. مقدار پیش‌فرض در صورت ارسال null.
+
+`5`
+Detailed
+جزئیات نسبتاً کامل بدون متغیرهای انتهایی.
+
+`4`
+Basic
+جزئیات محدود، از جمله ProcessCreationID و وضعیت کلی اجرا.
+
+`3`
+Minimum
+حداقل جزئیات وضعیت اجرا؛ Content در نمونه null است.
+
+`2`
+PlainLite
+وضعیت اجرا به‌همراه متغیرهای انتهایی به‌صورت آرایه Name/Value.
+
+`1`
+Lite
+مانند PlainLite، با تبدیل مقدارهای رشته‌ای JSON به ساختار اصلی آرایه/Object در صورت امکان.
+
+`0`
+BoostLite
+مانند Lite، اما خروجی متغیرها به‌صورت Dictionary از Name به Value.
 
 همین جدول برای متد شروع و ادامه فرایندِ دارای `verboseLevel` استفاده می‌شود؛ بنابراین تعریف سطوح در ادامه تکرار نمی‌شود.
 
@@ -2322,7 +2462,7 @@ const formRecordId = processInfo.data.FormsRecordID;
 }
 ```
 
-#### مثال شروع فرایند
+مثال شروع فرایند
 
 ```
 absoluteMethodHelper.runProcessWithVerbosityLevel({
@@ -2359,7 +2499,7 @@ absoluteMethodHelper.runProcessWithVerbosityLevel({
         });
 ```
 
-#### شروع فرایند — روش Legacy برای نسخه‌های 2.1.5.131 و پایین‌تر
+شروع فرایند — روش Legacy برای نسخه‌های 2.1.5.131 و پایین‌تر
 
 این روش برای سامانه‌هایی با نسخه 2.1.5.131 و پایین‌تر می باشد
 
@@ -2421,7 +2561,7 @@ absoluteMethodHelper.runProcess(processGroupID,processID,roleID,userID,fromOut,v
       });
 ```
 
-#### شروع فرایند به‌صورت سرویس
+شروع فرایند به‌صورت سرویس
 
 در این نوع فرآیند از ابتدا تا پایان هیچ نود بازدارنده ای وجود ندارد و فرآیند بدون وقفه به پایان میرسد
 
@@ -2460,18 +2600,24 @@ absoluteMethodHelper.runProcessWithVerbosityLevel({
         });
 ```
 
-* * *
-
-#### ادامه فرایند با Message — روش جاری
+ادامه فرایند با Message — روش جاری
 
 اگر در فرایند Message Boundary/Event مرتبط وجود داشته باشد، متد `continueProcessByMessageWithVerbosityLevel(...)` را برای ادامه فرایند آموزش می‌دهد.
 
-| پارامتر | کاربرد |
-| --- | --- |
-| `processCreationID` | شناسه نمونه فرایند |
-| `stepID` | گام فرایند که Message Event در آن قرار دارد |
-| `variables` | متغیرهای ارسالی به فرایند |
-| `verboseLevel` | همان سطح جزئیات 0 تا 6 که در بخش شروع فرایند توضیح داده شد |
+پارامتر
+کاربرد
+
+`processCreationID`
+شناسه نمونه فرایند
+
+`stepID`
+گام فرایند که Message Event در آن قرار دارد
+
+`variables`
+متغیرهای ارسالی به فرایند
+
+`verboseLevel`
+همان سطح جزئیات 0 تا 6 که در بخش شروع فرایند توضیح داده شد
 
 ```
 let processCreationID = 52160;
@@ -2506,7 +2652,7 @@ absoluteMethodHelper
         });
 ```
 
-#### ادامه فرایند — روش Legacy برای نسخه‌های 2.1.5.131 و پایین‌تر
+ادامه فرایند — روش Legacy برای نسخه‌های 2.1.5.131 و پایین‌تر
 
 این روش برای سامانه‌هایی با نسخه 2.1.5.131 و پایین‌تر می باشد
 
@@ -2550,8 +2696,6 @@ absoluteMethodHelper
         });
 ```
 
-* * *
-
 ### Throw و Catch کردن Signal Eventهای فرآیند
 
 در صورتی که نیاز دارید سیگنال مد نظر خود را فراخوانی کنید تا با توجه به کلید آن تمامی سیگنال های catch در شروع فرآیند، نمونه سازی و شروع شوند و سیگنال های catch در انتظار میانی ادامه پیدا کنند، می توانید از این سرویس استفاده کنید.
@@ -2577,11 +2721,9 @@ absoluteMethodHelper
         });
 ```
 
-* * *
-
 ### کار با گزارش و قالب چاپ در absoluteMethodHelper
 
-#### بازکردن گزارش جدولی
+بازکردن گزارش جدولی
 
 با استفاده از دستور زیر در Custom JS می توان گزارش های جدولی را باز کرد
 
@@ -2606,13 +2748,9 @@ absoluteMethodHelper
 
 **ResourceId :** شناسه منبع استفاده شده در گزارش ، این شناسه در پنل مشاهده گزارش و در بالای صفحه pop up قابل مشاهده می باشد
 
-![محل نمایش ResourceId در گزارش](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=08CA4A9D-69DC-4BD1-A7D3-33D367B341CB.png)
-
 محل نمایش ResourceId در گزارش
 
 در صورتی که گزارش دارای چند منبع داده باشد همانند تصویر زیر ResourceId در کنار عنوان هر منبع داده درج شده است
-
-![نمایش ResourceId برای گزارش دارای چند منبع داده](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=AA871A9A-9FF0-4E61-9ACB-690E95990E90.png)
 
 نمایش ResourceId برای گزارش دارای چند منبع داده
 
@@ -2630,9 +2768,7 @@ absoluteMethodHelper.openReport(
 )
 ```
 
-* * *
-
-#### دریافت خروجی قالب چاپ
+دریافت خروجی قالب چاپ
 
 از متد زیر برای دریافت خروجی از قالب چاپ طراحی شده برای یک گزارش استفاده می شود. خروجی قالب چاپ می تواند بصورت pdf و یا jpg توسط این متد دریافت شود.
 
@@ -2672,11 +2808,9 @@ var paramList = [{
 absoluteMethodHelper.generateStimulExport(20, paramList, 'pdf');
 ```
 
-* * *
-
 ### کار با فرم در absoluteMethodHelper
 
-#### 1.باز کردن فرم از طریق absoluteMethodHelper :
+1.باز کردن فرم از طریق absoluteMethodHelper :
 
 با استفاده از تابع زیر می‌توانید فرم فرم‌ساز را باز کنید:
 
@@ -2684,26 +2818,45 @@ absoluteMethodHelper.generateStimulExport(20, paramList, 'pdf');
 absoluteMethodHelper.openForm(FormId, RecordId = -1, Options = {})
 ```
 
--   پارامتر FormId در واقع شناسه فرم شما را مشخص میکند.
--   پارامتر RecordId شناسه رکورد شما را مشخص میکند که اختیاری و به طور پیش فرض برابر با -1 است.
--   پارامتر Options به صورت Object است و یک سری تنظیماتی در اختیار شما قرار میدهد که در ادامه به آن تنظیمات اشاره میکنیم:
-    -   target: در صورتی که تنظیم openMode برابر با page باشد این تنظیم مشخص میکند که فرم در صفحه فعلی باز شود یا صفحه جدید. مقادیر قابل قبول:
-        -   self: صفحه فعلی
-        -   blank: صفحه جدید
-    -   openMode: مشخص میکند که فرم به چه صورتی باز شود، مقادیر قابل قبول:
-        -   popup: فرم به صورت popup باز خواهد شد.
-        -   page: فرم در تب مرورگر باز خواهد شد.
-    -   onSubmitSuccess: یک تابع میگیرد و موقعی که فرم باز شده با موفقیت ارسال شود تابع اجرا خواهد شد.
-    -   popupWidth: در صورتی که تنظیم openMode برابر با popup باشد این تنظیم مشخص میکند که عرض popup چقدر باشد.
-    -   popupHeight: در صورتی که تنظیم openMode برابر با popup باشد این تنظیم مشخص میکند که ارتفاع popup چقدر باشد.
-    -   onShowing: یک تابع میگیرد و در صورتی که تنظیم openMode برابر با popup باشد آن تابع موقع نمایش داده شدن popup اجرا خواهد شد.
-    -   onShownPopup: یک تابع میگیرد و در صورتی که تنظیم openMode برابر با popup باشد آن تابع موقعی که popup کاملا نمایش داده شد اجرا خواهد شد.
-    -   onHidden: یک تابع میگیرد و در صورتی که تنظیم openMode برابر با popup باشد آن تابع موقعی که popup بسته شد اجرا خواهد شد.
-    -   onCloseByButton: یک تابع میگیرد و موقعی که فرم باز شده با استفاده از فیلد دکمه بسته شد اجرا می شود.
-    -   anonymous: مشخص میکند که آیا فرم در حالت ناشناس باز شود یا خیر.
-    -   showMode: مشخص میکند که فرم در حالت نمایشی (فقط خواندنی) باز شود یا خیر.
-    -   queryString: به صورت رشته است و در صورتی که تنظیم openMode برابر با page باشد با استفاده از این تنظیم می‌توانید به صفحه جدید باز شده query string پاس بدهید.
-    -   params: به صورت object است و با استفاده از این تنظیم می‌توانید به فرم خود پارامتر پاس بدهید و داخل فرم با استفاده از `viewModel.getParam('param name')` به پارامتر خود دسترسی داشته باشید.
+- پارامتر FormId در واقع شناسه فرم شما را مشخص میکند.
+
+- پارامتر RecordId شناسه رکورد شما را مشخص میکند که اختیاری و به طور پیش فرض برابر با -1 است.
+
+- پارامتر Options به صورت Object است و یک سری تنظیماتی در اختیار شما قرار میدهد که در ادامه به آن تنظیمات اشاره میکنیم:
+
+target: در صورتی که تنظیم openMode برابر با page باشد این تنظیم مشخص میکند که فرم در صفحه فعلی باز شود یا صفحه جدید. مقادیر قابل قبول:
+
+self: صفحه فعلی
+
+- blank: صفحه جدید
+
+- openMode: مشخص میکند که فرم به چه صورتی باز شود، مقادیر قابل قبول:
+
+popup: فرم به صورت popup باز خواهد شد.
+
+- page: فرم در تب مرورگر باز خواهد شد.
+
+- onSubmitSuccess: یک تابع میگیرد و موقعی که فرم باز شده با موفقیت ارسال شود تابع اجرا خواهد شد.
+
+- popupWidth: در صورتی که تنظیم openMode برابر با popup باشد این تنظیم مشخص میکند که عرض popup چقدر باشد.
+
+- popupHeight: در صورتی که تنظیم openMode برابر با popup باشد این تنظیم مشخص میکند که ارتفاع popup چقدر باشد.
+
+- onShowing: یک تابع میگیرد و در صورتی که تنظیم openMode برابر با popup باشد آن تابع موقع نمایش داده شدن popup اجرا خواهد شد.
+
+- onShownPopup: یک تابع میگیرد و در صورتی که تنظیم openMode برابر با popup باشد آن تابع موقعی که popup کاملا نمایش داده شد اجرا خواهد شد.
+
+- onHidden: یک تابع میگیرد و در صورتی که تنظیم openMode برابر با popup باشد آن تابع موقعی که popup بسته شد اجرا خواهد شد.
+
+- onCloseByButton: یک تابع میگیرد و موقعی که فرم باز شده با استفاده از فیلد دکمه بسته شد اجرا می شود.
+
+- anonymous: مشخص میکند که آیا فرم در حالت ناشناس باز شود یا خیر.
+
+- showMode: مشخص میکند که فرم در حالت نمایشی (فقط خواندنی) باز شود یا خیر.
+
+- queryString: به صورت رشته است و در صورتی که تنظیم openMode برابر با page باشد با استفاده از این تنظیم می‌توانید به صفحه جدید باز شده query string پاس بدهید.
+
+- params: به صورت object است و با استفاده از این تنظیم می‌توانید به فرم خود پارامتر پاس بدهید و داخل فرم با استفاده از `viewModel.getParam('param name')` به پارامتر خود دسترسی داشته باشید.
 
 **مثال :**
 
@@ -2725,8 +2878,6 @@ absoluteMethodHelper.openForm(
 )
 ```
 
-* * *
-
 ## کار با Toast، Alert و Confirm
 
 ### نمایش Toast
@@ -2737,10 +2888,13 @@ toast.show('success', 'Hello world !');
 
 پارامتر اول نوع Toast و پارامتر دوم پیام است. نوع Toast:
 
-1.  `success`: سبز، برای حالت موفقیت‌آمیز.
-2.  `error`: قرمز، برای خطا یا پیام مهم.
-3.  `info`: آبی، برای پیام‌های اطلاعاتی.
-4.  `warning`: زرد، برای هشدار.
+- `success`: سبز، برای حالت موفقیت‌آمیز.
+
+- `error`: قرمز، برای خطا یا پیام مهم.
+
+- `info`: آبی، برای پیام‌های اطلاعاتی.
+
+- `warning`: زرد، برای هشدار.
 
 ### مدیریت خطای Provider در الگوی جاری
 
@@ -2758,7 +2912,7 @@ absoluteMethodHelper
     });
 ```
 
-**\[وابسته به نسخه/استقرار\]** در نمونه‌های قدیمی ممکن است بررسی `result.HasError` داخل `.then(...)` دیده شود. برای Helper جاری، `.catch(...)` مرجع است.
+**[وابسته به نسخه/استقرار]** در نمونه‌های قدیمی ممکن است بررسی `result.HasError` داخل `.then(...)` دیده شود. برای Helper جاری، `.catch(...)` مرجع است.
 
 ### نمایش Alert
 
@@ -2786,7 +2940,9 @@ DevExpress.ui.dialog.confirm('از حذف این داده اطمینان دار�
 
 [مستندات Dialog در DevExtreme](https://js.devexpress.com/jQuery/Documentation/ApiReference/Common/Utils/ui/dialog/)
 
-> **مرجع فنی:** `alert(message, title)` یک PromiseLike برمی‌گرداند که بعد از بستن Alert تکمیل می‌شود. `confirm(message, title)` نیز PromiseLike برمی‌گرداند و نتیجه آن Boolean است؛ همین رفتار مبنای استفاده از `.done(isOK => ...)` در نمونه‌های بالا است.
+> 
+
+**مرجع فنی:** `alert(message, title)` یک PromiseLike برمی‌گرداند که بعد از بستن Alert تکمیل می‌شود. `confirm(message, title)` نیز PromiseLike برمی‌گرداند و نتیجه آن Boolean است؛ همین رفتار مبنای استفاده از `.done(isOK => ...)` در نمونه‌های بالا است.
 
 ## برنامه‌نویسی ناهمزمان در JavaScript
 
@@ -2806,16 +2962,19 @@ DevExpress.ui.dialog.confirm('از حذف این داده اطمینان دار�
 
 ### چرا برنامه نویسی ناهمزمان مهم است؟
 
--   کارایی بهتر: اگر برنامه شما برای دریافت داده از یک سرور منتظر بماند، در این مدت هیچ کار دیگری انجام نخواهد داد. اما با برنامه نویسی ناهمزمان، برنامه می‌تواند در همین حین به انجام کارهای دیگر بپردازد.
--   رابط کاربری روان‌تر: در برنامه‌های تحت وب، اگر درخواست‌های سرور زمان زیادی ببرد، رابط کاربری برای کاربر یخ می‌زند. با ناهمزمانی، کاربر می‌تواند در حین بارگذاری داده‌ها، با سایر بخش‌های برنامه تعامل داشته باشد.
+- کارایی بهتر: اگر برنامه شما برای دریافت داده از یک سرور منتظر بماند، در این مدت هیچ کار دیگری انجام نخواهد داد. اما با برنامه نویسی ناهمزمان، برنامه می‌تواند در همین حین به انجام کارهای دیگر بپردازد.
+
+- رابط کاربری روان‌تر: در برنامه‌های تحت وب، اگر درخواست‌های سرور زمان زیادی ببرد، رابط کاربری برای کاربر یخ می‌زند. با ناهمزمانی، کاربر می‌تواند در حین بارگذاری داده‌ها، با سایر بخش‌های برنامه تعامل داشته باشد.
 
 ### چگونه ناهمزمان بودن را در JavaScript پیاده‌سازی می‌کنیم؟
 
 JavaScript روش‌های مختلفی برای پیاده‌سازی ناهمزمان بودن دارد، از جمله:
 
--   Callbacks: قدیمی‌ترین روش برای مدیریت ناهمزمان بودن است.
--   Promises: روشی مدرن‌تر و قدرتمندتر برای مدیریت ناهمزمان بودن است.
--   Async/Await: سینتکسی ساده‌تر برای کار با Promises است.
+- Callbacks: قدیمی‌ترین روش برای مدیریت ناهمزمان بودن است.
+
+- Promises: روشی مدرن‌تر و قدرتمندتر برای مدیریت ناهمزمان بودن است.
+
+- Async/Await: سینتکسی ساده‌تر برای کار با Promises است.
 
 ### برنامه نویسی ناهمزمان با استفاده از Callback function
 
@@ -2848,9 +3007,11 @@ Promise در JavaScript یک شیء است که نشان‌دهنده نتیجه
 
 یک Promise می‌تواند در سه حالت مختلف باشد:
 
--   Pending: عملیات هنوز در حال انجام است و نتیجه مشخص نیست.
--   Fulfilled: عملیات با موفقیت انجام شده و نتیجه مشخص شده است.
--   Rejected: عملیاتی با شکست مواجه شده و خطایی رخ داده است.
+- Pending: عملیات هنوز در حال انجام است و نتیجه مشخص نیست.
+
+- Fulfilled: عملیات با موفقیت انجام شده و نتیجه مشخص شده است.
+
+- Rejected: عملیاتی با شکست مواجه شده و خطایی رخ داده است.
 
 مثال:
 
@@ -2883,15 +3044,19 @@ fetchData('https://foo.bar/...')
 
 همانطور که در مثال بالا مشاهده میکنید برای استفاده از یک Promise، از متدهای then() و catch() استفاده می‌کنیم.
 
--   then(): زمانی که Promise با موفقیت انجام شد، این تابع فراخوانی می‌شود.
--   catch(): زمانی که Promise با شکست مواجه شد، این تابع فراخوانی می‌شود.
--   finally(): این تابع در هر زمانی اجرا می‌شود، چه Promise با موفق اجرا شود چه با شکست مواجه شود.
+- then(): زمانی که Promise با موفقیت انجام شد، این تابع فراخوانی می‌شود.
+
+- catch(): زمانی که Promise با شکست مواجه شد، این تابع فراخوانی می‌شود.
+
+- finally(): این تابع در هر زمانی اجرا می‌شود، چه Promise با موفق اجرا شود چه با شکست مواجه شود.
 
 ### مزایای Promise:
 
--   خوانایی بهتر: کدهای ناهمزمان را به صورت زنجیره‌ای و خواناتر می‌نویسیم.
--   مدیریت بهتر خطاها: با استفاده از catch() می‌توانیم خطاهای رخ داده را به راحتی مدیریت کنیم.
--   قابلیت ترکیب: می‌توانیم چندین Promise را با هم ترکیب کنیم.
+- خوانایی بهتر: کدهای ناهمزمان را به صورت زنجیره‌ای و خواناتر می‌نویسیم.
+
+- مدیریت بهتر خطاها: با استفاده از catch() می‌توانیم خطاهای رخ داده را به راحتی مدیریت کنیم.
+
+- قابلیت ترکیب: می‌توانیم چندین Promise را با هم ترکیب کنیم.
 
 ### Async/Await:
 
@@ -3036,7 +3201,7 @@ async function loadIndependentData() {
 }
 ```
 
-#### اجرای هم‌زمان Providerهای مستقل
+اجرای هم‌زمان Providerهای مستقل
 
 وقتی عملیات دوم به نتیجه عملیات اول وابسته است، اجرای ترتیبی با `await` خوانایی بیشتری نسبت به Promiseهای تودرتو دارد.
 
@@ -3065,7 +3230,7 @@ async function loadDependentData(viewModel) {
 }
 ```
 
-#### اجرای ترتیبی دو عملیات وابسته
+اجرای ترتیبی دو عملیات وابسته
 
 در این الگو، Hook تا مشخص‌شدن نتیجه Confirm یک Promise برمی‌گرداند و مقدار Boolean نهایی تعیین می‌کند ارسال ادامه پیدا کند یا متوقف شود.
 
@@ -3080,7 +3245,7 @@ export const beforeSubmit = async function (viewModel) {
 }
 ```
 
-#### توقف Submit تا دریافت Confirm
+توقف Submit تا دریافت Confirm
 
 ### الگوهای ناهمزمان در Custom JS GraphBPMS
 
@@ -3123,7 +3288,7 @@ public class FormScript :BaseFormScript
 
 ### متدهای اسکریپت سمت سرور
 
-#### `PreLoad`
+`PreLoad`
 
 قبل از باز شدن فرم اجرا می‌شود و در آن می‌توانید به Query String، شناسه کاربر و شناسه نقش دسترسی داشته باشید.
 
@@ -3136,7 +3301,7 @@ public override ResponseModel PreLoad()
 }
 ```
 
-#### `BeforeSave`
+`BeforeSave`
 
 قبل از ارسال داده‌های فرم به Server و ذخیره آن‌ها فراخوانی می‌شود. در این متد می‌توانید به داده‌های فرم و مقدار فیلدها دسترسی داشته باشید.
 
@@ -3149,7 +3314,7 @@ public override ResponseModel BeforeSave()
 }
 ```
 
-#### `AfterSave`
+`AfterSave`
 
 زمانی اجرا می‌شود که فرم با موفقیت ثبت شود.
 
@@ -3162,7 +3327,7 @@ public override ResponseModel AfterSave()
 }
 ```
 
-#### `BeforeDelete`
+`BeforeDelete`
 
 قبل از حذف رکورد فرم اجرا می‌شود.
 
@@ -3174,7 +3339,7 @@ public override ResponseModel BeforeDelete()
 }
 ```
 
-#### `AfterDelete`
+`AfterDelete`
 
 پس از حذف رکورد فرم اجرا می‌شود.
 
@@ -3188,69 +3353,71 @@ public override ResponseModel AfterDelete()
 
 ### دسترسی به داده‌های فرم در اسکریپت سمت سرور
 
-#### تنظیم شناسه رکورد پیش‌فرض فرم
+تنظیم شناسه رکورد پیش‌فرض فرم
 
 ```
 Functions["SetRecordId"].DynamicInvoke(value);
 // value برابر است با مقدار شناسه رکورد فرم 
 ```
 
-> اگر برای فرم شناسه رکورد پیش‌فرض تنظیم کرده باشید، فرم در حالت ویرایش باز می‌شود.
+> 
 
-#### دریافت شناسه کاربر
+اگر برای فرم شناسه رکورد پیش‌فرض تنظیم کرده باشید، فرم در حالت ویرایش باز می‌شود.
+
+دریافت شناسه کاربر
 
 ```
 var userid = (int)Functions["GetUserID"].DynamicInvoke();
 ```
 
-#### دریافت شناسه نقش
+دریافت شناسه نقش
 
 ```
 var roleid = (int)Functions["GetRoleID"].DynamicInvoke();
 ```
 
-#### دریافت شناسه سازمان
+دریافت شناسه سازمان
 
 ```
 var OrganizationID = (int)Functions["GetOrganizationID"].DynamicInvoke();
 ```
 
-#### دریافت شناسه فرم
+دریافت شناسه فرم
 
 ```
 var formid = (int)Functions["GetFormId"].DynamicInvoke();
 ```
 
-#### دریافت شناسه رکورد فرم
+دریافت شناسه رکورد فرم
 
 ```
 var recordid = (int)Functions["GetRecordId"].DynamicInvoke();
 ```
 
-#### دریافت Query String
+دریافت Query String
 
 ```
 string value = (string)Functions["GetQueryString"].DynamicInvoke("key"); 
 // در این مثال کلید برابر با key  و مقدار برابر با value  می باشد
 ```
 
-#### دریافت اطلاعات Task
+دریافت اطلاعات Task
 
 ```
 var task = (dynamic)Functions["GetTask"].DynamicInvoke();
 var taskFormTitle = (string)task.FormTitle; // عنوان Task
 ```
 
-**\[نیازمند تأیید فنی\]** مسیر دقیق دریافت شناسه Task در Build مقصد باید تأیید شود. از `task.FormTitle` فقط برای عنوان Task استفاده کنید و آن را مسیر Task ID در نظر نگیرید.
+**[نیازمند تأیید فنی]** مسیر دقیق دریافت شناسه Task در Build مقصد باید تأیید شود. از `task.FormTitle` فقط برای عنوان Task استفاده کنید و آن را مسیر Task ID در نظر نگیرید.
 
-#### دریافت مقدار پیش‌فرض فیلد در فرم
+دریافت مقدار پیش‌فرض فیلد در فرم
 
 ```
 var FormData = (JObject)Functions["GetFormData"].DynamicInvoke();
 var value  = (string)FormData["TextField"]; // TextField نام فیلد در پایگاه داده
 ```
 
-#### تغییر مقدار پیش‌فرض فیلد در فرم
+تغییر مقدار پیش‌فرض فیلد در فرم
 
 ```
 var form = (dynamic)Functions["GetForm"].DynamicInvoke();
@@ -3259,14 +3426,14 @@ form["TextField"].TextSetting.DefaultValue = "hello"; //TextField نام فیل�
 
 ### تنظیمات فیلدهای فرم در C# Script
 
-#### اجباری کردن فیلد
+اجباری کردن فیلد
 
 ```
 var form = (dynamic)Functions["GetForm"].DynamicInvoke();
 form["TextField"].Validation.Required = true;
 ```
 
-#### فقط‌خواندنی کردن فیلد
+فقط‌خواندنی کردن فیلد
 
 ```
 var form = (dynamic)Functions["GetForm"].DynamicInvoke();
@@ -3299,8 +3466,9 @@ ProcessParameters.Add("KeepContinue","false");
 var re = Functions["RunProcess"].DynamicInvoke(ProcessParameters);
 ```
 
--   اگر از `ProcessGroup` استفاده کرده‌اید، استفاده از `Process` لازم نیست.
--   برای شروع از نوع Message، در توضیح این بخش مقدار `50002` برای `RunType` ذکر شده است، در حالی که نمونه کد مقدار `500002` دارد. این دو مقدار متفاوت‌اند و پیش از استفاده باید مقدار صحیح برای نسخه سامانه تأیید شود.
+- اگر از `ProcessGroup` استفاده کرده‌اید، استفاده از `Process` لازم نیست.
+
+- برای شروع از نوع Message، در توضیح این بخش مقدار `50002` برای `RunType` ذکر شده است، در حالی که نمونه کد مقدار `500002` دارد. این دو مقدار متفاوت‌اند و پیش از استفاده باید مقدار صحیح برای نسخه سامانه تأیید شود.
 
 ## پیوست — فایل نمونه کامل Custom JS در استدیو فرم ساز
 
@@ -3668,11 +3836,9 @@ export const onBuildActions = function (container, options) {
             // نمونه کد تازه سازی منبع داده گرید صفحه
             //gridInstance.getDataSource().reload();
 
-
             // نمونه کد استفاده از داده های رکوردی که اکشن آن کلیک شده
             // alert(record['کد']);
             // توجه: برای استفاده از داده های رکورد باید از اسم لیبل آن استفاده کنید
-
 
             // نمونه کد استفاده از ذلذه های رکورد با استفاده از Index:
             // alert(Object.values(record)[0]);
@@ -3824,5 +3990,573 @@ export const onBeforeDelete = function (container, options) {
     const record = options.data;// دسترسی به دیتای رکورد فعلی
 
     return true
+}
+```
+
+## متدهای نقشه در viewModel: لایه‌ها و عملیات هندسی
+
+فیلد نقشه (GIS/Map) در فرم‌ساز GraphBPMS یکی از کنترل‌های پیشرفته در فرایندهای مکان‌محور است. هر عارضه، محدوده یا شکلی که روی نقشه رسم می‌شود (نقطه، دایره، خط یا چندضلعی) به‌عنوان یک **لایه (Layer)** مدیریت می‌شود. با متدهای اختصاصی موجود روی `viewModel` (یا `this` در اسکریپت فرم) می‌توانید پردازش‌های فضایی مانند ایجاد حریم (بافر)، اشتراک، تفاضل و اجتماع لایه‌ها را پیاده‌سازی کنید و نمایش مقادیر هندسی را کنترل کنید.
+
+برای آشنایی با ساختار داده GeoJSON، تشخیص تغییر مقدار نقشه و دریافت Instance کتابخانه Leaflet، به بخش [الگوهای اختصاصی فیلدهای پیچیده در فرم ساز GraphBPMS](#complex-fields) مراجعه کنید.
+
+ 
+
+### مفاهیم لایه‌ها و پارامترهای ورودی متدها
+
+برای فراخوانی هر متد روی نقشه، باید نام فیلد نقشه و شناسه لایه‌ای که در تنظیمات فیلد تعریف شده است را بدانید. در همه نمونه‌کدهای این بخش فرض شده نام فیلد نقشه `mapField` است و فراخوانی‌ها از طریق `viewModel` انجام می‌شوند.
+
+پارامتر ورودی
+نوع داده
+مفهوم و راهنمای تنظیم
+
+`fieldName`
+String
+نام یکتای فیلد نقشه در فرم؛ مانند `"mapField"`.
+
+`fieldParentName`
+String | null
+اگر فیلد در فرم اصلی است مقدار `null` بگذارید. اگر داخل SubForm است، نام همان SubForm (مانند `"details"`) را قرار دهید.
+
+`layerId`
+String
+شناسه لایه‌ای که در تنظیمات فیلد نقشه برای آن تعریف شده است (مثال: `"pointLayer"`).
+
+`layerId1` / `layerId2`
+String
+شناسه دو لایه‌ای که قصد مقایسه، ترکیب یا بررسی تداخل آن‌ها را دارید.
+
+`radiusInMeters`
+Number
+شعاع دایره بر حسب متر (مثال: `100` به معنی شعاع 100 متر).
+
+`keepPreviousLayers`
+Boolean
+تعیین وضعیت لایه‌های اولیه پس از عملیات هندسی؛ `true` یعنی لایه‌های اصلی حفظ شوند و `false` یعنی لایه‌های مبنا حذف شوند و فقط لایه نتیجه باقی بماند.
+
+**نمونه تنظیم در SubForm:** اگر فیلد نقشه در SubFormی به نام `details` قرار داشته باشد، پارامتر دوم را به‌جای `null` به‌صورت `"details"` پاس دهید.
+
+ 
+
+### انتخاب متد نقشه بر اساس سناریو
+
+جدول زیر بر اساس نیاز شما، نام دقیق متد را مشخص می‌کند:
+
+نیازمندی یا عملیات مورد نظر
+نام متد در viewModel
+نوع خروجی / اثر روی نقشه
+
+تبدیل یک عارضه نقطه‌ای به محدوده دایره‌ای با شعاع مشخص
+`convertPointLayerToCircleLayer`
+جایگزینی لایه نقطه با لایه دایره
+
+محاسبه بخش مشترک و همپوشان دو لایه (اشتراک هندسی)
+`intersectLayers`
+تولید لایه حاصل از تقاطع
+
+کم کردن محدوده لایه دوم از لایه اول (تفاضل هندسی)
+`differenceLayers`
+تولید بخش‌های لایه اول منهای دوم
+
+یکپارچه‌سازی و ترکیب دو محدوده در یک لایه واحد (اجتماع هندسی)
+`unionLayers`
+تولید لایه یکپارچه ترکیبی
+
+حذف کامل یک لایه از صفحه نقشه
+`removeLayer`
+پاک شدن لایه از حافظه و نقشه
+
+بررسی وجود همپوشانی فیزیکی بین دو لایه
+`areTwoLayersOverlap`
+Boolean (`true` / `false`)
+
+روشن/خاموش کردن نمایش فواصل، ابعاد، مساحت یا نزدیک‌ترین عارضه
+`toggle...` (6 متد)
+تغییر وضعیت بصری المان‌های کمکی
+
+ 
+
+### تبدیل لایه نقطه‌ای به دایره (ایجاد بافر محدوده)
+
+اگر بخواهید به‌جای یک نقطه ثبت‌شده روی نقشه، محدوده‌ای با شعاع معین بر حسب متر نمایش داده شود (مثلاً حریم امنیتی 100 متری)، از این متد استفاده کنید:
+
+```
+// تبدیل لایه pointLayer در فیلد mapField به دایره‌ای با شعاع 100 متر
+viewModel.convertPointLayerToCircleLayer(
+    "mapField",      // نام فیلد نقشه
+    null,            // فیلد در فرم اصلی است
+    "pointLayer",    // شناسه لایه نقطه‌ای
+    100              // شعاع بر حسب متر
+);
+```
+
+**نکته فنی:** متد `convertPointLayerToCircleLayer` منحصراً برای لایه‌های از جنس نقطه (Point) طراحی شده است و نتیجه بلافاصله جایگزین لایه قبلی می‌شود.
+
+ 
+
+### عملیات هندسی دو لایه (اشتراک، تفاضل، اجتماع)
+
+سه متد این بخش دو لایه مجزا را به‌عنوان ورودی دریافت می‌کنند و بر اساس نظریه مجموعه‌ها لایه جدیدی تولید می‌کنند:
+
+عملیات هندسی
+مفهوم خروجی
+
+اشتراک (`intersect`)
+منحصراً محدوده مشترک بین لایه A و لایه B باقی می‌ماند.
+
+تفاضل (`difference`)
+بخش‌هایی از لایه A که درون لایه B قرار ندارند باقی می‌ماند (A - B).
+
+اجتماع (`union`)
+مجموع مساحت‌های پوشش‌داده‌شده توسط A و B یکپارچه می‌شود.
+
+رفتار پارامتر `keepPreviousLayers` در هر سه عملیات یکسان است: اگر `true` باشد، لایه‌های ورودی حذف نمی‌شوند و لایه جدید به آن‌ها اضافه می‌شود؛ اگر `false` باشد، لایه‌های ورودی حذف می‌شوند و لایه حاصل جایگزین آن‌ها می‌شود.
+
+ 
+اشتراک دو لایه: `intersectLayers`
+
+```
+viewModel.intersectLayers(
+    "mapField", null, "layer1", "layer2", true
+);
+```
+
+ 
+تفاضل دو لایه: `differenceLayers`
+
+```
+viewModel.differenceLayers(
+    "mapField", null, "layer1", "layer2", false
+);
+```
+
+**اهمیت ترتیب لایه‌ها در تفاضل:** عملیات تفاضل خاصیت جابه‌جایی ندارد؛ عبارت `layer1` منهای `layer2` کاملاً با `layer2` منهای `layer1` متفاوت است. لایه مبنایی که می‌خواهید بخش‌های مازاد آن کسر شود را همیشه در پارامتر اول (`layerId1`) قرار دهید.
+
+ 
+اجتماع دو لایه: `unionLayers`
+
+```
+viewModel.unionLayers(
+    "mapField", null, "layer1", "layer2", true
+);
+```
+
+ 
+
+### حذف لایه و بررسی همپوشانی
+
+حذف یک لایه مشخص از نقشه: `removeLayer`
+
+اگر لازم باشد لایه‌ای پس از اتمام پردازش یا انتخاب گزینه‌ای خاص توسط کاربر از روی نقشه برداشته شود:
+
+```
+viewModel.removeLayer("mapField", null, "layer1");
+```
+
+**شناسه لایه در برابر GUID:** برای حذف یا ارجاع به لایه، فقط نام یا شناسه تعریف‌شده در تنظیمات فیلد نقشه (`layerId`) را وارد کنید؛ نیازی به استخراج GUID داخلی عارضه نیست.
+
+ 
+بررسی تداخل و همپوشانی دو لایه: `areTwoLayersOverlap`
+
+این متد بررسی می‌کند که آیا دو لایه بخش مشترک، تصادم یا همپوشانی دارند یا خیر. خروجی آن مقدار Boolean است (`true` / `false`) و برای شروط اعتبارسنجی (Validation) فرم بسیار کاربردی است:
+
+```
+const overlaps = viewModel.areTwoLayersOverlap(
+    "mapField", null, "layer1", "layer2"
+);
+ 
+if (overlaps) {
+    alert("خطا: محدوده انتخاب‌شده با لایه ممنوعه همپوشانی دارد!");
+}
+```
+
+ 
+
+### متدهای تغییر وضعیت نمایش اطلاعات (Toggle)
+
+نام متدهای این گروه با پیشوند `toggle` شروع می‌شود و عملکرد آن‌ها سوئیچی (روشن/خاموش) است؛ با اولین اجرا مقدار روی نقشه نمایش داده می‌شود و با اجرای مجدد پنهان می‌گردد.
+
+متد
+کاربرد
+
+`toggleDistanceForLayers`
+نمایش فاصله بین دو لایه
+
+`toggleNearestForLayer`
+نمایش نزدیک‌ترین لایه
+
+`toggleShowAreaForLayer`
+نمایش مساحت لایه (Area)
+
+`toggleShowRadiusForLayer`
+نمایش شعاع لایه دایره‌ای
+
+`toggleShowCircleCenterCoordinates`
+نمایش مختصات مرکز دایره
+
+`toggleShowLengthForLayer`
+نمایش طول لایه خطی
+
+```
+// نمایش فاصله بین دو لایه
+viewModel.toggleDistanceForLayers("mapField", null, "layer1", "layer2");
+ 
+// نمایش نزدیک‌ترین لایه
+viewModel.toggleNearestForLayer("mapField", null, "point2");
+ 
+// نمایش مساحت لایه
+viewModel.toggleShowAreaForLayer("mapField", null, "circleLayer");
+ 
+// نمایش شعاع لایه دایره‌ای
+viewModel.toggleShowRadiusForLayer("mapField", null, "circleLayer");
+ 
+// نمایش مختصات مرکز دایره
+viewModel.toggleShowCircleCenterCoordinates("mapField", null, "circleLayer");
+ 
+// نمایش طول لایه خطی
+viewModel.toggleShowLengthForLayer("mapField", null, "lineLayer");
+```
+
+ 
+
+### عیب‌یابی متدهای نقشه در زمان اجرا
+
+اگر در Console خطا دیدید یا دستورها اجرا نشدند، موارد زیر را به ترتیب بررسی کنید:
+
+مورد کنترلی
+علت احتمالی
+راهکار اصلاحی
+
+نام فیلد نقشه
+فیلد با نام داده‌شده یافت نمی‌شود.
+مطمئن شوید مقدار `fieldName` دقیقاً و با رعایت حروف کوچک و بزرگ با نام فیلد در فرم‌ساز یکسان است.
+
+محل فیلد (والد)
+خطای ارجاع به فیلدهای درون SubForm.
+در فرم اصلی مقدار `fieldParentName` را حتماً `null` بگذارید؛ در صورت قرارگیری در SubForm، نام دقیق آن را به‌صورت رشته درج کنید.
+
+شناسه لایه (`layerId`)
+لایه مورد نظر در کامپوننت نقشه ثبت نشده است.
+بررسی کنید شناسه واردشده دقیقاً در تنظیمات لایه‌های فیلد نقشه ایجاد شده باشد.
+
+نوع و ورودی عملیات
+ناهماهنگی نوع لایه با عملیات درخواستی.
+برای تبدیل به دایره، لایه باید حتماً Point باشد. در متد تفاضل، ترتیب لایه مبنا و لایه کسرشونده را بازبینی کنید.
+
+ناپدید شدن لایه‌ها
+حذف ناخواسته لایه‌های قبلی یا خاموش شدن نمایش.
+در متدهای ترکیب هندسی، مقدار `keepPreviousLayers` را کنترل کنید (`true` بگذارید). در متدهای `toggle`، اجرای مکرر وضعیت را خاموش می‌کند.
+
+ 
+
+### نکات کلیدی
+
+- برای شناسایی فیلد نقشه از **fieldName** و برای مشخص کردن لایه‌ها از **layerId** استفاده کنید.
+
+- در فرم اصلی، همیشه **fieldParentName** برابر `null` است.
+
+- در عملیات تفاضل هندسی (`differenceLayers`)، ترتیب لایه اول و دوم نتیجه را کاملاً تغییر می‌دهد.
+
+- برای حفظ لایه‌های اولیه پس از عملیات هندسی، مقدار **keepPreviousLayers** را برابر `true` قرار دهید.
+
+- همه متدهای با پیشوند **toggle** عملکرد سوئیچی (نمایش / عدم نمایش) دارند.
+
+ 
+
+## متدهای اطلاع‌رسانی در absoluteMethodHelper
+
+در فرم‌های سازمانی GraphBPMS، اطلاع‌رسانی به‌موقع به کاربران نقش مهمی در تسریع گردش کار و پاسخ‌دهی به رخدادها دارد. `absoluteMethodHelper` در محیط **Custom JS** مجموعه‌ای از متدهای ناهمزمان (Asynchronous) فراهم می‌کند که با کمترین کدنویسی امکان ارسال اعلان زنگوله پورتال و وب‌پوش (Web Push) را به یک کاربر مشخص، تمام کاربران دارای یک نقش، یا فهرستی ترکیبی از مخاطبان می‌دهد.
+
+این متدها همان الگوی Promise و `async/await` را دارند که در بخش [برنامه‌نویسی ناهمزمان در JavaScript](#async-js) توضیح داده شد.
+
+ 
+
+### مفاهیم پایه: رویه‌ها و گروه‌های اطلاع‌رسانی
+
+پیش از فراخوانی متدها، دو مفهوم کلیدی را در هسته اطلاع‌رسانی GraphBPMS بشناسید.
+
+ 
+رویه اطلاع‌رسانی (Notification Procedure)
+
+رویه، کانال انتقال پیام به گیرنده را مشخص می‌کند. دو رویه سیستمی به‌صورت پیش‌فرض و با شناسه‌های ثابت در پلتفرم وجود دارد:
+
+رویه اطلاع‌رسانی
+شناسه ثابت (ID)
+محل و نحوه نمایش به کاربر
+
+Portal
+`1`
+در بخش آیکون زنگوله بالای پورتال وب (اعلان‌های درون‌برنامه‌ای کاربر).
+
+OS
+`2`
+اعلان سیستمی روی دسکتاپ یا دستگاه کاربر از طریق فناوری Web Push مرورگر.
+
+ 
+گروه اطلاع‌رسانی (NotificationGroupId)
+
+در پنل مدیریت GraphBPMS، بخش «گروه‌های اطلاع‌رسانی» امکان دسته‌بندی موضوعی پیام‌ها (مانند پیام‌های مالی، اعلان‌های فرایندی و هشدارهای امنیتی) را فراهم می‌کند. اگر به تفکیک یا فیلترینگ پیام‌ها نیاز دارید، شناسه عددی گروه موردنظر را در ویژگی `NotificationGroupId` قرار دهید.
+
+**نکته:** تنظیم `NotificationGroupId` اختیاری است. اگر آن را ارسال نکنید، سامانه به‌طور خودکار گروه پیش‌فرض پورتال را در نظر می‌گیرد.
+
+ 
+
+### انتخاب متد اطلاع‌رسانی بر اساس سناریو
+
+با توجه به مقصد پیام، کانال و تعداد مخاطبان، متد مناسب را از جدول زیر انتخاب کنید:
+
+هدف و سناریوی اجرایی
+کانال ارسال
+متد در absoluteMethodHelper
+
+ارسال هم‌زمان به چند کاربر یا چند رویه مختلف با تنظیمات تفکیک‌شده
+ترکیبی (Portal و OS)
+`sendNotifications`
+
+اعلان زنگوله پورتال به یک کاربر مشخص
+Portal (شناسه 1)
+`sendNotificationsByPortalProcedure`
+
+اعلان زنگوله پورتال به تمام اعضای دارای یک نقش سازمانی
+Portal (شناسه 1)
+`sendNotificationsByPortalProcedureBasedOnRole`
+
+وب‌پوش روی سیستم‌عامل دسکتاپ به یک کاربر مشخص
+OS / Web Push (شناسه 2)
+`sendNotificationsByOSProcedure`
+
+وب‌پوش روی سیستم‌عامل دسکتاپ به تمام اعضای یک نقش سازمانی
+OS / Web Push (شناسه 2)
+`sendNotificationsByOSProcedureBasedOnRole`
+
+ 
+
+### مرجع پارامترهای ورودی متدها
+
+همه متدها ورودی خود را در قالب یک Object پیکربندی (Options Object) دریافت می‌کنند. ویژگی‌های مشترک در جدول زیر آمده است:
+
+ویژگی (Property)
+نوع داده
+توضیحات و مثال
+
+`subject`
+String
+عنوان اعلان؛ مثال: `"پیام جدید"` یا `"اطلاعیه واحد مالی"`.
+
+`body`
+String
+متن اصلی پیام که به کاربر نمایش داده می‌شود.
+
+`url`
+String
+آدرس مقصد هنگام کلیک کاربر روی اعلان (می‌تواند لینک پویا به رکورد فرم یا داشبورد باشد).
+
+`recipientUserId`
+Number
+شناسه عددی کاربر گیرنده پیام در سیستم (مانند `101`).
+
+`recipientRoleId`
+Number
+شناسه عددی نقش کاربری سازمانی (مانند `12`) برای ارسال همگانی به اعضای آن نقش.
+
+`icon`
+String
+آدرس URL مستقیم تصویر نمایه اعلان (PNG / JPG / SVG).
+
+`sendTo`
+Array
+آرایه‌ای از گیرندگان و کانال‌ها، منحصراً در متد `sendNotifications`.
+
+`NotificationGroupId`
+Number
+شناسه عددی گروه اطلاع‌رسانی (اختیاری؛ پیش‌فرض: گروه سیستمی پورتال).
+
+**دسترسی به absoluteMethodHelper:** شیء `absoluteMethodHelper` یک Object سراسری در محدوده اجرای Custom JS فرم‌ها و فرایندهای GraphBPMS است و نیازی به تعریف مجدد ندارد.
+
+ 
+
+### متد چندگانه `sendNotifications` و ساختار `sendTo`
+
+انعطاف‌پذیرترین متد اطلاع‌رسانی پلتفرم `sendNotifications` است. این متد عنوان، متن و آدرس مشترک را دریافت می‌کند و از طریق آرایه `sendTo` تعیین می‌کند چه گیرندگانی از چه کانال‌هایی پیام را دریافت کنند.
+
+ساختار هر آیتم در آرایه `sendTo`:
+
+- **`procedureId`**: کد رویه (عدد `1` برای Portal، عدد `2` برای OS).
+
+- **`parameters`**: شامل `RecipientUserId` (یا `RecipientRoleId`)، `Icon` و `NotificationGroupId`.
+
+مثال: ارسال هم‌زمان اعلان Portal و OS به دو کاربر با شناسه‌های 101 و 102 در گروه اطلاع‌رسانی 6:
+
+```
+const result = await absoluteMethodHelper.sendNotifications({
+    subject: "پیام جدید",
+    body: "دیدگاه جدیدی برای شما ثبت شده است.",
+    url: "/Dashboard",
+    sendTo: [
+        {
+            procedureId: 1, // رویه Portal (زنگوله)
+            parameters: {
+                RecipientRoleId: "",
+                RecipientUserId: 101,
+                Icon: "https://example.com/icon.png",
+                NotificationGroupId: 6
+            }
+        },
+        {
+            procedureId: 2, // رویه OS (وب‌پوش)
+            parameters: {
+                RecipientRoleId: "",
+                RecipientUserId: 101,
+                Icon: "https://example.com/icon.png",
+                NotificationGroupId: 6
+            }
+        },
+        {
+            procedureId: 1,
+            parameters: {
+                RecipientRoleId: "",
+                RecipientUserId: 102,
+                Icon: "https://example.com/icon.png",
+                NotificationGroupId: 6
+            }
+        },
+        {
+            procedureId: 2,
+            parameters: {
+                RecipientRoleId: "",
+                RecipientUserId: 102,
+                Icon: "https://example.com/icon.png",
+                NotificationGroupId: 6
+            }
+        }
+    ]
+});
+```
+
+ 
+
+### اعلان زنگوله پورتال (کاربر و نقش)
+
+اگر فقط می‌خواهید اعلان را در زنگوله پورتال نمایش دهید، به آرایه `sendTo` نیازی ندارید و متدهای اختصاصی زیر خلاصه‌تر هستند.
+
+ 
+ارسال به یک کاربر مشخص: `sendNotificationsByPortalProcedure`
+
+```
+await absoluteMethodHelper.sendNotificationsByPortalProcedure({
+    subject: "پیام جدید",
+    body: "دیدگاه تازه‌ای برای شما ثبت شده است.",
+    url: "/Dashboard",
+    recipientUserId: 101,
+    icon: "https://example.com/notification.png"
+});
+```
+
+ 
+ارسال به تمام کاربران یک نقش: `sendNotificationsByPortalProcedureBasedOnRole`
+
+```
+await absoluteMethodHelper.sendNotificationsByPortalProcedureBasedOnRole({
+    subject: "اطلاعیه واحد",
+    body: "یک اطلاعیه جدید برای نقش شما در سامانه ثبت شده است.",
+    url: "/Dashboard",
+    recipientRoleId: 12, // ارسال هم‌زمان برای همه دارندگان نقش 12
+    icon: "https://example.com/notification.png"
+});
+```
+
+ 
+
+### اعلان وب‌پوش OS (کاربر و نقش)
+
+این متدها پیام را مستقیماً از طریق سرویس وب‌پوش مرورگر روی دسکتاپ کاربر (Desktop Notification) ارسال می‌کنند؛ حتی اگر پنجره پورتال فعال نباشد.
+
+ 
+وب‌پوش به یک کاربر مشخص: `sendNotificationsByOSProcedure`
+
+```
+await absoluteMethodHelper.sendNotificationsByOSProcedure({
+    subject: "یادآوری مهم",
+    body: "یک پیام جدید برای شما ثبت شده است.",
+    url: "/Dashboard",
+    recipientUserId: 101,
+    icon: "https://example.com/notification.png"
+});
+```
+
+ 
+وب‌پوش به تمام کاربران یک نقش: `sendNotificationsByOSProcedureBasedOnRole`
+
+```
+await absoluteMethodHelper.sendNotificationsByOSProcedureBasedOnRole({
+    subject: "اطلاعیه فوری نقش",
+    body: "یک کارتابل گروهی جدید به نقش شما ارجاع گردید.",
+    url: "/Dashboard",
+    recipientRoleId: 12,
+    icon: "https://example.com/notification.png"
+});
+```
+
+ 
+
+### سناریوی عملیاتی: اعلان ثبت دیدگاه در تسک
+
+**صورت مسئله:** وقتی کاربر در یک فرم فرایندی دیدگاهی ثبت می‌کند، می‌خواهیم برای مسئول تسک اعلان زنگوله‌ای ارسال شود که شماره تسک، موضوع فرایند، نام ثبت‌کننده و یک لینک مستقیم به همان رکورد فرم را داشته باشد.
+
+```
+// استخراج داده‌ها از viewModel فرم جاری
+const recipientUserId = 101; // شناسه مسئول تسک
+const taskNumber = viewModel.data().FK_ProcessCreationID();
+const taskTitle = viewModel.data().ImplementationTitle();
+const recordId = viewModel.data().Id();
+ 
+// ساخت پیام سفارشی
+const message = "دیدگاهی برای شما در تسک شماره " + taskNumber +
+                " با موضوع " + taskTitle +
+                " توسط کاربر " + userFullName + " ثبت شد.";
+ 
+// ایجاد URL جهت باز شدن فرم در حالت فقط‌خواندنی بدون مودال
+const formLink = "/DynamicForm/IndexModalMode?isModal=false" +
+                 "&formId=" + viewModel.gbFormId +
+                 "&recId=" + recordId +
+                 "&isReadOnly=true";
+ 
+// ارسال اعلان زنگوله پورتال به مسئول
+await absoluteMethodHelper.sendNotificationsByPortalProcedure({
+    subject: "پیام جدید",
+    body: message,
+    url: formLink,
+    recipientUserId: recipientUserId,
+    icon: "https://example.com/icon.png"
+});
+```
+
+**عدم وجود NotificationGroupId در متدهای اختصاصی:** چهار متد اختصاصی (`ByPortal...` و `ByOS...`) پارامتر مجزای `NotificationGroupId` ندارند. اگر لازم است گروه اعلان را به‌صورت صریح تعیین کنید، از متد پایه `sendNotifications` همراه با ساختار `sendTo` استفاده کنید.
+
+ 
+
+### مدیریت اجرای ناهمزمان و کنترل خطا
+
+همه متدهای اطلاع‌رسانی عملیات ارسال را به‌صورت ناهمزمان به وب‌سرویس پورتال انجام می‌دهند؛ بنابراین:
+
+- فراخوانی متدها باید همواره با کلمه کلیدی `await` و داخل تابعی با علامت `async` انجام شود.
+
+- کد وضعیت **HTTP 200** در پاسخ سرور به معنای پذیرش و تحویل اعلان به صف ارسال است.
+
+- متد `sendNotifications` Object پاسخ سرور را برمی‌گرداند؛ اما چهار متد اختصاصی در حالت موفقیت مقداری برنمی‌گردانند (`void`).
+
+- به‌دلیل وابستگی به شبکه و پاسخ سرور، کد خود را حتماً در بلوک `try ... catch` قرار دهید:
+
+```
+try {
+    await absoluteMethodHelper.sendNotificationsByPortalProcedure({
+        subject: "یادآوری",
+        body: "برای شما اعلان جدیدی ثبت شده است.",
+        url: "/Dashboard",
+        recipientUserId: 101,
+        icon: "https://example.com/icon.png"
+    });
+    console.log("اعلان با موفقیت ارسال شد.");
+} catch (error) {
+    console.error("خطا در فراخوانی سرویس اعلان:", error);
 }
 ```

@@ -5,17 +5,16 @@ englishTitle: "Message Intermediate Event API"
 category: "06-services/process-execution"
 wikiPath: "158"
 wikiUrl: "https://wiki.graphbpms.ir/158"
-breadcrumbs: ["سرویس های عمومی گراف","ContinueProcessWithMessage"]
+breadcrumbs: ["ContinueProcessWithMessage"]
 priority: 4
-language: 1
 isCanonical: true
-updatedAt: "2026-10-04T11:25:48"
+updatedAt: "2026-10-25T21:33:55"
 ---
 
 # ContinueProcessWithMessage
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `سرویس های عمومی گراف` ❯ `ContinueProcessWithMessage`  
+> 🧭 **سلسلهمراتب موضوعی:** `ContinueProcessWithMessage`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/158](https://wiki.graphbpms.ir/158)
 
 # سرویس ادامه فرایند با Message (ContinueProcessWithMessage)
@@ -26,12 +25,35 @@ updatedAt: "2026-10-04T11:25:48"
 
 ## مقادیر ورودی
 
-| توضیحات | Position | Allow null | Parameter type | Parameter name |
-| --- | --- | --- | --- | --- |
-| توکن احراز هویت | Header | False | String | `privateToken` |
-| شناسه اجرایی فرآیند که متوقف شده است. | Body | False | Number | `processCreationID` |
-| شناسه مرحله ای که فرآیند در آن مرحله متوقف شده است. | Body | False | Number | `stepID` |
-| در صورتی که نیاز به ارسال مقادیری به فرآیند دارید از این ورودی می توانید استفاده کنید. | Body | true | Array = \[{name: string, value: string}\] | `Variables` |
+توضیحات
+Position
+Allow null
+Parameter type
+Parameter name
+
+توکن احراز هویت
+Header
+False
+String
+`privateToken`
+
+شناسه اجرایی فرآیند که متوقف شده است.
+Body
+False
+Number
+`processCreationID`
+
+شناسه مرحله ای که فرآیند در آن مرحله متوقف شده است.
+Body
+False
+Number
+`stepID`
+
+در صورتی که نیاز به ارسال مقادیری به فرآیند دارید از این ورودی می توانید استفاده کنید.
+Body
+true
+Array = [{name: string, value: string}]
+`Variables`
 
 **نمونه روش مقدار دهی Variables:**
 
@@ -48,30 +70,43 @@ updatedAt: "2026-10-04T11:25:48"
 
 ## مقادیر خروجی
 
-| توضیحات | Nullable | Result property type | Result property name |
-| --- | --- | --- | --- |
-| نتیجه عملیات و داده های خروجی در این بخش قرار میگیرد. | True | 
-Object = {  
-ReferenceState: number,  
-ReferenceStateMessage: string  
+توضیحات
+Nullable
+Result property type
+Result property name
+
+نتیجه عملیات و داده های خروجی در این بخش قرار میگیرد.
+True
+
+Object = {
+  ReferenceState: number,
+  ReferenceStateMessage: string
 }
 
- | `Content` |
-| کد خطای متناظر، در صورتی که -1 باشد عملیات به درستی انجام شده است. | True | Number | `ErrorCode` |
-| در صورتی که عملیات ورود با خطا مواجه شود مقدار این خروجی true می شود. | False | Boolean | `HasError` |
-| نتیجه موفقیت یا عدم موفقیت عملیات ورود در این خروجی قرار می گیرد. | True | String | `Message` |
-| در صورت بروز خطا متن خطا در این بخش قرار میگیرد. | True | String | `MessageException` |
+`Content`
+
+کد خطای متناظر، در صورتی که -1 باشد عملیات به درستی انجام شده است.
+True
+Number
+`ErrorCode`
+
+در صورتی که عملیات ورود با خطا مواجه شود مقدار این خروجی true می شود.
+False
+Boolean
+`HasError`
+
+نتیجه موفقیت یا عدم موفقیت عملیات ورود در این خروجی قرار می گیرد.
+True
+String
+`Message`
+
+در صورت بروز خطا متن خطا در این بخش قرار میگیرد.
+True
+String
+`MessageException`
 
 > [!NOTE]
-> **نکته**
-> 
-> خروجی ReferenceState یکی از گزینه های زیر است:
-> 
-> 1.  `IsFired = 500090` فرآیند قبلا ادامه یافته است و امکان ادامه آن براساس اطلاعات ارسالی وجود ندارد.
-> 2.  `IsNotExist = 500091` فرآیندی جهت ادامه براساس اطلاعات ارسالی وجود ندارد.
-> 3.  `IsNotFired = 500092` (مخفی شده است، قابل استفاده نیست)
-> 4.  `IsExceptionMode = 500093` خطایی در ادامه فرآیند رخ داده است. متن خطا در بخش Message Exception درج شده است.
-> 5.  `IsFiredSuccessfully = 500094` فرآیند براساس اطلاعات ارسالی با موفقیت ادامه یافت.
+> نکته خروجی ReferenceState یکی از گزینه های زیر است: IsFired = 500090 فرآیند قبلا ادامه یافته است و امکان ادامه آن براساس اطلاعات ارسالی وجود ندارد. IsNotExist = 500091 فرآیندی جهت ادامه براساس اطلاعات ارسالی وجود ندارد. IsNotFired = 500092 (مخفی شده است، قابل استفاده نیست) IsExceptionMode = 500093 خطایی در ادامه فرآیند رخ داده است. متن خطا در بخش Message Exception درج شده است. IsFiredSuccessfully = 500094 فرآیند براساس اطلاعات ارسالی با موفقیت ادامه یافت.
 
 جهت مشاهده مستندات استفاده از سرویس های عمومی گراف بر روی لینک زیر کلیک کنید
 

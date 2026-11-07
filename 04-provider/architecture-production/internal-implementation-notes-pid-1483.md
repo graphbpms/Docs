@@ -3,30 +3,29 @@ id: 1483
 title: "Internal Implementation Notes"
 englishTitle: "Internal Implementation & Kernel Notes"
 category: "04-provider/architecture-production"
-wikiPath: "1450/1480/1483"
-wikiUrl: "https://wiki.graphbpms.ir/1450/1480/1483"
-breadcrumbs: ["مدیریت منابع داده Provider","طراحی معماری و Production","Internal Implementation Notes"]
+wikiPath: "1483"
+wikiUrl: "https://wiki.graphbpms.ir/1483"
+breadcrumbs: ["Internal Implementation Notes"]
 priority: 3
-language: 1
 isCanonical: true
-updatedAt: "2026-09-26T01:20:18"
+updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Internal Implementation Notes
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت منابع داده Provider` ❯ `طراحی معماری و Production` ❯ `Internal Implementation Notes`  
-> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1450/1480/1483](https://wiki.graphbpms.ir/1450/1480/1483)
+> 🧭 **سلسلهمراتب موضوعی:** `Internal Implementation Notes`  
+> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1483](https://wiki.graphbpms.ir/1483)
 
+# Internal Implementation Notes
 در این آموزش
+- [76. Endpointهای داخلی مشاهده‌شده](#wiki-internal-notes-section-01)
 
--   [76\. Endpointهای داخلی مشاهده‌شده](#wiki-internal-notes-section-01)
-
-## 76\. Endpointهای داخلی مشاهده‌شده
+## 76. Endpointهای داخلی مشاهده‌شده
 
 در کد UI فعلی Endpointهایی مانند موارد زیر دیده می‌شوند:
 
-```text
+```
 /Provider/RunProvider
 /Provider/SaveProviderConfig
 /Provider/GetProvidersList
@@ -38,6 +37,7 @@ updatedAt: "2026-09-26T01:20:18"
 /Provider/ExecuteWebService
 /Provider/GetSystemicEntities
 /Provider/GetGbForm
+
 ```
 
 ### هشدار
@@ -46,5 +46,6 @@ updatedAt: "2026-09-26T01:20:18"
 
 تا وقتی مستند Public API مستقلی برای آن‌ها وجود ندارد:
 
--   مستقیم فراخوانی نشوند؛
--   `absoluteMethodHelper` و APIهای مستند محصول ترجیح داده شوند.
+- مستقیم فراخوانی نشوند؛
+
+- `absoluteMethodHelper` و APIهای مستند محصول ترجیح داده شوند.

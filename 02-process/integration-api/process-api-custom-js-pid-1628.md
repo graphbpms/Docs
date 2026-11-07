@@ -3,20 +3,19 @@ id: 1628
 title: "API و Custom JavaScript فرآیند"
 englishTitle: "Process API & Custom JavaScript"
 category: "02-process/integration-api"
-wikiPath: "Process/1627/1628"
-wikiUrl: "https://wiki.graphbpms.ir/Process/1627/1628"
-breadcrumbs: ["مدیریت و مدل‌سازی فرآیندها","توسعه و یکپارچه‌سازی","API و Custom JavaScript فرآیند"]
+wikiPath: "1628"
+wikiUrl: "https://wiki.graphbpms.ir/1628"
+breadcrumbs: ["API و Custom JavaScript فرآیند"]
 priority: 1
-language: 1
 isCanonical: true
-updatedAt: "2026-10-04T15:13:21"
+updatedAt: "2026-10-25T21:33:55"
 ---
 
 # API و Custom JavaScript فرآیند
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت و مدل‌سازی فرآیندها` ❯ `توسعه و یکپارچه‌سازی` ❯ `API و Custom JavaScript فرآیند`  
-> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/Process/1627/1628](https://wiki.graphbpms.ir/Process/1627/1628)
+> 🧭 **سلسلهمراتب موضوعی:** `API و Custom JavaScript فرآیند`  
+> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1628](https://wiki.graphbpms.ir/1628)
 
 # مرجع فنی Process — API و Custom JS
 
@@ -25,32 +24,16 @@ updatedAt: "2026-10-04T15:13:21"
 ## آغاز از فرم با تنظیم استاندارد دکمه
 
 اگر هدف فقط شروع فرآیند از فرم است، در تنظیمات اختصاصی فیلد دکمه، نوع عملیات را «شروع فرآیند» قرار دهید. فرآیند مقصد، عنوان نمونه و پارامترها را تنظیم کنید. عنوان می‌تواند از مقدار ثابت، مقدار سیستمی، کنترل، Query String یا پارامتر فرم ترکیب شود. نحوهٔ شروع «معمولی» یا «به‌صورت سرویس» و Target بازشدن فرم نیز در همین بخش تعیین می‌شوند.
-
-[![شروع فرآیند از فیلد دکمه؛ انتخاب مقصد، ساخت عنوان، نوع شروع، Target و افزودن پارامتر](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=4D2636B7-9BB3-49DB-8BAE-BFF2E1F4FFAC)](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=4D2636B7-9BB3-49DB-8BAE-BFF2E1F4FFAC "بازکردن تصویر در اندازه اصلی")
-
-شروع فرآیند از فیلد دکمه؛ انتخاب مقصد، ساخت عنوان، نوع شروع، Target و افزودن پارامتر
-
+[](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=4D2636B7-9BB3-49DB-8BAE-BFF2E1F4FFAC)شروع فرآیند از فیلد دکمه؛ انتخاب مقصد، ساخت عنوان، نوع شروع، Target و افزودن پارامتر
 آغاز به‌صورت سرویس برای مدلی است که تا پایان به گام انتظار نرسد. UserTask، GraphMobileTask، ReceiveTask، TimerIntermediateCatchEvent، SignalIntermediateCatchEvent و CallActivityTask در راهنمای این مسیر به‌عنوان گام‌های بازدارنده ذکر شده‌اند. انتخاب حالت سرویس، انتظار واقعی مدل را حذف نمی‌کند.
 
 ## Context فرم جاری
 
 `absoluteMethodHelper.getProcessInfo()` داده‌های Context را از Query String فرم جاری می‌خواند و شیء `{state,message,data}` می‌دهد. در پیاده‌سازی بررسی‌شده، اگر هر مقدار `null` یا رشتهٔ خالی باشد، state برابر `fail` است؛ این وضعیت را قبل از مصرف داده بررسی کنید. مقادیر Query String رشته هستند و در نقطهٔ نیاز باید پس از اعتبارسنجی تبدیل شوند.
 
-| Property در data | پارامتر URL | معنی |
-| --- | --- | --- |
-| ProcessCreationID | pcid | شناسهٔ نمونهٔ اجرایی |
-| ReferencesID | refid | شناسهٔ ارجاع |
-| ProcessID | pid | شناسهٔ نسخهٔ فرآیند |
-| FormsRecordID | recid | شناسهٔ رکورد فرم |
-| TaskID | tid | شناسهٔ گام |
-| EntityID | eid | شناسهٔ تعریف فرم |
-| EntityMode | emd | حالت فرم: افزودن، ویرایش یا مشاهده |
-| EntityConfigID | ecid | تنظیم فرم در فرآیند |
-| EntityTypeID | etid | نوع عنصر فرآیند |
-| ElementConfigID | elcid | تنظیم عنصر |
-| IsUserTaskFormCopy | isUserTaskFormCopy | وضعیت رونوشت؛ اگر در URL نباشد، از سرویس وضعیت ارجاع دریافت می‌شود. نوع مقدار ممکن است برحسب منبع رشته، مقدار پاسخ یا null باشد. |
+Property در dataپارامتر URLمعنیProcessCreationIDpcidشناسهٔ نمونهٔ اجراییReferencesIDrefidشناسهٔ ارجاعProcessIDpidشناسهٔ نسخهٔ فرآیندFormsRecordIDrecidشناسهٔ رکورد فرمTaskIDtidشناسهٔ گامEntityIDeidشناسهٔ تعریف فرمEntityModeemdحالت فرم: افزودن، ویرایش یا مشاهدهEntityConfigIDecidتنظیم فرم در فرآیندEntityTypeIDetidنوع عنصر فرآیندElementConfigIDelcidتنظیم عنصرIsUserTaskFormCopyisUserTaskFormCopyوضعیت رونوشت؛ اگر در URL نباشد، از سرویس وضعیت ارجاع دریافت می‌شود. نوع مقدار ممکن است برحسب منبع رشته، مقدار پاسخ یا null باشد.
 
-```javascript
+```
 const info = absoluteMethodHelper.getProcessInfo();
 if (info.state !== "done") throw new Error(info.message);
 const processCreationId = Number(info.data.ProcessCreationID);
@@ -64,17 +47,9 @@ if (!Number.isFinite(processCreationId) || !Number.isFinite(stepId)) {
 
 امضای شیء ورودی در کد بررسی‌شده از نام `variables` استفاده می‌کند. نام `variablesNameValue` در این فایل وجود ندارد. نام پارامتر را از امضای بارگذاری‌شده در استقرار مقصد بگیرید؛ تغییر خودسرانهٔ آن باعث ارسال‌نشدن متغیرها می‌شود.
 
-| پارامتر | نوع/کاربرد | نکته |
-| --- | --- | --- |
-| processGroupID | number؛ شناسهٔ خانواده | متد جاری این ورودی را در ProcessGroup می‌فرستد؛ ProcessID ورودی این امضا نیست. |
-| variables | Array از {Name,Value} | متغیرهای از پیش تعریف‌شده، با نام بدون @@ |
-| customTitle | string | عنوان نمونه در ProcessTitle |
-| runType | number / RunProcessType | برای آغاز پیام: RunProcessType.MessageStartEvent |
-| anonymous | boolean | مسیر فرم ناشناس را انتخاب می‌کند؛ خودِ مقدار true مجوز اعطا نمی‌کند. |
-| formId | number یا null | در مسیر ناشناس به درخواست افزوده می‌شود. |
-| verboseLevel | integer، 0 تا 6 | در خود helper مقدار پیش‌فرض تعیین نشده؛ برای قرارداد روشن صریح ارسال کنید. |
+پارامترنوع/کاربردنکتهprocessGroupIDnumber؛ شناسهٔ خانوادهمتد جاری این ورودی را در ProcessGroup می‌فرستد؛ ProcessID ورودی این امضا نیست.variablesArray از {Name,Value}متغیرهای از پیش تعریف‌شده، با نام بدون @@customTitlestringعنوان نمونه در ProcessTitlerunTypenumber / RunProcessTypeبرای آغاز پیام: RunProcessType.MessageStartEventanonymousbooleanمسیر فرم ناشناس را انتخاب می‌کند؛ خودِ مقدار true مجوز اعطا نمی‌کند.formIdnumber یا nullدر مسیر ناشناس به درخواست افزوده می‌شود.verboseLevelinteger، 0 تا 6در خود helper مقدار پیش‌فرض تعیین نشده؛ برای قرارداد روشن صریح ارسال کنید.
 
-```javascript
+```
 const response = await absoluteMethodHelper.runProcessWithVerbosityLevel({
   processGroupID: 1001, // شناسهٔ آموزشی؛ مقدار محیط خود را جایگزین کنید
   variables: [{ Name: "RequestCode", Value: "DEMO-001" }],
@@ -96,7 +71,7 @@ if (result?.HasError) throw new Error(result.Message || "اجرای فرآیند
 
 ابتدا وجود TaskElementResult و ProcessFlowModel را کنترل کنید و سپس مقادیر را بخوانید. سطح خروجی‌ای که این جزئیات را حذف می‌کند برای این کاربرد مناسب نیست. اگر اجرا به پایان یا گام انتظار غیر فرمی رسیده باشد، نبود User Task طبیعی است.
 
-```javascript
+```
 const task = response.content?.Content?.TaskElementResult;
 const flow = task?.ProcessFlowModel;
 if (flow && task?.IsUserTask === true) {
@@ -112,21 +87,13 @@ if (flow && task?.IsUserTask === true) {
 
 VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasError:false` به‌تنهایی پایان نمونه را ثابت نمی‌کند؛ ممکن است فرآیند به User Task یا انتظار رسیده باشد. در نمونه‌های زیر مسیر به End Event رسیده است. شناسه‌ها آموزشی شده‌اند؛ تمام فیلدهای هر نمونه حفظ شده‌اند.
 
-| مقدار | نام | شکل Content |
-| --- | --- | --- |
-| 6 | Full | جزئیات Node/Process و متغیرهای خروجی پایان |
-| 5 | Detailed | جزئیات اجرا بدون متغیرهای پایانی در نمونه |
-| 4 | Basic | حداقل شناسهٔ نمونه و وضعیت کلی |
-| 3 | Minimum | Content در نمونه null است؛ null در این سطح الزاماً خطا نیست. |
-| 2 | PlainLite | آرایهٔ Name/Value با مقدار خام |
-| 1 | Lite | آرایهٔ Name/Value با تبدیل رشتهٔ JSON به Object/Array در صورت امکان |
-| 0 | BoostLite | Dictionary از نام به مقدار، با رفتار تبدیل Lite |
+مقدارنامشکل Content6Fullجزئیات Node/Process و متغیرهای خروجی پایان5Detailedجزئیات اجرا بدون متغیرهای پایانی در نمونه4Basicحداقل شناسهٔ نمونه و وضعیت کلی3MinimumContent در نمونه null است؛ null در این سطح الزاماً خطا نیست.2PlainLiteآرایهٔ Name/Value با مقدار خام1Liteآرایهٔ Name/Value با تبدیل رشتهٔ JSON به Object/Array در صورت امکان0BoostLiteDictionary از نام به مقدار، با رفتار تبدیل Lite
 
 راهنمای helper مقدار `null` را معادل پیش‌فرض Full معرفی می‌کند، اما پیاده‌سازی JavaScript فقط مقدار را عبور می‌دهد و خود آن را به 6 تبدیل نمی‌کند. این پیش‌فرض به قرارداد سرور وابسته است؛ برای نتیجهٔ قابل اتکا 6 را صریح بفرستید. تفاوت Lite و PlainLite در نمونهٔ مقدار سادهٔ «1» دیده نمی‌شود؛ آن را با یک رشتهٔ JSON معتبر جداگانه آزمون کنید.
 
 ### سطح 6
 
-```json
+```
 {
   "state": "done",
   "content": {
@@ -176,7 +143,7 @@ VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasErr
 
 ### سطح 5
 
-```json
+```
 {
   "state": "done",
   "content": {
@@ -209,7 +176,7 @@ VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasErr
 
 ### سطح 4
 
-```json
+```
 {
   "state": "done",
   "content": {
@@ -226,7 +193,7 @@ VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasErr
 
 ### سطح 3
 
-```json
+```
 {
   "state": "done",
   "content": {
@@ -241,7 +208,7 @@ VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasErr
 
 ### سطح 2
 
-```json
+```
 {
   "state": "done",
   "content": {
@@ -261,7 +228,7 @@ VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasErr
 
 ### سطح 1
 
-```json
+```
 {
   "state": "done",
   "content": {
@@ -281,7 +248,7 @@ VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasErr
 
 ### سطح 0
 
-```json
+```
 {
   "state": "done",
   "content": {
@@ -302,7 +269,7 @@ VerboseLevel شکل جزئیات پاسخ را تغییر می‌دهد. `HasErr
 
 برای Receive Task یا Message Boundary Event، شناسهٔ نمونه و شناسهٔ گام منتظر را از همان اجرای متوقف‌شده نگه دارید. شناسهٔ طراحی، شناسهٔ رکورد فرم و شناسهٔ ارجاع را به‌جای StepId نگذارید. ادامه دادن یک گام قبلاً مصرف‌شده، درخواست تازه نمی‌سازد.
 
-```javascript
+```
 const raw = await absoluteMethodHelper.continueProcessByMessageWithVerbosityLevel(
   10001, 3001, [{ Name: "Decision", Value: "approved" }], 6
 );
@@ -326,7 +293,7 @@ if (flow && task?.IsUserTask === true) {
 
 کلید سیگنال دامنهٔ گیرنده‌ها را تعیین می‌کند. فراخوانی می‌تواند همهٔ Signal Startهای منطبق را نمونه‌سازی کند و همهٔ Catchهای میانی منتظر با همان کلید را ادامه دهد؛ این عملیات معادل ادامهٔ یک Step مشخص نیست.
 
-```javascript
+```
 const result = await absoluteMethodHelper.throwProcessSignal(
   "DemoSignal", [{ Name: "RequestCode", Value: "DEMO-001" }]
 );
@@ -339,7 +306,7 @@ helper از `POST /Process/ThrowSignal` با `signalKey` و `Variables` استف
 
 راهنمای همراه، متدهای زیر را برای نسخه‌های 2.1.5.131 و پایین‌تر معرفی کرده است. این شماره نسخه، محدودهٔ همان راهنماست؛ از وجود تابع در فایل JavaScript، نسخهٔ سرور را استنتاج نکنید.
 
-```javascript
+```
 absoluteMethodHelper.runProcess(
   processGroupID, processID, roleID, userID, fromOut,
   variables, customTitle, runType, anonymous, formId
@@ -355,26 +322,14 @@ runProcess قدیمی همان پوستهٔ state/content شروع را می‌�
 
 مصرف‌کنندهٔ بیرونی ابتدا Login می‌کند و PrivateToken معتبر را در هدر درخواست‌های بعدی می‌فرستد. عمر توکن تابع تنظیمات سامانه است. URLهای این مقاله با `https://bpms.example` نمایش داده می‌شوند و نمونهٔ نشانی آموزشی‌اند. نام و شکل بدنه از قرارداد هر endpoint پیروی می‌کند؛ آن‌ها را با پارامترهای helper مرورگر یکسان فرض نکنید.
 
-| مسیر | کار | احراز هویت |
-| --- | --- | --- |
-| /SharedApi/Login | دریافت توکن؛ POST در مستند تولیدشدهٔ ESB | username/password/networkUser در بدنه |
-| /SharedApi/RunProcess | آغاز فرآیند با آغاز پیام | privateToken در Header |
-| /SharedApi/ContinueProcessWithMessage | ادامهٔ یک نمونه در گام منتظر | privateToken در Header |
-| /SharedApi/ThrowProcessSignal | ارسال Signal به Catchهای منطبق | privateToken در Header |
-| /SharedApi/SendFile | ثبت فایل در آرشیو | privateToken در Header |
-| /SharedApi/GenerateStimulExportFile | خروجی قالب چاپ گزارش | privateToken در Header |
+مسیرکاراحراز هویت/SharedApi/Loginدریافت توکن؛ POST در مستند تولیدشدهٔ ESBusername/password/networkUser در بدنه/SharedApi/RunProcessآغاز فرآیند با آغاز پیامprivateToken در Header/SharedApi/ContinueProcessWithMessageادامهٔ یک نمونه در گام منتظرprivateToken در Header/SharedApi/ThrowProcessSignalارسال Signal به Catchهای منطبقprivateToken در Header/SharedApi/SendFileثبت فایل در آرشیوprivateToken در Header/SharedApi/GenerateStimulExportFileخروجی قالب چاپ گزارشprivateToken در Header
 
 **وابسته به استقرار:** متن قرارداد عمومی برای پنج سرویس بعد از Login ستون روش HTTP را ذکر نکرده است. روش HTTP را از مستند فعال همان استقرار یا قرارداد سرور کنترل کنید؛ روش‌های POST/PUT helper داخلی، اثبات روش همان endpoint عمومی نیستند.
 
 ### Login و خواندن توکن
+ورودینوعالزامusername / userNamestringنام حساب فعال؛ راهنمای عمومی username و سند تولیدشده userName را نمایش می‌دهد؛ نام قرارداد مقصد را عیناً بگیرید.passwordstringالزامی؛ در کد Client-Side یا بستهٔ مستندات قرار نگیرد.networkUserbooleanالزامی در جدول؛ false پیش‌فرض، برای ورود LDAP مطابق تنظیم حساب true
 
-| ورودی | نوع | الزام |
-| --- | --- | --- |
-| username / userName | string | نام حساب فعال؛ راهنمای عمومی username و سند تولیدشده userName را نمایش می‌دهد؛ نام قرارداد مقصد را عیناً بگیرید. |
-| password | string | الزامی؛ در کد Client-Side یا بستهٔ مستندات قرار نگیرد. |
-| networkUser | boolean | الزامی در جدول؛ false پیش‌فرض، برای ورود LDAP مطابق تنظیم حساب true |
-
-```json
+```
 {
   "userName": "<ACCOUNT_NAME>",
   "password": "<PASSWORD_FROM_SECURE_INPUT>",
@@ -384,7 +339,7 @@ runProcess قدیمی همان پوستهٔ state/content شروع را می‌�
 
 پاسخ توکن در سند تولیدشدهٔ ESB داخل `Content.Token.PrivateToken` قرار دارد. نمونه‌های کد تولیدشدهٔ Fetch/jQuery توکن را در ریشه می‌خوانند؛ این دو نمایش با هم ناسازگارند. مسیر را با پاسخ واقعی Login تطبیق دهید. جدول قدیمی Login نیز PublicToken را دو بار با دو معنای متفاوت آورده است؛ ردیف تکراری را تعریف یک فیلد خطای معتبر ندانید.
 
-```json
+```
 {
   "HasError": false,
   "ErrorCode": -1,
@@ -397,18 +352,9 @@ runProcess قدیمی همان پوستهٔ state/content شروع را می‌�
 در ESB هدر `privateToken` یا `Authorization: Bearer <PRIVATE_TOKEN>` در مستند تولیدشده پذیرفته شده است. برای SharedApi عمومی، هدر مستندشده `privateToken` است؛ پشتیبانی Bearer را بدون قرارداد همان مسیر تعمیم ندهید.
 
 ### RunProcess: مدل ورودی
+کلیدنوعقاعدهProcessGroupnumber، اختیاری مشروطفقط یکی از ProcessGroup یا Process؛ آخرین نگارش فعال خانواده انتخاب می‌شود.Processnumber، اختیاری مشروطنسخهٔ مشخص باید فعال باشد.RoleIDnumberشناسهٔ نقش مجاز آغازکننده؛ الزامی در قرارداد عمومیUserIDnumberشناسهٔ کاربر مجاز آغازکننده؛ الزامی در قرارداد عمومیRunTypenumberبرای مسیر آغاز پیام مقدار 500002VariablesArray، اختیارینام متغیر تعریف‌شده بدون @@؛ Name/Value یا name/value مطابق قرارداد مقصدProcessTitlestring، اختیاریعنوان نمونه؛ در نبود آن عنوان پیش‌فرض طراحی
 
-| کلید | نوع | قاعده |
-| --- | --- | --- |
-| ProcessGroup | number، اختیاری مشروط | فقط یکی از ProcessGroup یا Process؛ آخرین نگارش فعال خانواده انتخاب می‌شود. |
-| Process | number، اختیاری مشروط | نسخهٔ مشخص باید فعال باشد. |
-| RoleID | number | شناسهٔ نقش مجاز آغازکننده؛ الزامی در قرارداد عمومی |
-| UserID | number | شناسهٔ کاربر مجاز آغازکننده؛ الزامی در قرارداد عمومی |
-| RunType | number | برای مسیر آغاز پیام مقدار 500002 |
-| Variables | Array، اختیاری | نام متغیر تعریف‌شده بدون @@؛ Name/Value یا name/value مطابق قرارداد مقصد |
-| ProcessTitle | string، اختیاری | عنوان نمونه؛ در نبود آن عنوان پیش‌فرض طراحی |
-
-```json
+```
 {
   "ProcessGroup": 1001,
   "RoleID": 101,
@@ -428,24 +374,12 @@ runProcess قدیمی همان پوستهٔ state/content شروع را می‌�
 **هویت اجرا:** وجود UserID/RoleID در بدنه اجازهٔ جعل هویت یا عبور از دسترسی نیست. نسبت این دو مقدار با هویت احرازشدهٔ توکن و امکان جانشینی باید در استقرار مقصد تأیید شود. متد جاری helper این دو ورودی را اصلاً در امضای شیء خود ندارد.
 
 ### پاسخ مشترک سرویس‌ها
-
-| Property | نوع مستند | تفسیر |
-| --- | --- | --- |
-| HasError | boolean | خطای کاربردی؛ مستقل از موفقیت انتقال HTTP |
-| ErrorCode | number یا null | در قرارداد عمومی -1 نشانهٔ عملیات موفق |
-| Message | string یا null | پیام نتیجه |
-| MessageException | string یا null | جزئیات خطا، در صورت وجود |
-| Content | any یا null | دادهٔ اختصاصی هر endpoint و سطح Verbose |
+Propertyنوع مستندتفسیرHasErrorbooleanخطای کاربردی؛ مستقل از موفقیت انتقال HTTPErrorCodenumber یا nullدر قرارداد عمومی -1 نشانهٔ عملیات موفقMessagestring یا nullپیام نتیجهMessageExceptionstring یا nullجزئیات خطا، در صورت وجودContentany یا nullدادهٔ اختصاصی هر endpoint و سطح Verbose
 
 ### ContinueProcessWithMessage: ورودی و ReferenceState
+ورودینوعتوضیحprocessCreationIDnumber، الزامینمونهٔ منتظرstepIDnumber، الزامیگام منتظر همان نمونهVariablesArray، nullableآرایهٔ نام/مقدار اختیاری
 
-| ورودی | نوع | توضیح |
-| --- | --- | --- |
-| processCreationID | number، الزامی | نمونهٔ منتظر |
-| stepID | number، الزامی | گام منتظر همان نمونه |
-| Variables | Array، nullable | آرایهٔ نام/مقدار اختیاری |
-
-```json
+```
 {
   "processCreationID": 10001,
   "stepID": 3001,
@@ -453,15 +387,9 @@ runProcess قدیمی همان پوستهٔ state/content شروع را می‌�
 }
 ```
 
-| ReferenceState | نام | معنی |
-| --- | --- | --- |
-| 500090 | IsFired | قبلاً ادامه یافته؛ ادامهٔ دوباره با همین اطلاعات ممکن نیست. |
-| 500091 | IsNotExist | نمونه/گام قابل ادامه با این اطلاعات وجود ندارد. |
-| 500092 | IsNotFired | در راهنما مخفی و غیرقابل استفاده معرفی شده است. |
-| 500093 | IsExceptionMode | ادامه با خطا؛ MessageException را بررسی کنید. |
-| 500094 | IsFiredSuccessfully | ادامه با موفقیت انجام شد. |
+ReferenceStateناممعنی500090IsFiredقبلاً ادامه یافته؛ ادامهٔ دوباره با همین اطلاعات ممکن نیست.500091IsNotExistنمونه/گام قابل ادامه با این اطلاعات وجود ندارد.500092IsNotFiredدر راهنما مخفی و غیرقابل استفاده معرفی شده است.500093IsExceptionModeادامه با خطا؛ MessageException را بررسی کنید.500094IsFiredSuccessfullyادامه با موفقیت انجام شد.
 
-```json
+```
 {
   "HasError": false,
   "ErrorCode": -1,
@@ -478,7 +406,7 @@ runProcess قدیمی همان پوستهٔ state/content شروع را می‌�
 
 ### ThrowProcessSignal: بدنه و نتیجهٔ چندنمونه‌ای
 
-```json
+```
 {
   "SignalKey": "DemoSignal",
   "Variables": [{ "Name": "RequestCode", "Value": "DEMO-001" }]
@@ -487,7 +415,7 @@ runProcess قدیمی همان پوستهٔ state/content شروع را می‌�
 
 SignalKey رشتهٔ الزامی است. Variables آرایهٔ اختیاری نام/مقدار است؛ غلط املایی `Variebale` در عنوان جدول عمومی با نمونهٔ بدنه و helper سازگار نیست و کلید قابل استفاده در نمونه‌ها `Variables` است.
 
-```json
+```
 {
   "HasError": false,
   "ErrorCode": -1,
@@ -506,25 +434,13 @@ SignalKey رشتهٔ الزامی است. Variables آرایهٔ اختیاری 
 به ازای هر نمونهٔ متأثر یک ردیف نتیجه وجود دارد. EndVariables فقط وقتی می‌تواند غیرخالی باشد که ادامهٔ ناشی از سیگنال به پایانی برسد که متغیر خروجی تعریف کرده است؛ آرایهٔ خالی را به‌تنهایی شکست سیگنال تفسیر نکنید.
 
 ### SendFile
-
-| پارامتر | نوع | معنی |
-| --- | --- | --- |
-| fileContent | string، الزامی | محتوای فایل به Base64 |
-| filename | string، الزامی | نام همراه پسوند مانند demo.pdf |
-| Result | string، nullable، خروجی | شناسهٔ فایل ذخیره‌شده در آرشیو |
-
+پارامترنوعمعنیfileContentstring، الزامیمحتوای فایل به Base64filenamestring، الزامینام همراه پسوند مانند demo.pdfResultstring، nullable، خروجیشناسهٔ فایل ذخیره‌شده در آرشیو
 سرویس جزئیات فایل را بررسی می‌کند. مقدار خروجی شناسهٔ آرشیو است؛ آن را بدون بررسی نوع فیلد مقصد جای محتوای فایل نگذارید.
 
 ### GenerateStimulExportFile
+پارامترنوعمعنیexportIdnumber، الزامیشناسهٔ قالب چاپ/خروجی طراحی‌شدهparamListArray، الزامیردیف‌های ResourceId و ParametersfileExportTypestring، اختیاریPdf، html، csv یا jpg؛ پیش‌فرض pdfContentstring، nullable، خروجیفایل تولیدشده به Base64
 
-| پارامتر | نوع | معنی |
-| --- | --- | --- |
-| exportId | number، الزامی | شناسهٔ قالب چاپ/خروجی طراحی‌شده |
-| paramList | Array، الزامی | ردیف‌های ResourceId و Parameters |
-| fileExportType | string، اختیاری | Pdf، html، csv یا jpg؛ پیش‌فرض pdf |
-| Content | string، nullable، خروجی | فایل تولیدشده به Base64 |
-
-```json
+```
 {
   "exportId": 1001,
   "paramList": [
@@ -547,23 +463,11 @@ Timeout گام برحسب ثانیه است. در پیاده‌سازی بررس
 
 محدودیت تعداد دستورها از `ScriptTask:MaximumStatements` می‌آید. اجرای C# نیز به فعال‌بودن `ScriptTask:EnableCSharpLanguage` وابسته است. این تنظیمات سرور را با ورودی‌های args یا تنظیم پذیرش خروجی Null یکسان نگیرید.
 
-| کار | C# | JavaScript |
-| --- | --- | --- |
-| هویت جاری | GetUserID(), GetRoleID(), GetOrganizationId() | getUserID(), getRoleID(), getOrganizationId() |
-| شناسهٔ خانواده | GetProcessGroupID(processID) | در نمونهٔ JS همراه ذکر نشده است. |
-| خواندن با مسیر | GetVariableValue<T>(path,processID,creationID) | getVariableValue(path,processID,creationID) |
-| خواندن خام | GetVariableRawValue<T>(name,processID,creationID) | getVariableRawValue(name,processID,creationID) |
-| نوشتن خام | SetVariable(destVar,value,creationID) | setVariable(destVar,value,creationID) |
-| نوشتن ServiceData | SetVariableAsServiceData(dest,object\[\],creationID) | setVariableAsServiceData(dest,recordsArray,creationID) |
-| نوشتن FormData | SetVariableAsFormData(dest,formId,formData,creationID) | setVariableAsFormData(dest,formId,formData,creationID) |
-| کپی | CopyVariable(src,dest,processID,creationID) | copyVariable(src,dest,processID,creationID) |
-| Session | SetSession(name,value) / GetSession(name) | setSession(name,value) / getSession(name) |
-| تنظیم مجاز سیستم | در نمونهٔ C# همراه ذکر نشده است. | getConfig(key) |
-| خروجی | return از Main | قرار دادن مقدار در result |
+کارC#JavaScriptهویت جاریGetUserID(), GetRoleID(), GetOrganizationId()getUserID(), getRoleID(), getOrganizationId()شناسهٔ خانوادهGetProcessGroupID(processID)در نمونهٔ JS همراه ذکر نشده است.خواندن با مسیرGetVariableValue<T>(path,processID,creationID)getVariableValue(path,processID,creationID)خواندن خامGetVariableRawValue<T>(name,processID,creationID)getVariableRawValue(name,processID,creationID)نوشتن خامSetVariable(destVar,value,creationID)setVariable(destVar,value,creationID)نوشتن ServiceDataSetVariableAsServiceData(dest,object[],creationID)setVariableAsServiceData(dest,recordsArray,creationID)نوشتن FormDataSetVariableAsFormData(dest,formId,formData,creationID)setVariableAsFormData(dest,formId,formData,creationID)کپیCopyVariable(src,dest,processID,creationID)copyVariable(src,dest,processID,creationID)SessionSetSession(name,value) / GetSession(name)setSession(name,value) / getSession(name)تنظیم مجاز سیستمدر نمونهٔ C# همراه ذکر نشده است.getConfig(key)خروجیreturn از Mainقرار دادن مقدار در result
 
 برای خواندن خام نامی مانند `@@VarName` و برای انتخاب عضو مسیرهایی مانند `@@VarName:ServiceData[0]['FieldName']` یا `@@VarName:FormData['FieldName']` استفاده می‌شود. نتیجهٔ خواندن خام را با نتیجهٔ مسیر‌یابی یک فیلد یکسان نگیرید. در C# مقدارهای args از نوع object هستند و قبل از مصرف به نوع مناسب تبدیل می‌شوند.
 
-```csharp
+```
 using System;
 using System.Collections.Generic;
 
@@ -584,7 +488,7 @@ namespace RTC
 }
 ```
 
-```javascript
+```
 const processId = args.ProcessID;
 const creationId = args.ProcessCreationID;
 const currentStep = args.CurrentElementID;
@@ -606,7 +510,7 @@ result = true;
 
 واژه `number` در توضیح امضای `CopyVariable`، عین متن راهنمای همراه است و نوع معتبر C# نیست؛ خود مثال فراخوانی، شناسه‌ها را به `int` تبدیل می‌کند. بدنه نمونه مقدار `1019,1019` را برمی‌گرداند؛ این رشته، شناسه آماده برای استفاده در محیط مقصد نیست.
 
-```csharp
+```
 using System;
 using System.Linq;
 
@@ -637,7 +541,7 @@ namespace RTC
         ///     Exapmle:  var fromGVar = GetVariableValue<string>("@@VarName:ServiceData[0]['ColName']", (int)args["ProcessID"], (int)args["ProcessCreationID"]);
   ///     T GetVariableRawValue<T>(string variableName, int processID, int processCreationID) دریافت مقدار خام متغیر
         ///     Exapmle:  var fromRawGVar = GetVariableRawValue<string>("@@VarName", (int)args["ProcessID"], (int)args["ProcessCreationID"]);
-        ///     void SetVariable(string destVar, string value, int processCreationID) ست کردن مقدار ��دید در متغیر
+        ///     void SetVariable(string destVar, string value, int processCreationID) ست کردن مقدار جدید در متغیر
         ///     Exapmle:  var result ="This is test"; SetVariable("@@VarName", result, (int)args["ProcessCreationID"]);
   ///     void SetVariableAsServiceData(string dest, object[] values, int processCreationID) ست کردن مقدار جدید در متغیر به صورت سرویس دیتایی
         ///     Exapmle:  var records = new object[] { new { Id = 0, Name = "Amir" }, new { Id = 1, Name = "Ahmad" } }; SetVariableAsServiceData("@@VarName", records, (int)args["ProcessCreationID"]);
@@ -662,7 +566,7 @@ namespace RTC
 
 متن زیر، فایل کامل نمونه همراه پنل است و توضیحات داخل آن نیز حفظ شده‌اند. برای خواندن قرارداد ورودی، خروجی و توابع به [قرارداد Script Task](#technical-script) مراجعه کنید. نام Variableها، شناسه‌ها و داده‌های آن مقادیر آموزشی‌اند و باید با مدل مقصد تطبیق داده شوند.
 
-```javascript
+```
 /*
 ====================================================================================================
 📘 راهنمای جامع Script Task (جاوا اسکریپت - JS)
@@ -738,26 +642,19 @@ result = true;
 ```
 
 ## یک متغیر در چهار Context
-
-| محل استفاده | الگوی نام | نکته |
-| --- | --- | --- |
-| بدنهٔ API / helper | Name: "VarName" | پیشوند @@ ارسال نمی‌شود. |
-| توابع Script Task | @@VarName:ServiceData\[0\]\['Field'\] | مسیر کامل با نام متغیر و نوع ظرف |
-| عنوان و شرح ارجاع | |V\_VarName:FormData\['Field'\]| | پایپ ابتدا و انتها ضروری است. عنوان اختصاصی پس از پایان گام اعمال می‌شود، اما فقط از متغیرهای ثبت‌شدهٔ گام‌های قبلی می‌خواند؛ نتیجهٔ تازهٔ Script یا Service را در تنظیم عنوان گام بعد مصرف کنید. حالت افزودن، متن جدید را بدون جداکنندهٔ خودکار به عنوان قبلی متصل می‌کند؛ فاصله، خط جدید یا جداکنندهٔ لازم را طراح باید در خود متن تعیین کند. |
-| ویرایشگر شرط Gateway | @VarName:ServiceData\[Index\]\['Field'\] | راهنمای جدید کنترل این الگو را نشان می‌دهد؛ توضیح قدیمی V\_ دارد. از راهنمای همان کنترل استفاده کنید. |
-
+محل استفادهالگوی نامنکتهبدنهٔ API / helperName: "VarName"پیشوند @@ ارسال نمی‌شود.توابع Script Task@@VarName:ServiceData[0]['Field']مسیر کامل با نام متغیر و نوع ظرفعنوان و شرح ارجاع|V_VarName:FormData['Field']|پایپ ابتدا و انتها ضروری است. عنوان اختصاصی پس از پایان گام اعمال می‌شود، اما فقط از متغیرهای ثبت‌شدهٔ گام‌های قبلی می‌خواند؛ نتیجهٔ تازهٔ Script یا Service را در تنظیم عنوان گام بعد مصرف کنید. حالت افزودن، متن جدید را بدون جداکنندهٔ خودکار به عنوان قبلی متصل می‌کند؛ فاصله، خط جدید یا جداکنندهٔ لازم را طراح باید در خود متن تعیین کند.ویرایشگر شرط Gateway@VarName:ServiceData[Index]['Field']راهنمای جدید کنترل این الگو را نشان می‌دهد؛ توضیح قدیمی V_ دارد. از راهنمای همان کنترل استفاده کنید.
 در مسیرهای داده، `*` مرز تبدیل یک رشتهٔ JSON به ساختار داخلی آن است؛ برای Object واقعی ستارهٔ اضافی نگذارید. برای مثال `ServiceData[0]['Content']*['Rows'][0]['Code']`. Index از صفر شروع می‌شود. قواعد ساده/پیشرفتهٔ متغیر، گیرندهٔ Lane و TaskId موبایل در مقالهٔ متغیرها و Taskهای مربوط شرح داده شده‌اند.
 
 در دسترسی سادهٔ Lane، دادهٔ نقش باید RoleID و دادهٔ کاربر باید UserID داشته باشد؛ روش پیشرفته برای نقش یا کاربر مسیر مقدار تک‌شناسه یا رشتهٔ شناسه‌های جداشده با کاما را می‌خواند. برای Graph Mobile Task نیز چند شناسهٔ وظیفهٔ Limited با کاما جدا می‌شوند. در شرط Gateway از 0/1 طبق راهنمای کنترل استفاده کنید، نه True/False.
 
 ## آزمون قرارداد و مدیریت خطا
 
-1.  با متغیر ساده، JSON معتبر، خروجی null و دادهٔ چندردیفی، شکل واقعی پاسخ را ثبت کنید.
-2.  شروع helper، ادامهٔ helper و API مستقیم را جدا آزمایش کنید؛ wrapperهایشان متفاوت است.
-3.  برای آغاز، نسخهٔ فعال و گیرندهٔ مجاز؛ برای ادامه، جفت Creation/Step؛ و برای Signal، تمام گیرنده‌های کلید را کنترل کنید.
-4.  پس از موفقیت HTTP، HasError و وضعیت تخصصی مانند ReferenceState یا IsEndEvent را بررسی کنید.
-5.  نمونهٔ فاقد فرم را به formView ندهید و قبل از destructuring وجود شیء را کنترل کنید.
-6.  خطای احراز هویت، عدم دسترسی، دادهٔ نامعتبر و گام مصرف‌شده را در تست منفی بگنجانید.
+- با متغیر ساده، JSON معتبر، خروجی null و دادهٔ چندردیفی، شکل واقعی پاسخ را ثبت کنید.
+- شروع helper، ادامهٔ helper و API مستقیم را جدا آزمایش کنید؛ wrapperهایشان متفاوت است.
+- برای آغاز، نسخهٔ فعال و گیرندهٔ مجاز؛ برای ادامه، جفت Creation/Step؛ و برای Signal، تمام گیرنده‌های کلید را کنترل کنید.
+- پس از موفقیت HTTP، HasError و وضعیت تخصصی مانند ReferenceState یا IsEndEvent را بررسی کنید.
+- نمونهٔ فاقد فرم را به formView ندهید و قبل از destructuring وجود شیء را کنترل کنید.
+- خطای احراز هویت، عدم دسترسی، دادهٔ نامعتبر و گام مصرف‌شده را در تست منفی بگنجانید.
 
 ## انتخاب پاسخ مناسب برای مصرف‌کنندهٔ End
 
@@ -768,15 +665,8 @@ result = true;
 ## فراخوانی RunProcess از Provider REST
 
 در مدیریت منبع دادهٔ REST، محل پارامتر، نام، مقدار ثابت و نوع داده در ستون‌های مستقل قرار دارند. نمونهٔ فراخوانی شروع فرآیند، `privateToken` را در `header` و `ProcessGroup` را در `body` تعریف می‌کند. نوع محتوا `application/json; charset=utf-8` است. منوی نوع، گزینه‌هایی مانند String، Int32، Boolean، DateTime، Guid، Complex و File دارد؛ نوع نهایی باید از قرارداد سرویس گرفته شود.
-
-[![تعریف پارامترهای REST برای فراخوانی سرویس؛ privateToken در header و ProcessGroup در body.](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=F970AD83-27FF-4C80-B6D4-3C2DA0B87CF1)](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=F970AD83-27FF-4C80-B6D4-3C2DA0B87CF1 "بازکردن تصویر در اندازه اصلی")
-
-تعریف پارامترهای REST برای فراخوانی سرویس؛ privateToken در header و ProcessGroup در body.
-
+[](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=F970AD83-27FF-4C80-B6D4-3C2DA0B87CF1)تعریف پارامترهای REST برای فراخوانی سرویس؛ privateToken در header و ProcessGroup در body.
 ## پارامترهای قرارداد RunProcess
 
 در نمونهٔ آموزشی، مسیر `/Process/RunProcess` با نام‌های `ProcessGroup`، `Process`، `RoleID`، `UserID`، `RunType`، `Variables` و `ProcessTitle` آمده است. مقدار نمونهٔ `RunType` برابر `500002` است. این تصویر نمونهٔ مسیر داخلی `/Process/RunProcess` را نشان می‌دهد. برای آغاز پیام از مقدار نام‌دار `RunProcessType.MessageStartEvent` استفاده می‌شود. شروع با گروه، نسخهٔ فعال همان گروه را هدف می‌گیرد و Variables باید صریح ارسال شود. قرارداد `/SharedApi` و helper فرم را با این نمونه یکی نگیرید؛ [مرجع شروع در Context فرم](#technical-helper-start) و [سرویس‌های عمومی](#technical-public-api)، نام ورودی‌ها، احراز هویت و سطوح خروجی جاری را جدا توضیح می‌دهند. شناسه‌های عددی تصویر متعلق به نمونهٔ آموزشی‌اند.
-
-[![نمونهٔ یادداشت قرارداد فراخوانی RunProcess با پارامترهای فرآیند، کاربر، نقش، متغیرها و عنوان.](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=E3F13320-161B-4961-9348-749B871B253E)](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=E3F13320-161B-4961-9348-749B871B253E "بازکردن تصویر در اندازه اصلی")
-
-نمونهٔ یادداشت قرارداد فراخوانی RunProcess با پارامترهای فرآیند، کاربر، نقش، متغیرها و عنوان.
+[](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=E3F13320-161B-4961-9348-749B871B253E)نمونهٔ یادداشت قرارداد فراخوانی RunProcess با پارامترهای فرآیند، کاربر، نقش، متغیرها و عنوان.

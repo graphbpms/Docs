@@ -3,26 +3,25 @@ id: 1477
 title: "ProviderLimitations و تفاوت Create/Edit با Run"
 englishTitle: "Execution Limits & Authoring Safeguards"
 category: "04-provider/security-operations"
-wikiPath: "1450/1474/1477"
-wikiUrl: "https://wiki.graphbpms.ir/1450/1474/1477"
-breadcrumbs: ["مدیریت منابع داده Provider","امنیت، دسترسی و عملیات","ProviderLimitations و تفاوت Create/Edit با Run"]
+wikiPath: "1477"
+wikiUrl: "https://wiki.graphbpms.ir/1477"
+breadcrumbs: ["ProviderLimitations و تفاوت Create/Edit با Run"]
 priority: 3
-language: 1
 isCanonical: true
-updatedAt: "2026-09-26T01:20:18"
+updatedAt: "2026-10-25T21:33:55"
 ---
 
 # ProviderLimitations و تفاوت Create/Edit با Run
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت منابع داده Provider` ❯ `امنیت، دسترسی و عملیات` ❯ `ProviderLimitations و تفاوت Create/Edit با Run`  
-> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1450/1474/1477](https://wiki.graphbpms.ir/1450/1474/1477)
+> 🧭 **سلسلهمراتب موضوعی:** `ProviderLimitations و تفاوت Create/Edit با Run`  
+> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1477](https://wiki.graphbpms.ir/1477)
 
+# ProviderLimitations و تفاوت Create/Edit با Run
 در این آموزش
+- [60. کنترل دسترسی و ProviderLimitations](#wiki-provider-limitations-section-01)
 
--   [60\. کنترل دسترسی و ProviderLimitations](#wiki-provider-limitations-section-01)
-
-## 60\. کنترل دسترسی و ProviderLimitations
+## 60. کنترل دسترسی و ProviderLimitations
 
 کنترل‌هایی که در این بخش توضیح داده می‌شوند مربوط به **ایجاد و ویرایش Provider و تحلیل Query آن** هستند. این کنترل‌ها مجوز اجرای Provider نیستند.
 
@@ -30,12 +29,13 @@ updatedAt: "2026-09-26T01:20:18"
 
 در وضعیت جاری:
 
-```text
+```
 ایجاد / ویرایش Provider
 → Query Analyzer + Permission/Limitation Checks
 
 اجرای Provider موجود
 → این ProviderLimitations و Permission Checkها دوباره به‌عنوان مجوز اجرای Provider اعمال نمی‌شوند
+
 ```
 
 بنابراین «اجازه ساخت یا ویرایش Query» را با «اجازه اجرای Provider ذخیره‌شده» یکسان ندانید.
@@ -48,20 +48,29 @@ updatedAt: "2026-09-26T01:20:18"
 
 برای مثال، برای دسترسی کامل خواندن جدول یک Form و جدول‌های SubForm آن، کاربر باید مجوز:
 
-```text
+```
 مشاهده لیست رکورد ها
+
 ```
 
 را برای همان Form داشته باشد.
 
 لایه C# از `Auth_SystemPermissions` محدودیت‌های SQL را به Operationهای Query Analyzer تبدیل می‌کند:
 
-| Operation تحلیل‌شده | مفهوم SQL |
-| --- | --- |
-| `SqlSelectStatement` | خواندن / `SELECT` |
-| `SqlInsertStatement` | درج / `INSERT` |
-| `SqlUpdateStatement` | ویرایش / `UPDATE` |
-| `SqlDeleteStatement` | حذف داده / `DELETE` |
+Operation تحلیل‌شده
+مفهوم SQL
+
+`SqlSelectStatement`
+خواندن / `SELECT`
+
+`SqlInsertStatement`
+درج / `INSERT`
+
+`SqlUpdateStatement`
+ویرایش / `UPDATE`
+
+`SqlDeleteStatement`
+حذف داده / `DELETE`
 
 دسترسی‌های Role Group نیز در محاسبه مجوز نقش لحاظ می‌شوند.
 
@@ -71,15 +80,16 @@ updatedAt: "2026-09-26T01:20:18"
 
 در تنظیمات سیستم GraphBPMS کلیدی با نام:
 
-```text
+```
 ProviderLimitations
+
 ```
 
 وجود دارد که مقدار آن می‌تواند JSON Array از Ruleهای محدودکننده باشد.
 
 نمونه:
 
-```json
+```
 [
   {
     "UserId": 1,
@@ -124,32 +134,73 @@ ProviderLimitations
     ]
   }
 ]
+
 ```
 
 هر Rule سه بخش مفهومی دارد:
 
-| بخش | کاربرد |
-| --- | --- |
-| `UserId` / `RoleId` / `OrgId` | تعیین Scope شخص/نقش/سازمان |
-| `ObjectName` / `ObjectType` | تعیین Object SQL مورد محدودیت |
-| `Operations` | تعیین نوع عملیات SQL/Analyzer که ممنوع است |
+بخش
+کاربرد
+
+`UserId` / `RoleId` / `OrgId`
+تعیین Scope شخص/نقش/سازمان
+
+`ObjectName` / `ObjectType`
+تعیین Object SQL مورد محدودیت
+
+`Operations`
+تعیین نوع عملیات SQL/Analyzer که ممنوع است
 
 ترکیب Scopeها در کد جاری شامل حالت‌های زیر است:
 
-| UserId | RoleId | OrgId | دامنه |
-| --- | --- | --- | --- |
-| مقدار | مقدار | مقدار | شخص + نقش + سازمان |
-| مقدار | مقدار | `null` | شخص + نقش |
-| مقدار | `null` | مقدار | شخص + سازمان |
-| مقدار | `null` | `null` | شخص |
-| `null` | مقدار | مقدار | نقش + سازمان |
-| `null` | مقدار | `null` | نقش |
-| `null` | `null` | مقدار | سازمان |
-| `null` | `null` | `null` | همه |
+UserId
+RoleId
+OrgId
+دامنه
+
+مقدار
+مقدار
+مقدار
+شخص + نقش + سازمان
+
+مقدار
+مقدار
+`null`
+شخص + نقش
+
+مقدار
+`null`
+مقدار
+شخص + سازمان
+
+مقدار
+`null`
+`null`
+شخص
+
+`null`
+مقدار
+مقدار
+نقش + سازمان
+
+`null`
+مقدار
+`null`
+نقش
+
+`null`
+`null`
+مقدار
+سازمان
+
+`null`
+`null`
+`null`
+همه
 
 اگر `ObjectName` و `ObjectType` خالی باشند، Rule می‌تواند صرفاً یک Operation تحلیل‌شده را در Scope مورد نظر محدود کند؛ نمونه روشن آن:
 
-```json
+```
 {
   "ObjectName": null,
   "ObjectType": null,
@@ -157,33 +208,58 @@ ProviderLimitations
     "SqlVariableDeclareStatement"
   ]
 }
+
 ```
 
 است که برای محدود کردن Statement از نوع `DECLARE` استفاده می‌شود.
 
 مطابق نمونه تنظیم جاری، مقادیر `ObjectType` به این شکل استفاده شده‌اند:
 
-| مقدار نمونه | نوع Object |
-| --- | --- |
-| `0` | Table |
-| `1` | Table-Valued Function |
-| `2` | Stored Procedure |
+مقدار نمونه
+نوع Object
+
+`0`
+Table
+
+`1`
+Table-Valued Function
+
+`2`
+Stored Procedure
 
 `[وابسته به نسخه/استقرار]` اگر Enum داخلی `ObjectTypes` در Build دیگری تغییر کند، مقدار عددی باید با همان Build تطبیق داده شود؛ نام مفهومی Object معیار اصلی طراحی Rule است.
 
 ### Operationهای مشاهده‌شده در Limiter جاری
 
-| Operation | کاربرد |
-| --- | --- |
-| `SqlVariableDeclareStatement` | تعریف Variable با `DECLARE` |
-| `SqlSelectStatement` | `SELECT` |
-| `SqlInsertStatement` | `INSERT` |
-| `SqlUpdateStatement` | `UPDATE` |
-| `SqlDeleteStatement` | `DELETE` |
-| `SqlExecuteModuleStatement` | اجرای Module/Procedure در Query Analyzer |
-| `SqlObjectReference` | Reference به Object در Query Analyzer |
-| `SqlNullInsertSource` | نوع تحلیل داخلی Insert Source |
-| `SqlTableValuedFunctionRefExpression` | Reference Expression به Table-Valued Function |
+Operation
+کاربرد
+
+`SqlVariableDeclareStatement`
+تعریف Variable با `DECLARE`
+
+`SqlSelectStatement`
+`SELECT`
+
+`SqlInsertStatement`
+`INSERT`
+
+`SqlUpdateStatement`
+`UPDATE`
+
+`SqlDeleteStatement`
+`DELETE`
+
+`SqlExecuteModuleStatement`
+اجرای Module/Procedure در Query Analyzer
+
+`SqlObjectReference`
+Reference به Object در Query Analyzer
+
+`SqlNullInsertSource`
+نوع تحلیل داخلی Insert Source
+
+`SqlTableValuedFunctionRefExpression`
+Reference Expression به Table-Valued Function
 
 این جدول فقط Operationهایی را شامل می‌شود که در C# ارسالی مشاهده شده‌اند؛ Operation جدیدی خارج از Query Analyzer جاری به GraphBPMS نسبت داده نشده است.
 
@@ -201,8 +277,9 @@ C# فقط زمانی تلاش می‌کند Setting را به `List<ProviderLimi
 
 یک لایه سخت‌گیرانه مستقل با همان نام کلید، در `appSettings` فایل `web.config` تعریف می‌شود:
 
-```xml
+```
 <add key="ProviderLimitations" value="*" />
+
 ```
 
 مقدار پیش‌فرض `*` یعنی در **این لایه WebConfig** محدودیت اضافه‌ای تعریف نشده است.
@@ -213,18 +290,19 @@ C# فقط زمانی تلاش می‌کند Setting را به `List<ProviderLimi
 
 ### حالت `MaximumLimitation`
 
-```xml
+```
 <add
     key="ProviderLimitations"
     value="MaximumLimitation"
 />
+
 ```
 
 در کد جاری، `MaximumLimitation` همه Objectهای `BpmsDb.Objects` با `Owner == "Infrastructure"` را برای Typeهای پشتیبانی‌شده وارد Deny List می‌کند.
 
 Typeهای Map‌شده در کد:
 
-```text
+```
 View / Table
 → ObjectTypes.Table
 
@@ -233,15 +311,17 @@ StoredProcedure
 
 TableValuedFunction / InlineTableValuedFunction
 → ObjectTypes.TableValuedFunction
+
 ```
 
 برای این Objectها Operationهای زیر به Limitation اضافه می‌شوند:
 
-```text
+```
 SqlSelectStatement
 SqlInsertStatement
 SqlDeleteStatement
 SqlUpdateStatement
+
 ```
 
 نکته دقیق C#: Typeهای دیگری مانند `ScalarFunction` در Branch `default` رد می‌شوند و توسط همین `MaximumLimitation` به List اضافه نمی‌شوند. بنابراین مستند دقیق‌تر از عبارت کلی «تمام Objectها» این است که Maximum Limitation تمام **Infrastructure Objectهای Map‌شده در کد بالا** را محدود می‌کند.
@@ -250,67 +330,75 @@ SqlUpdateStatement
 
 ### محدود کردن یک Operation در همه Objectها
 
-```xml
+```
 <add
     key="ProviderLimitations"
     value="Operation_SqlVariableDeclareStatement"
 />
+
 ```
 
 فرمت:
 
-```text
+```
 Operation_<AnalyzerOperation>
+
 ```
 
 نمونه دیگر:
 
-```text
+```
 Operation_SqlDeleteStatement
+
 ```
 
 ### محدود کردن Table
 
 فرم‌های پشتیبانی‌شده در Parser جاری:
 
-```text
+```
 Table_dbo.<TableName>
 Table_<ObjectName>
+
 ```
 
 در فرم عمومی `Table_<ObjectName>`، `ObjectName` می‌تواند همان نامی باشد که Query Analyzer برای Object تشخیص می‌دهد؛ در سناریوهای Schema سفارشی می‌توان نام Schema-qualified مانند `MySchema.MyTable` را در همین بخش قرار داد. برای `dbo` یک Prefix اختصاصی `Table_dbo.` در Parser وجود دارد.
 
 نمونه:
 
-```xml
+```
 <add
     key="ProviderLimitations"
     value="Table_dbo.Users"
 />
+
 ```
 
 اگر بخش Operation مشخص نشود، برای Table این چهار Operation محدود می‌شوند:
 
-```text
+```
 SqlSelectStatement
 SqlInsertStatement
 SqlDeleteStatement
 SqlUpdateStatement
+
 ```
 
 برای محدود کردن فقط Operationهای مشخص:
 
-```xml
+```
 <add
     key="ProviderLimitations"
     value="Table_dbo.Users(SqlSelectStatement|SqlDeleteStatement)"
 />
+
 ```
 
 فرمت:
 
-```text
+```
 Table_<ObjectName>(Operation1|Operation2|...)
+
 ```
 
 در بخش داخل پرانتز جداکننده Operationها `|` است.
@@ -319,25 +407,27 @@ Table_<ObjectName>(Operation1|Operation2|...)
 
 فرم‌های پشتیبانی‌شده:
 
-```text
+```
 StoredProcedure_dbo.<ProcedureName>
 StoredProcedure_<ObjectName>
+
 ```
 
 فرم عمومی می‌تواند ObjectName تشخیص‌داده‌شده توسط Analyzer، از جمله نام Schema-qualified، را حمل کند.
 
 نمونه:
 
-```xml
+```
 <add
     key="ProviderLimitations"
     value="StoredProcedure_dbo.ArchiveFileDelete"
 />
+
 ```
 
 برای Stored Procedure کد جاری مجموعه زیر را در Limitation قرار می‌دهد:
 
-```text
+```
 SqlExecuteModuleStatement
 SqlNullInsertSource
 SqlObjectReference
@@ -345,31 +435,34 @@ SqlSelectStatement
 SqlInsertStatement
 SqlDeleteStatement
 SqlUpdateStatement
+
 ```
 
 ### محدود کردن Table-Valued Function
 
 فرم‌های پشتیبانی‌شده:
 
-```text
+```
 TableValuedFunction_dbo.<FunctionName>
 TableValuedFunction_<ObjectName>
+
 ```
 
 فرم عمومی می‌تواند ObjectName تشخیص‌داده‌شده توسط Analyzer، از جمله نام Schema-qualified، را حمل کند.
 
 نمونه:
 
-```xml
+```
 <add
     key="ProviderLimitations"
     value="TableValuedFunction_dbo.InfoFunc"
 />
+
 ```
 
 Operationهای این Rule در کد جاری:
 
-```text
+```
 SqlTableValuedFunctionRefExpression
 SqlExecuteModuleStatement
 SqlNullInsertSource
@@ -378,36 +471,44 @@ SqlSelectStatement
 SqlInsertStatement
 SqlDeleteStatement
 SqlUpdateStatement
+
 ```
 
 ### ترکیب چند Rule در یک AppSetting
 
 Config با `,` به چند Rule تقسیم می‌شود. برای مثال:
 
-```xml
+```
 <add
     key="ProviderLimitations"
     value="Operation_SqlVariableDeclareStatement,Table_dbo.Users(SqlDeleteStatement|SqlUpdateStatement),StoredProcedure_dbo.ArchiveFileDelete"
 />
+
 ```
 
 قواعد Separator:
 
-```text
+```
 ,   → جداکننده Ruleهای مستقل
 |   → جداکننده Operationها داخل پرانتز Table Rule
+
 ```
 
 ### نکات دقیق Parser در Build جاری
 
--   مقدار بدون Trim با `Split(',')` خوانده می‌شود؛ برای اطمینان، دور Tokenها Space نگذارید.
--   `*` را برای حالت بدون محدودیت به‌تنهایی استفاده کنید.
--   Token `MaximumLimitation` در کد فعلی با همین Casing بررسی می‌شود؛ آن را دقیقاً با همین نام بنویسید.
--   Prefixهای `Operation_`، `Table_`، `StoredProcedure_` و `TableValuedFunction_` با مقایسه Case-Insensitive بررسی می‌شوند.
--   برای یک Table، همه Operationهای مدنظر را در **یک Rule** قرار دهید:
+- مقدار بدون Trim با `Split(',')` خوانده می‌شود؛ برای اطمینان، دور Tokenها Space نگذارید.
 
-```text
+- `*` را برای حالت بدون محدودیت به‌تنهایی استفاده کنید.
+
+- Token `MaximumLimitation` در کد فعلی با همین Casing بررسی می‌شود؛ آن را دقیقاً با همین نام بنویسید.
+
+- Prefixهای `Operation_`، `Table_`، `StoredProcedure_` و `TableValuedFunction_` با مقایسه Case-Insensitive بررسی می‌شوند.
+
+- برای یک Table، همه Operationهای مدنظر را در **یک Rule** قرار دهید:
+
+```
 Table_dbo.MyTable(SqlSelectStatement|SqlDeleteStatement|SqlUpdateStatement)
+
 ```
 
 در Build جاری، Merge چند Rule جداگانه برای یک Table به‌دلیل نحوه استفاده از `Concat` قابل اتکا نیست؛ شکستن Operationهای یک Table بین چند Token توصیه نمی‌شود.
@@ -416,7 +517,7 @@ Table_dbo.MyTable(SqlSelectStatement|SqlDeleteStatement|SqlUpdateStatement)
 
 `CheckQueryLimitationsAsync` Query را با T-SQL Query Analyzer تحلیل می‌کند و سپس سه Check را با شرط OR اعمال می‌کند:
 
-```text
+```
 Query
   ↓
 T-SQL Query Analyzer
@@ -431,11 +532,12 @@ T-SQL Query Analyzer
   │  Match? → Reject
   ↓
 Allow Create/Edit
+
 ```
 
 در کد:
 
-```csharp
+```
 if (
     CheckWebConfigProviderLimitations(...)
     || await CheckSystemConfigurationProviderLimitationsAsync(...)
@@ -444,6 +546,7 @@ if (
 {
     return false;
 }
+
 ```
 
 بنابراین Ruleها **Deny-based و تجمعی** هستند: کافی است یکی از لایه‌ها Query را ممنوع کند. WebConfig سخت‌گیرانه‌ترین لایه است و Allow شدن در System Settings یا سطح دسترسی Form، Deny آن را خنثی نمی‌کند.
@@ -452,10 +555,11 @@ if (
 
 این موضوع برای طراحی امنیت بسیار مهم است:
 
-```text
+```
 ProviderLimitations
 ≠
 Provider Runtime Authorization
+
 ```
 
 در وضعیت جاری، کنترل‌های بالا برای مرحله ایجاد/ویرایش Provider هستند و هنگام اجرای Provider ذخیره‌شده، همان Query دوباره بر اساس این سه لایه مجوزسنجی نمی‌شود.

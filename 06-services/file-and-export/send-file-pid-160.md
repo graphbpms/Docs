@@ -5,17 +5,16 @@ englishTitle: "Binary Document Upload API (SendFile)"
 category: "06-services/file-and-export"
 wikiPath: "160"
 wikiUrl: "https://wiki.graphbpms.ir/160"
-breadcrumbs: ["سرویس های عمومی گراف","SendFile"]
+breadcrumbs: ["SendFile"]
 priority: 6
-language: 1
 isCanonical: true
-updatedAt: "2026-10-04T11:26:56"
+updatedAt: "2026-10-25T21:33:55"
 ---
 
 # SendFile
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `سرویس های عمومی گراف` ❯ `SendFile`  
+> 🧭 **سلسلهمراتب موضوعی:** `SendFile`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/160](https://wiki.graphbpms.ir/160)
 
 # سرویس ارسال فایل (SendFile)
@@ -26,17 +25,41 @@ updatedAt: "2026-10-04T11:26:56"
 
 ## مقادیر ورودی
 
-| توضیحات | Position | Allow null | Parameter type | Parameter name |
-| --- | --- | --- | --- | --- |
-| توکن احراز هویت | Header | False | String | `privateToken` |
-| فایل به فرمت base64 | Body | False | String | `fileContent` |
-| نام فایل به همراه نوع فایل مانند profile.jpg | Body | False | String | `filename` |
+توضیحات
+Position
+Allow null
+Parameter type
+Parameter name
+
+توکن احراز هویت
+Header
+False
+String
+`privateToken`
+
+فایل به فرمت base64
+Body
+False
+String
+`fileContent`
+
+نام فایل به همراه نوع فایل مانند profile.jpg
+Body
+False
+String
+`filename`
 
 ## مقادیر خروجی
 
-| توضیحات | Nullable | Result property type | Result property name |
-| --- | --- | --- | --- |
-| شناسه فایل در آرشیو | True | String | `Result` |
+توضیحات
+Nullable
+Result property type
+Result property name
+
+شناسه فایل در آرشیو
+True
+String
+`Result`
 
 جهت مشاهده مستندات استفاده از سرویس های عمومی گراف بر روی لینک زیر کلیک کنید
 

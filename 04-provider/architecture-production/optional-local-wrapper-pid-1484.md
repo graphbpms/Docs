@@ -3,32 +3,31 @@ id: 1484
 title: "Wrapper محلی اختیاری"
 englishTitle: "Client SDK & Local Wrappers"
 category: "04-provider/architecture-production"
-wikiPath: "1450/1480/1484"
-wikiUrl: "https://wiki.graphbpms.ir/1450/1480/1484"
-breadcrumbs: ["مدیریت منابع داده Provider","طراحی معماری و Production","Wrapper محلی اختیاری"]
+wikiPath: "1484"
+wikiUrl: "https://wiki.graphbpms.ir/1484"
+breadcrumbs: ["Wrapper محلی اختیاری"]
 priority: 4
-language: 1
 isCanonical: true
-updatedAt: "2026-09-26T01:20:18"
+updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Wrapper محلی اختیاری
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت منابع داده Provider` ❯ `طراحی معماری و Production` ❯ `Wrapper محلی اختیاری`  
-> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1450/1480/1484](https://wiki.graphbpms.ir/1450/1480/1484)
+> 🧭 **سلسلهمراتب موضوعی:** `Wrapper محلی اختیاری`  
+> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1484](https://wiki.graphbpms.ir/1484)
 
+# Wrapper محلی اختیاری
 در این آموزش
+- [77. Wrapper برای Structured Provider](#wiki-wrapper-section-01)
 
--   [77\. Wrapper برای Structured Provider](#wiki-wrapper-section-01)
+## 77. Wrapper برای Structured Provider
 
-## 77\. Wrapper برای Structured Provider
-
-**\[راهکار عمومی JavaScript\]**
+**[راهکار عمومی JavaScript]**
 
 اگر پروژه Providerهای Structured زیادی دارد:
 
-```js
+```
 function runDataProvider(
     providerId,
     parameters
@@ -44,11 +43,12 @@ function runDataProvider(
             );
         });
 }
+
 ```
 
 استفاده:
 
-```js
+```
 runDataProvider(
     PROVIDER_ID,
     [
@@ -60,14 +60,16 @@ runDataProvider(
 ).then(rows => {
     console.log(rows);
 });
+
 ```
 
 ### محدودیت
 
 این Wrapper فقط برای Structured Data مناسب است. برای File Provider استفاده نشود، چون File در:
 
-```js
+```
 result.Content
+
 ```
 
 قرار دارد.

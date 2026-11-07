@@ -3,20 +3,19 @@ id: 1598
 title: "نمای کلی مدیریت و مدل‌سازی فرآیندها"
 englishTitle: "Process Management Overview"
 category: "02-process/overview"
-wikiPath: "Process/1597/1598"
-wikiUrl: "https://wiki.graphbpms.ir/Process/1597/1598"
-breadcrumbs: ["مدیریت و مدل‌سازی فرآیندها","شروع کار و مدیریت فرآیندها","نمای کلی مدیریت و مدل‌سازی فرآیندها"]
+wikiPath: "1598"
+wikiUrl: "https://wiki.graphbpms.ir/1598"
+breadcrumbs: ["نمای کلی مدیریت و مدل‌سازی فرآیندها"]
 priority: 1
-language: 1
 isCanonical: true
-updatedAt: "2026-10-04T15:13:21"
+updatedAt: "2026-10-25T21:33:55"
 ---
 
 # نمای کلی مدیریت و مدل‌سازی فرآیندها
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت و مدل‌سازی فرآیندها` ❯ `شروع کار و مدیریت فرآیندها` ❯ `نمای کلی مدیریت و مدل‌سازی فرآیندها`  
-> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/Process/1597/1598](https://wiki.graphbpms.ir/Process/1597/1598)
+> 🧭 **سلسلهمراتب موضوعی:** `نمای کلی مدیریت و مدل‌سازی فرآیندها`  
+> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1598](https://wiki.graphbpms.ir/1598)
 
 # فرایندساز
 
@@ -104,7 +103,7 @@ Event نقطه شروع، انتظار، واکنش به یک رخداد یا پ
 
 ### [استودیو — Sequence Flow و Actionها](PROCESS-03-06-FLOW-ACTIONS.html)
 
-Sequence Flow مسیر حرکت اجرای Process از یک Node به Node بعدی است. هر مسیر می‌تواند یک Action داشته باشد؛ Action انتخاب قابل ارائه به کاربر است و دارای Name، Icon و Color است. عنوان خود Sequence Flow، شناسه آن و Action مرتبط را جدا از هم تنظیم کنید. شناسه‌ای مانند Flow\_05s2tc7 برای تشخیص همان اتصال در مدل به کار می‌رود.
+Sequence Flow مسیر حرکت اجرای Process از یک Node به Node بعدی است. هر مسیر می‌تواند یک Action داشته باشد؛ Action انتخاب قابل ارائه به کاربر است و دارای Name، Icon و Color است. عنوان خود Sequence Flow، شناسه آن و Action مرتبط را جدا از هم تنظیم کنید. شناسه‌ای مانند Flow_05s2tc7 برای تشخیص همان اتصال در مدل به کار می‌رود.
 
 ### [استودیو — Variableها و انتساب داده](PROCESS-03-07-VARIABLES.html)
 
