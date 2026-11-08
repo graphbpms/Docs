@@ -8,7 +8,7 @@ wikiUrl: "https://wiki.graphbpms.ir/webconfig"
 breadcrumbs: ["راهنمای جامع پیکربندی امن Web.config"]
 priority: 5
 isCanonical: true
-updatedAt: "2026-11-03T12:38:10"
+updatedAt: "2026-11-07T14:21:08"
 ---
 
 # راهنمای جامع پیکربندی امن Web.config
@@ -19,9 +19,12 @@ updatedAt: "2026-11-03T12:38:10"
 
 نسخه 2.14.132 | کامیت 12b9323e
     
+# 
+
 # راهنمای جامع پیکربندی امن Web.config، استقرار و ارتقای سامانه GraphBPMS
 
     
+
 مرجع سخت‌سازی امنیتی سرور، تنظیمات IIS، ماتریس دسترسی پوشه‌های NTFS، کاربر کمترین دسترسی پایگاه داده و تشریح ۹۸ کلید پیکربندی
 
   
