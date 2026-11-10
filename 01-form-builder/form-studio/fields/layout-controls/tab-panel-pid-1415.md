@@ -3,18 +3,16 @@ id: 1415
 title: "TabPanel - تب"
 englishTitle: "TabPanel Layout"
 category: "01-form-builder/form-studio/fields/layout-controls"
-wikiPath: "1415"
 wikiUrl: "https://wiki.graphbpms.ir/1415"
 breadcrumbs: ["TabPanel - تب"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # TabPanel - تب
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `TabPanel - تب`  
+> 🧭 **سلسله‌مراتب موضوعی:** `TabPanel - تب`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1415](https://wiki.graphbpms.ir/1415)
 
 # تب — Tab Panel

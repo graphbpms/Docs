@@ -3,18 +3,16 @@ id: 1410
 title: "Questioner - پرسشنامه"
 englishTitle: "Questioner Field"
 category: "01-form-builder/form-studio/fields/advanced"
-wikiPath: "1410"
 wikiUrl: "https://wiki.graphbpms.ir/1410"
 breadcrumbs: ["Questioner - پرسشنامه"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Questioner - پرسشنامه
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Questioner - پرسشنامه`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Questioner - پرسشنامه`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1410](https://wiki.graphbpms.ir/1410)
 
 # پرسشنامه — Questioner

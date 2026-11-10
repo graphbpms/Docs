@@ -3,18 +3,16 @@ id: 1405
 title: "File - فایل"
 englishTitle: "File Field"
 category: "01-form-builder/form-studio/fields/selection-data"
-wikiPath: "1405"
 wikiUrl: "https://wiki.graphbpms.ir/1405"
 breadcrumbs: ["File - فایل"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # File - فایل
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `File - فایل`  
+> 🧭 **سلسله‌مراتب موضوعی:** `File - فایل`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1405](https://wiki.graphbpms.ir/1405)
 
 # فیلد فایل — File

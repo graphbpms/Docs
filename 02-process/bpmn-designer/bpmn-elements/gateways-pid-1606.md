@@ -3,18 +3,16 @@ id: 1606
 title: "Gatewayها"
 englishTitle: "Branching Gateways"
 category: "02-process/bpmn-designer/bpmn-elements"
-wikiPath: "1606"
 wikiUrl: "https://wiki.graphbpms.ir/1606"
 breadcrumbs: ["Gatewayها"]
 priority: 3
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Gatewayها
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Gatewayها`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Gatewayها`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1606](https://wiki.graphbpms.ir/1606)
 
 # استودیو — Gatewayها

@@ -3,18 +3,16 @@ id: 1392
 title: "مدیریت فرم‌ها"
 englishTitle: "Form Management"
 category: "01-form-builder/getting-started"
-wikiPath: "1392"
 wikiUrl: "https://wiki.graphbpms.ir/1392"
 breadcrumbs: ["مدیریت فرم‌ها"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # مدیریت فرم‌ها
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `مدیریت فرم‌ها`  
+> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت فرم‌ها`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1392](https://wiki.graphbpms.ir/1392)
 
 # مدیریت فرم‌ها — آشنایی

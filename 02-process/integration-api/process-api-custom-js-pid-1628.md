@@ -3,18 +3,16 @@ id: 1628
 title: "API و Custom JavaScript فرآیند"
 englishTitle: "Process API & Custom JavaScript"
 category: "02-process/integration-api"
-wikiPath: "1628"
 wikiUrl: "https://wiki.graphbpms.ir/1628"
 breadcrumbs: ["API و Custom JavaScript فرآیند"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # API و Custom JavaScript فرآیند
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `API و Custom JavaScript فرآیند`  
+> 🧭 **سلسله‌مراتب موضوعی:** `API و Custom JavaScript فرآیند`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1628](https://wiki.graphbpms.ir/1628)
 
 # مرجع فنی Process — API و Custom JS

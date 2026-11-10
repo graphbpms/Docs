@@ -3,18 +3,16 @@ id: 1402
 title: "Bit - بله/خیر"
 englishTitle: "Bit Field (Boolean)"
 category: "01-form-builder/form-studio/fields/basic"
-wikiPath: "1402"
 wikiUrl: "https://wiki.graphbpms.ir/1402"
 breadcrumbs: ["Bit - بله/خیر"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Bit - بله/خیر
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Bit - بله/خیر`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Bit - بله/خیر`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1402](https://wiki.graphbpms.ir/1402)
 
 # فیلد بلی/خیر — Bit

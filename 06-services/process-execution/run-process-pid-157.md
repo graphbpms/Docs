@@ -1,20 +1,18 @@
 ---
 id: 157
 title: "RunProcess"
-englishTitle: "Process Initiation API (RunProcess)"
+englishTitle: "Process Run Initiation API"
 category: "06-services/process-execution"
-wikiPath: "157"
 wikiUrl: "https://wiki.graphbpms.ir/157"
 breadcrumbs: ["RunProcess"]
 priority: 3
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # RunProcess
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `RunProcess`  
+> 🧭 **سلسله‌مراتب موضوعی:** `RunProcess`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/157](https://wiki.graphbpms.ir/157)
 
 # سرویس اجرای فرایند (RunProcess)

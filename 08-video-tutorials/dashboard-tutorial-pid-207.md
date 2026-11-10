@@ -1,20 +1,18 @@
 ---
 id: 207
 title: "آموزش ماژول میزکار (داشبورد)"
-englishTitle: "Executive Cockpit & Dashboard Design"
+englishTitle: "Dashboard Design Tutorial"
 category: "08-video-tutorials"
-wikiPath: "207"
 wikiUrl: "https://wiki.graphbpms.ir/207"
 breadcrumbs: ["آموزش ماژول میزکار (داشبورد)"]
 priority: 0
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # آموزش ماژول میزکار (داشبورد)
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `آموزش ماژول میزکار (داشبورد)`  
+> 🧭 **سلسله‌مراتب موضوعی:** `آموزش ماژول میزکار (داشبورد)`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/207](https://wiki.graphbpms.ir/207)
 
 # آموزش ماژول میزکار (داشبورد) GraphBPMS

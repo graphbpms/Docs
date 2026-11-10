@@ -3,18 +3,16 @@ id: 1406
 title: "Map - نقشه"
 englishTitle: "Map Field (GIS)"
 category: "01-form-builder/form-studio/fields/selection-data"
-wikiPath: "1406"
 wikiUrl: "https://wiki.graphbpms.ir/1406"
 breadcrumbs: ["Map - نقشه"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Map - نقشه
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Map - نقشه`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Map - نقشه`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1406](https://wiki.graphbpms.ir/1406)
 
 # فیلد نقشه — Map

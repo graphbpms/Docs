@@ -3,18 +3,16 @@ id: 1605
 title: "Taskها و Activityها"
 englishTitle: "Tasks & Activities"
 category: "02-process/bpmn-designer/bpmn-elements"
-wikiPath: "1605"
 wikiUrl: "https://wiki.graphbpms.ir/1605"
 breadcrumbs: ["Taskها و Activityها"]
 priority: 2
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Taskها و Activityها
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Taskها و Activityها`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Taskها و Activityها`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1605](https://wiki.graphbpms.ir/1605)
 
 # استودیو — Taskها و Activityها
@@ -1103,7 +1101,7 @@ Script Task برای اجرای منطق کدنویسی‌شده در مسیر P
 [](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=C487FCED-B7AF-439C-A7A2-339AED2B30AA)ایجاد MyVariable و مقداردهی آن از Variable فرآیندی perm
 پس از ذخیره ردیف، جدول عنوان پارامتر، نوع ورودی و مقدار ورودی را نشان می‌دهد. در نمونه MyVariable از `@@perm` و MyVariable2 از مقدار ثابت `xyx` مقدار می‌گیرند. ذخیره ردیف با «ذخیره و بستن» کل پنجره تفاوت دارد؛ تغییرات نهایی Node را نیز ثبت کنید.
 [](https://portal.graphbpms.ir/Archive/GetFileAnonymous?id=0FD99AC7-D8BB-47A1-87AE-624D022F17B8)جدول نهایی پارامترهای Script Task با ورودی Variable و ثابت
-نمونه کد، ابزارهای Runtime و تفاوت خروجی در زبان‌های مختلف در [مرجع API و Custom JS](PROCESS-10-API-CUSTOMJS.html) آمده است. شکل خروجی را از نتیجه واقعی کد تعیین کنید؛ یک نمونه Object یا Array را قرارداد همگانی همه اسکریپت‌ها فرض نکنید.
+نمونه کد، ابزارهای Runtime و تفاوت خروجی در زبان‌های مختلف در [مرجع API و Custom JS](https://wiki.graphbpms.ir/Process/1627/1628) آمده است. شکل خروجی را از نتیجه واقعی کد تعیین کنید؛ یک نمونه Object یا Array را قرارداد همگانی همه اسکریپت‌ها فرض نکنید.
 
 ## Timeout و ورودی‌های Script Task
 

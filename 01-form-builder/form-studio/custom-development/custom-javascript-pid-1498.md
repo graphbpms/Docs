@@ -3,19 +3,17 @@ id: 1498
 title: "Custom JavaScript و تنظیمات سفارشی"
 englishTitle: "Custom JavaScript & Extension"
 category: "01-form-builder/form-studio/custom-development"
-wikiPath: "1423"
-wikiUrl: "https://wiki.graphbpms.ir/1423"
+wikiUrl: "https://wiki.graphbpms.ir/1498"
 breadcrumbs: ["Custom JavaScript و تنظیمات سفارشی"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-11-01T19:29:06"
 ---
 
 # Custom JavaScript و تنظیمات سفارشی
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Custom JavaScript و تنظیمات سفارشی`  
-> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1423](https://wiki.graphbpms.ir/1423)
+> 🧭 **سلسله‌مراتب موضوعی:** `Custom JavaScript و تنظیمات سفارشی`  
+> 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1498](https://wiki.graphbpms.ir/1498)
 
 # تنظیمات سفارشی فرم در GraphBPMS
 

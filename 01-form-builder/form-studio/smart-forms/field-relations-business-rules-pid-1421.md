@@ -3,18 +3,16 @@ id: 1421
 title: "ارتباطات فیلدها و Business Rule"
 englishTitle: "Field Relations & Business Rules"
 category: "01-form-builder/form-studio/smart-forms"
-wikiPath: "1421"
 wikiUrl: "https://wiki.graphbpms.ir/1421"
 breadcrumbs: ["ارتباطات فیلدها و Business Rule"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # ارتباطات فیلدها و Business Rule
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `ارتباطات فیلدها و Business Rule`  
+> 🧭 **سلسله‌مراتب موضوعی:** `ارتباطات فیلدها و Business Rule`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1421](https://wiki.graphbpms.ir/1421)
 
 # قواعد کسب‌وکار فرم و قابلیت یکتاسازی

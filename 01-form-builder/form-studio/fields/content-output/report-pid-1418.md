@@ -3,18 +3,16 @@ id: 1418
 title: "Report - گزارش"
 englishTitle: "Report Viewer Control"
 category: "01-form-builder/form-studio/fields/content-output"
-wikiPath: "1418"
 wikiUrl: "https://wiki.graphbpms.ir/1418"
 breadcrumbs: ["Report - گزارش"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Report - گزارش
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Report - گزارش`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Report - گزارش`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1418](https://wiki.graphbpms.ir/1418)
 
 # گزارش — Report

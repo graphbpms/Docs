@@ -3,18 +3,16 @@ id: 1600
 title: "لیست فرآیندها و مدیریت فرآیندها"
 englishTitle: "Process Lifecycle & Definitions"
 category: "02-process/overview"
-wikiPath: "1600"
 wikiUrl: "https://wiki.graphbpms.ir/1600"
 breadcrumbs: ["لیست فرآیندها و مدیریت فرآیندها"]
 priority: 3
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # لیست فرآیندها و مدیریت فرآیندها
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `لیست فرآیندها و مدیریت فرآیندها`  
+> 🧭 **سلسله‌مراتب موضوعی:** `لیست فرآیندها و مدیریت فرآیندها`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1600](https://wiki.graphbpms.ir/1600)
 
 # لیست فرآیندها و مدیریت فرآیندها

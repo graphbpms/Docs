@@ -3,18 +3,16 @@ id: 1411
 title: "SubForm - فرم تودرتو"
 englishTitle: "SubForm Field"
 category: "01-form-builder/form-studio/fields/advanced"
-wikiPath: "1411"
 wikiUrl: "https://wiki.graphbpms.ir/1411"
 breadcrumbs: ["SubForm - فرم تودرتو"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # SubForm - فرم تودرتو
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `SubForm - فرم تودرتو`  
+> 🧭 **سلسله‌مراتب موضوعی:** `SubForm - فرم تودرتو`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1411](https://wiki.graphbpms.ir/1411)
 
 # فرم تودرتو — SubForm

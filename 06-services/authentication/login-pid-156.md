@@ -1,20 +1,18 @@
 ---
 id: 156
 title: "Login"
-englishTitle: "Authentication & Session Token API (Login)"
+englishTitle: "Authentication & Session API"
 category: "06-services/authentication"
-wikiPath: "156"
 wikiUrl: "https://wiki.graphbpms.ir/156"
 breadcrumbs: ["Login"]
 priority: 2
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Login
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Login`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Login`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/156](https://wiki.graphbpms.ir/156)
 
 # سرویس ورود به سیستم (Login)

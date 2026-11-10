@@ -1,20 +1,18 @@
 ---
 id: 1608
 title: "Sequence Flow و Actionها"
-englishTitle: "Sequence Flows & Actions"
+englishTitle: "Sequence Flows & Flow Conditions"
 category: "02-process/bpmn-designer/bpmn-elements"
-wikiPath: "1608"
 wikiUrl: "https://wiki.graphbpms.ir/1608"
 breadcrumbs: ["Sequence Flow و Actionها"]
 priority: 5
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Sequence Flow و Actionها
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `Sequence Flow و Actionها`  
+> 🧭 **سلسله‌مراتب موضوعی:** `Sequence Flow و Actionها`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1608](https://wiki.graphbpms.ir/1608)
 
 # استودیو — Sequence Flow و Actionها

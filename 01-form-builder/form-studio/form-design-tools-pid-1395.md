@@ -3,18 +3,16 @@ id: 1395
 title: "ابزارهای طراحی فرم"
 englishTitle: "Form Design Tools"
 category: "01-form-builder/form-studio"
-wikiPath: "1395"
 wikiUrl: "https://wiki.graphbpms.ir/1395"
 breadcrumbs: ["ابزارهای طراحی فرم"]
 priority: 1
-isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # ابزارهای طراحی فرم
 
 > [!NOTE]
-> 🧭 **سلسلهمراتب موضوعی:** `ابزارهای طراحی فرم`  
+> 🧭 **سلسله‌مراتب موضوعی:** `ابزارهای طراحی فرم`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1395](https://wiki.graphbpms.ir/1395)
 
 # تب ابزارها در استودیوی فرم‌ساز GraphBPMS
