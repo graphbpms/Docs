@@ -1,18 +1,20 @@
 ---
 id: 203
 title: "فیلم های آموزش DMN"
-englishTitle: "DMN Business Rules Tutorial"
+englishTitle: "DMN Business Rules & Decision Tables"
 category: "08-video-tutorials"
+wikiPath: "203"
 wikiUrl: "https://wiki.graphbpms.ir/203"
-breadcrumbs: ["فیلم های آموزش DMN"]
+breadcrumbs: ["فیلم های آموزشی","ماژول موتور قواعد (DMN)","فیلم های آموزش DMN"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # فیلم های آموزش DMN
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `فیلم های آموزش DMN`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فیلم های آموزشی` ❯ `ماژول موتور قواعد (DMN)` ❯ `فیلم های آموزش DMN`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/203](https://wiki.graphbpms.ir/203)
 
 # آموزش ماژول DMN (Decision Model and Notation)

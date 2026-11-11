@@ -3,16 +3,18 @@ id: 159
 title: "ThrowProcessSignal"
 englishTitle: "Broadcast Signal Event API"
 category: "06-services/process-execution"
+wikiPath: "159"
 wikiUrl: "https://wiki.graphbpms.ir/159"
-breadcrumbs: ["ThrowProcessSignal"]
+breadcrumbs: ["سرویس های عمومی گراف","ThrowProcessSignal"]
 priority: 5
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # ThrowProcessSignal
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `ThrowProcessSignal`  
+> 🧭 **سلسله‌مراتب موضوعی:** `سرویس های عمومی گراف` ❯ `ThrowProcessSignal`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/159](https://wiki.graphbpms.ir/159)
 
 # سرویس فراخوانی سیگنال فرایند (ThrowProcessSignal)

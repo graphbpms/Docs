@@ -3,16 +3,18 @@ id: 1414
 title: "Container - نگهدارنده"
 englishTitle: "Container Layout"
 category: "01-form-builder/form-studio/fields/layout-controls"
+wikiPath: "1414"
 wikiUrl: "https://wiki.graphbpms.ir/1414"
-breadcrumbs: ["Container - نگهدارنده"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","کنترل‌های تعاملی و چیدمان","Container - نگهدارنده"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Container - نگهدارنده
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Container - نگهدارنده`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `کنترل‌های تعاملی و چیدمان` ❯ `Container - نگهدارنده`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1414](https://wiki.graphbpms.ir/1414)
 
 # نگهدارنده — Container

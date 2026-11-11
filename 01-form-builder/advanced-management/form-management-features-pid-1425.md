@@ -3,16 +3,18 @@ id: 1425
 title: "عملیات مدیریتی و امکانات هر فرم"
 englishTitle: "Form Management Features"
 category: "01-form-builder/advanced-management"
+wikiPath: "1425"
 wikiUrl: "https://wiki.graphbpms.ir/1425"
-breadcrumbs: ["عملیات مدیریتی و امکانات هر فرم"]
+breadcrumbs: ["فرم‌ساز پیشرفته","مدیریت پیشرفته فرم","عملیات مدیریتی و امکانات هر فرم"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # عملیات مدیریتی و امکانات هر فرم
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `عملیات مدیریتی و امکانات هر فرم`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `مدیریت پیشرفته فرم` ❯ `عملیات مدیریتی و امکانات هر فرم`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1425](https://wiki.graphbpms.ir/1425)
 
 # مدیریت فرم‌ها — عملیات مدیریتی و امکانات هر فرم

@@ -3,16 +3,18 @@ id: 1419
 title: "Computed - محاسباتی"
 englishTitle: "Computed Expression Field"
 category: "01-form-builder/form-studio/fields/content-output"
+wikiPath: "1419"
 wikiUrl: "https://wiki.graphbpms.ir/1419"
-breadcrumbs: ["Computed - محاسباتی"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","محتوا و خروجی","Computed - محاسباتی"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Computed - محاسباتی
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Computed - محاسباتی`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `محتوا و خروجی` ❯ `Computed - محاسباتی`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1419](https://wiki.graphbpms.ir/1419)
 
 # فیلد محاسباتی — Computed

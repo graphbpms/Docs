@@ -3,16 +3,18 @@ id: 1417
 title: "HTML - محتوای HTML"
 englishTitle: "HTML Content"
 category: "01-form-builder/form-studio/fields/content-output"
+wikiPath: "1417"
 wikiUrl: "https://wiki.graphbpms.ir/1417"
-breadcrumbs: ["HTML - محتوای HTML"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","محتوا و خروجی","HTML - محتوای HTML"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # HTML - محتوای HTML
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `HTML - محتوای HTML`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `محتوا و خروجی` ❯ `HTML - محتوای HTML`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1417](https://wiki.graphbpms.ir/1417)
 
 # بلاک HTML

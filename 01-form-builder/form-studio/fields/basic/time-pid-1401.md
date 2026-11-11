@@ -3,16 +3,18 @@ id: 1401
 title: "Time - زمان"
 englishTitle: "Time Field"
 category: "01-form-builder/form-studio/fields/basic"
+wikiPath: "1401"
 wikiUrl: "https://wiki.graphbpms.ir/1401"
-breadcrumbs: ["Time - زمان"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","فیلدهای پایه","Time - زمان"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Time - زمان
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Time - زمان`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `فیلدهای پایه` ❯ `Time - زمان`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1401](https://wiki.graphbpms.ir/1401)
 
 # فیلد زمان — Time

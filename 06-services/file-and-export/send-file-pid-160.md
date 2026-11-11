@@ -1,18 +1,20 @@
 ---
 id: 160
 title: "SendFile"
-englishTitle: "Binary Document Upload API"
+englishTitle: "Binary Document Upload API (SendFile)"
 category: "06-services/file-and-export"
+wikiPath: "160"
 wikiUrl: "https://wiki.graphbpms.ir/160"
-breadcrumbs: ["SendFile"]
+breadcrumbs: ["سرویس های عمومی گراف","SendFile"]
 priority: 6
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # SendFile
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `SendFile`  
+> 🧭 **سلسله‌مراتب موضوعی:** `سرویس های عمومی گراف` ❯ `SendFile`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/160](https://wiki.graphbpms.ir/160)
 
 # سرویس ارسال فایل (SendFile)

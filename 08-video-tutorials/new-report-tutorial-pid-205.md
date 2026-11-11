@@ -1,18 +1,20 @@
 ---
 id: 205
 title: "فیلم های آموزش گزارش ساز دوره جدید"
-englishTitle: "Modern BI Walkthrough"
+englishTitle: "Modern Business Intelligence Walkthrough"
 category: "08-video-tutorials"
+wikiPath: "205"
 wikiUrl: "https://wiki.graphbpms.ir/205"
-breadcrumbs: ["فیلم های آموزش گزارش ساز دوره جدید"]
+breadcrumbs: ["فیلم های آموزشی","آشنایی با ماژول گزارش ساز (دوره جدید)","فیلم های آموزش گزارش ساز دوره جدید"]
 priority: 0
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # فیلم های آموزش گزارش ساز دوره جدید
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `فیلم های آموزش گزارش ساز دوره جدید`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فیلم های آموزشی` ❯ `آشنایی با ماژول گزارش ساز (دوره جدید)` ❯ `فیلم های آموزش گزارش ساز دوره جدید`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/205](https://wiki.graphbpms.ir/205)
 
 # آموزش گزارش‌ساز - سری ۲ (سناریوهای عملی و پیشرفته)

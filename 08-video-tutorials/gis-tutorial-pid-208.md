@@ -1,18 +1,20 @@
 ---
 id: 208
 title: "آموزش ماژول مکان‌محور (GIS) GraphBPMS"
-englishTitle: "GIS Map Integration Tutorial"
+englishTitle: "Spatial Analytics & GIS Map Integration"
 category: "08-video-tutorials"
+wikiPath: "208"
 wikiUrl: "https://wiki.graphbpms.ir/208"
-breadcrumbs: ["آموزش ماژول مکان‌محور (GIS) GraphBPMS"]
+breadcrumbs: ["فیلم های آموزشی","آموزش ماژول مکان‌محور (GIS) GraphBPMS","آموزش ماژول مکان‌محور (GIS) GraphBPMS"]
 priority: 0
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # آموزش ماژول مکان‌محور (GIS) GraphBPMS
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `آموزش ماژول مکان‌محور (GIS) GraphBPMS`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فیلم های آموزشی` ❯ `آموزش ماژول مکان‌محور (GIS) GraphBPMS` ❯ `آموزش ماژول مکان‌محور (GIS) GraphBPMS`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/208](https://wiki.graphbpms.ir/208)
 
 # آموزش ماژول مکان‌محور (GIS) GraphBPMS

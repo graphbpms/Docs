@@ -3,16 +3,18 @@ id: 158
 title: "ContinueProcessWithMessage"
 englishTitle: "Message Intermediate Event API"
 category: "06-services/process-execution"
+wikiPath: "158"
 wikiUrl: "https://wiki.graphbpms.ir/158"
-breadcrumbs: ["ContinueProcessWithMessage"]
+breadcrumbs: ["سرویس های عمومی گراف","ContinueProcessWithMessage"]
 priority: 4
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # ContinueProcessWithMessage
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `ContinueProcessWithMessage`  
+> 🧭 **سلسله‌مراتب موضوعی:** `سرویس های عمومی گراف` ❯ `ContinueProcessWithMessage`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/158](https://wiki.graphbpms.ir/158)
 
 # سرویس ادامه فرایند با Message (ContinueProcessWithMessage)

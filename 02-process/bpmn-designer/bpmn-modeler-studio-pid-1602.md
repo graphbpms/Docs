@@ -3,16 +3,18 @@ id: 1602
 title: "استودیوی فرآیند و BPMN Modeler"
 englishTitle: "Process Studio & BPMN Modeler"
 category: "02-process/bpmn-designer"
+wikiPath: "1602"
 wikiUrl: "https://wiki.graphbpms.ir/1602"
-breadcrumbs: ["استودیوی فرآیند و BPMN Modeler"]
+breadcrumbs: ["مدیریت و مدل‌سازی فرآیندها","طراحی و مدل‌سازی فرآیند","استودیوی فرآیند و BPMN Modeler"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # استودیوی فرآیند و BPMN Modeler
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `استودیوی فرآیند و BPMN Modeler`  
+> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت و مدل‌سازی فرآیندها` ❯ `طراحی و مدل‌سازی فرآیند` ❯ `استودیوی فرآیند و BPMN Modeler`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1602](https://wiki.graphbpms.ir/1602)
 
 # استودیوی فرآیند و BPMN Modeler

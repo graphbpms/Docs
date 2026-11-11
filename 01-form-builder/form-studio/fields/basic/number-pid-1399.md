@@ -3,16 +3,18 @@ id: 1399
 title: "Number - عددی"
 englishTitle: "Number Field"
 category: "01-form-builder/form-studio/fields/basic"
+wikiPath: "1399"
 wikiUrl: "https://wiki.graphbpms.ir/1399"
-breadcrumbs: ["Number - عددی"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","فیلدهای پایه","Number - عددی"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Number - عددی
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Number - عددی`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `فیلدهای پایه` ❯ `Number - عددی`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1399](https://wiki.graphbpms.ir/1399)
 
 # فیلد عدد — Number

@@ -3,16 +3,18 @@ id: 1398
 title: "Text - متنی"
 englishTitle: "Text Field (Nvarchar)"
 category: "01-form-builder/form-studio/fields/basic"
+wikiPath: "1398"
 wikiUrl: "https://wiki.graphbpms.ir/1398"
-breadcrumbs: ["Text - متنی"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","فیلدهای پایه","Text - متنی"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Text - متنی
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Text - متنی`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `فیلدهای پایه` ❯ `Text - متنی`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1398](https://wiki.graphbpms.ir/1398)
 
 # فیلد متنی — Nvarchar

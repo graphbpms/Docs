@@ -1,18 +1,20 @@
 ---
 id: 161
 title: "GenerateStimulExportFile"
-englishTitle: "Stimulsoft Report Render API"
+englishTitle: "Automated Stimulsoft Report Render API"
 category: "06-services/file-and-export"
+wikiPath: "161"
 wikiUrl: "https://wiki.graphbpms.ir/161"
-breadcrumbs: ["GenerateStimulExportFile"]
+breadcrumbs: ["سرویس های عمومی گراف","GenerateStimulExportFile"]
 priority: 7
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # GenerateStimulExportFile
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `GenerateStimulExportFile`  
+> 🧭 **سلسله‌مراتب موضوعی:** `سرویس های عمومی گراف` ❯ `GenerateStimulExportFile`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/161](https://wiki.graphbpms.ir/161)
 
 # سرویس دریافت خروجی قالب چاپ (GenerateStimulExportFile)

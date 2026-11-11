@@ -3,16 +3,18 @@ id: 1400
 title: "Date - تاریخ"
 englishTitle: "Date Field"
 category: "01-form-builder/form-studio/fields/basic"
+wikiPath: "1400"
 wikiUrl: "https://wiki.graphbpms.ir/1400"
-breadcrumbs: ["Date - تاریخ"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","فیلدهای پایه","Date - تاریخ"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Date - تاریخ
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Date - تاریخ`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `فیلدهای پایه` ❯ `Date - تاریخ`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1400](https://wiki.graphbpms.ir/1400)
 
 # فیلد تاریخ — Date

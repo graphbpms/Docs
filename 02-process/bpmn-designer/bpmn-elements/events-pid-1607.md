@@ -3,16 +3,18 @@ id: 1607
 title: "Eventها"
 englishTitle: "BPMN Events"
 category: "02-process/bpmn-designer/bpmn-elements"
+wikiPath: "1607"
 wikiUrl: "https://wiki.graphbpms.ir/1607"
-breadcrumbs: ["Eventها"]
+breadcrumbs: ["مدیریت و مدل‌سازی فرآیندها","طراحی و مدل‌سازی فرآیند","اجزای مدل BPMN","Eventها"]
 priority: 4
+isCanonical: true
 updatedAt: "2026-11-10T20:34:18"
 ---
 
 # Eventها
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Eventها`  
+> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت و مدل‌سازی فرآیندها` ❯ `طراحی و مدل‌سازی فرآیند` ❯ `اجزای مدل BPMN` ❯ `Eventها`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1607](https://wiki.graphbpms.ir/1607)
 
 # استودیو — Eventها

@@ -3,16 +3,18 @@ id: 1604
 title: "Pool و Lane"
 englishTitle: "Pool & Lane Participants"
 category: "02-process/bpmn-designer/bpmn-elements"
+wikiPath: "1604"
 wikiUrl: "https://wiki.graphbpms.ir/1604"
-breadcrumbs: ["Pool و Lane"]
+breadcrumbs: ["مدیریت و مدل‌سازی فرآیندها","طراحی و مدل‌سازی فرآیند","اجزای مدل BPMN","Pool و Lane"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # Pool و Lane
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `Pool و Lane`  
+> 🧭 **سلسله‌مراتب موضوعی:** `مدیریت و مدل‌سازی فرآیندها` ❯ `طراحی و مدل‌سازی فرآیند` ❯ `اجزای مدل BPMN` ❯ `Pool و Lane`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1604](https://wiki.graphbpms.ir/1604)
 
 # استودیو — Pool و Lane

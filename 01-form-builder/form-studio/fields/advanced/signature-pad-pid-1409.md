@@ -3,16 +3,18 @@ id: 1409
 title: "SignaturePad - امضا"
 englishTitle: "SignaturePad Field"
 category: "01-form-builder/form-studio/fields/advanced"
+wikiPath: "1409"
 wikiUrl: "https://wiki.graphbpms.ir/1409"
-breadcrumbs: ["SignaturePad - امضا"]
+breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","فیلدهای فرم","فیلدهای پیشرفته","SignaturePad - امضا"]
 priority: 1
+isCanonical: true
 updatedAt: "2026-10-25T21:33:55"
 ---
 
 # SignaturePad - امضا
 
 > [!NOTE]
-> 🧭 **سلسله‌مراتب موضوعی:** `SignaturePad - امضا`  
+> 🧭 **سلسله‌مراتب موضوعی:** `فرم‌ساز پیشرفته` ❯ `استودیوی فرم‌ساز` ❯ `فیلدهای فرم` ❯ `فیلدهای پیشرفته` ❯ `SignaturePad - امضا`  
 > 🔗 **نسخه برخط در سامانه دانشنامه:** [https://wiki.graphbpms.ir/1409](https://wiki.graphbpms.ir/1409)
 
 # فیلد امضاء SignaturePad
