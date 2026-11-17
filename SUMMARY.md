@@ -171,7 +171,6 @@
 * [بروزرسانی سامانه گراف](07-installation/system-update-pid-63.md)
 * [قابلیت Compression ](07-installation/compression-feature-pid-98.md)
 * [تنظیمات WebConfig](07-installation/webconfig-settings-pid-163.md)
-* [راهنمای جامع پیکربندی امن Web.config](07-installation/webconfig-pid-1002594.md)
 
 ## 08-video-tutorials
 
