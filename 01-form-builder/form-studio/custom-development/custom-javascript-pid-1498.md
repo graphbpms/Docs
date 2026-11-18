@@ -8,7 +8,7 @@ wikiUrl: "https://wiki.graphbpms.ir/1423"
 breadcrumbs: ["فرم‌ساز پیشرفته","استودیوی فرم‌ساز","توسعه و سفارشی‌سازی","Custom JavaScript و تنظیمات سفارشی"]
 priority: 1
 isCanonical: true
-updatedAt: "2026-11-01T19:29:06"
+updatedAt: "2026-11-18T04:01:35"
 ---
 
 # Custom JavaScript و تنظیمات سفارشی
@@ -4262,169 +4262,163 @@ viewModel.toggleShowLengthForLayer("mapField", null, "lineLayer");
 
  
 
-## متدهای اطلاع‌رسانی در absoluteMethodHelper
+## متدهای اطلاع‌رسانی در absoluteMethodHelper و رویه‌های پویا (Dynamic Notifications)
 
-در فرم‌های سازمانی GraphBPMS، اطلاع‌رسانی به‌موقع به کاربران نقش مهمی در تسریع گردش کار و پاسخ‌دهی به رخدادها دارد. `absoluteMethodHelper` در محیط **Custom JS** مجموعه‌ای از متدهای ناهمزمان (Asynchronous) فراهم می‌کند که با کمترین کدنویسی امکان ارسال اعلان زنگوله پورتال و وب‌پوش (Web Push) را به یک کاربر مشخص، تمام کاربران دارای یک نقش، یا فهرستی ترکیبی از مخاطبان می‌دهد.
+یکی از پیشرفته‌ترین قابلیت‌های پلتفرم GraphBPMS، زیرساخت یکپارچه و چندکاناله اطلاع‌رسانی است. در محیط **Custom JS** فرم‌ها و ماژول‌ها، شیء `absoluteMethodHelper` و اندپوینت بومی `/DynamicNotification/SendNotifications` این امکان را به توسعه‌دهنده می‌دهند که پیام‌ها، هشدارها و آغاز گردش‌های کاری را به انواع کانال‌های ارتباطی درون‌سازمانی و برون‌سازمانی هدایت کند.
 
-این متدها همان الگوی Promise و `async/await` را دارند که در بخش [برنامه‌نویسی ناهمزمان در JavaScript](#async-js) توضیح داده شد.
+این متدها کاملاً ناهمزمان (Asynchronous) بوده و بر پایه الگوی Promise و `async/await` کار می‌کنند.
 
- 
+### معماری رویه‌های اطلاع‌رسانی: تفکیک رویه‌های ثابت و پویا
 
-### مفاهیم پایه: رویه‌ها و گروه‌های اطلاع‌رسانی
+برای درک نحوه ارسال پیام در GraphBPMS، باید با ساختار صفحه **«مدیریت رویه‌های اطلاع‌رسانی»** در پنل راهبری پلتفرم آشنا شوید. رویه‌ها در سیستم به دو گروه اصلی تقسیم می‌شوند:
 
-پیش از فراخوانی متدها، دو مفهوم کلیدی را در هسته اطلاع‌رسانی GraphBPMS بشناسید.
+۱) رویه‌های زیرساختی ثابت (Built-in / Native Procedures)
 
- 
-رویه اطلاع‌رسانی (Notification Procedure)
+دو رویه هسته‌ای و پیش‌فرض در کلیه استقرارهای GraphBPMS به‌صورت ثابت، از پیش‌تعریف‌شده و **غیرقابل حذف** وجود دارند:
 
-رویه، کانال انتقال پیام به گیرنده را مشخص می‌کند. دو رویه سیستمی به‌صورت پیش‌فرض و با شناسه‌های ثابت در پلتفرم وجود دارد:
-
-رویه اطلاع‌رسانی
+نام رویه
 شناسه ثابت (ID)
-محل و نحوه نمایش به کاربر
+نوع رویه
+محل نمایش و کارکرد
 
-Portal
+**Portal**
 `1`
-در بخش آیکون زنگوله بالای پورتال وب (اعلان‌های درون‌برنامه‌ای کاربر).
+سیستمی (پرتال)
+نمایش اعلان در بخش آیکون زنگوله بالای پورتال وب (اعلان درون‌برنامه‌ای کاربر).
 
-OS
+**OS**
 `2`
-اعلان سیستمی روی دسکتاپ یا دستگاه کاربر از طریق فناوری Web Push مرورگر.
+سیستمی (سیستم‌عامل)
+ارسال اعلان سیستمی روی دسکتاپ یا Notification Bar گوشی کاربر از طریق Web Push مرورگر.
 
- 
+۲) رویه‌های پویای سازمانی (User-Defined Dynamic Procedures)
+
+پلتفرم GraphBPMS به دو رویه فوق محدود نیست. راهبران و توسعه‌دهندگان سازمان می‌توانند در صفحه «مدیریت رویه‌های اطلاع‌رسانی» با کلیک روی دکمه **«جدید»**، به تعداد نامحدود رویه اطلاع‌رسانی پویا تعریف کنند.
+
+**شناسه‌های عددی متغیر در رویه‌های پویا:** شناسه عددی (`procedureId`) رویه‌های پویا برخلاف پرتال (1) و سیستم‌عامل (2)، یک مقدار افزایشی (Auto-Increment) در جدول پایگاه‌داده است و بسته به تقدم ساخت رویه‌ها در هر محیط یا هر سرور، می‌تواند مقادیر متفاوتی (نظیر 3، 4، 5، 12 یا ...) باشد. توسعه‌دهنده باید پیش از فراخوانی، شناسه رویه ایجادشده را از ستون «شناسه» در جدول مدیریت رویه‌ها مشاهده و در کدهای خود تنظیم کند.
+
+### انواع رویه‌های پویا و فیلدهای فرم پیکربندی
+
+هنگام ایجاد یک رویه جدید در سامانه، پنجره ایجاد بسته به **«نوع»** انتخابی، فیلدهای مشخصی را در اختیار شما قرار می‌دهد:
+
+الف) رویه از نوع «منبع داده» (Data Source)
+
+در این حالت، ارسال اعلان به یک **منبع داده (Data Source)** و **Provider** تعریف‌شده در سامانه (نظیر وب‌سرویس پیامک، درگاه ایمیل، وب‌هوک پیام‌رسان‌های بله/ایتا/تلگرام، یا وب‌سرویس‌های سازمانی REST/SOAP) واگذار می‌شود.
+
+فیلدهای فرم ایجاد در پرتال:
+
+- **نام:** عنوان توصیفی رویه (مثلاً «پیامک»، «پست الکترونیک»، «بازو بله»).
+
+- **نوع:** انتخاب گزینه `منبع داده`.
+
+- **منبع داده:** انتخاب منبع داده مورد نظر از میان Data Sourceهای سامانه.
+
+- **انتخاب Provider:** تعیین Provider اجرایی منبع داده.
+
+- **قالب:** انتخاب قالب متنی اطلاع‌رسانی متصل به این رویه.
+
+- **توضیحات:** شرح کارکرد رویه.
+
+- **پیش‌فرض:** تعیین وضعیت پیش‌فرض بودن رویه.
+
+**مکانیزم پارامترهای کاملاً پویا در رویه منبع داده:** کلیدها و مقادیری که در شیء `parameters` در زمان کدنویسی ارسال می‌کنید، دقیقاً به عنوان **پارامترهای ورودی Provider انتخابی** عمل می‌کنند. بنابراین نام فیلدها در `parameters` باید دقیقاً با نام پارامترهای ورودی تعریف‌شده در آن Provider (با رعایت حساسیت به حروف بزرگ و کوچک) یکسان باشد.
+
+ب) رویه از نوع «فرآیند» (Process)
+
+در این حالت، با تحریک رویه، یک پیام ساده ارسال نمی‌شود، بلکه **یک فرآیند سازمانی (BPMN Workflow)** در موتور فرآیندساز GraphBPMS آغاز یا تحریک می‌گردد (مانند فرآیند آغاز اسپرینت، ارجاع خودکار کار به مدیران، یا فرآیند گردش اسناد).
+
+فیلدهای فرم ایجاد در پرتال:
+
+- **نام:** عنوان رویه فرآیندی (مثلاً «ایمیل به مدیران برای اسپرینت جدید»).
+
+- **نوع:** انتخاب گزینه `فرآیند`.
+
+- **فرآیند:** انتخاب دیاگرام فرآیند مورد نظر از فهرست فرآیندهای منتشرشده سامانه.
+
+- **انتخاب فرآیند:** تعیین نگاشت فرآیندی.
+
+- **قالب:** انتخاب قالب اعلان متصل به فرآیند.
+
+- **توضیحات:** شرح عملکرد فرآیند.
+
+- **پیش‌فرض:** وضعیت پیش‌فرض.
+
 گروه اطلاع‌رسانی (NotificationGroupId)
 
-در پنل مدیریت GraphBPMS، بخش «گروه‌های اطلاع‌رسانی» امکان دسته‌بندی موضوعی پیام‌ها (مانند پیام‌های مالی، اعلان‌های فرایندی و هشدارهای امنیتی) را فراهم می‌کند. اگر به تفکیک یا فیلترینگ پیام‌ها نیاز دارید، شناسه عددی گروه موردنظر را در ویژگی `NotificationGroupId` قرار دهید.
+برای تفکیک موضوعی پیام‌ها (نظیر پیام‌های مالی، اعلان‌های فرآیندی، هشدارهای امنیتی و پیام‌های عمومی)، شناسه عددی گروه اعلان در مشخصه `NotificationGroupId` قرار می‌گیرد. در صورت عدم تنظیم، سامانه گروه پیش‌فرض پورتال را اعمال می‌کند.
 
-**نکته:** تنظیم `NotificationGroupId` اختیاری است. اگر آن را ارسال نکنید، سامانه به‌طور خودکار گروه پیش‌فرض پورتال را در نظر می‌گیرد.
+### شیوه‌های فراخوانی ارسال اعلان در Custom JS
 
- 
+در کدهای سفارشی کلاینت، دو روش اصلی برای ارسال اعلان در دسترس است:
 
-### انتخاب متد اطلاع‌رسانی بر اساس سناریو
+- **استفاده از متد رسمی `absoluteMethodHelper.sendNotifications`:** روش استاندارد و توصیه‌شده در کلیه فرم‌ها و فرآیندهای استودیو.
 
-با توجه به مقصد پیام، کانال و تعداد مخاطبان، متد مناسب را از جدول زیر انتخاب کنید:
+- **فراخوانی مستقیم اندپوینت با AJAX (`$.ajax`):** ارسال مستقیم به اندپوینت `POST /DynamicNotification/SendNotifications`؛ این روش در ماژول‌های فرانت‌اند مستقل (Decoupled Modules) برای کنترل کامل روی ترنسپورت شبکه و مدیریت دسته‌ای خطاها کاربرد دارد.
 
-هدف و سناریوی اجرایی
-کانال ارسال
-متد در absoluteMethodHelper
+### متد پایه `sendNotifications` و ساختار آرایه `sendTo`
 
-ارسال هم‌زمان به چند کاربر یا چند رویه مختلف با تنظیمات تفکیک‌شده
-ترکیبی (Portal و OS)
-`sendNotifications`
+متد `absoluteMethodHelper.sendNotifications` کامل‌ترین و انعطاف‌پذیرترین متد اطلاع‌رسانی سامانه است که قابلیت ارسال هم‌زمان به چندین کاربر و چندین رویه مختلف (سیستمی و پویا) را دارد.
 
-اعلان زنگوله پورتال به یک کاربر مشخص
-Portal (شناسه 1)
-`sendNotificationsByPortalProcedure`
-
-اعلان زنگوله پورتال به تمام اعضای دارای یک نقش سازمانی
-Portal (شناسه 1)
-`sendNotificationsByPortalProcedureBasedOnRole`
-
-وب‌پوش روی سیستم‌عامل دسکتاپ به یک کاربر مشخص
-OS / Web Push (شناسه 2)
-`sendNotificationsByOSProcedure`
-
-وب‌پوش روی سیستم‌عامل دسکتاپ به تمام اعضای یک نقش سازمانی
-OS / Web Push (شناسه 2)
-`sendNotificationsByOSProcedureBasedOnRole`
-
- 
-
-### مرجع پارامترهای ورودی متدها
-
-همه متدها ورودی خود را در قالب یک Object پیکربندی (Options Object) دریافت می‌کنند. ویژگی‌های مشترک در جدول زیر آمده است:
+مشخصات شیء ورودی متد:
 
 ویژگی (Property)
 نوع داده
-توضیحات و مثال
+توضیحات
 
 `subject`
 String
-عنوان اعلان؛ مثال: `"پیام جدید"` یا `"اطلاعیه واحد مالی"`.
+عنوان اعلان؛ مثال: `"پیام جدید"` یا `"یادآوری جلسه"`.
 
 `body`
 String
-متن اصلی پیام که به کاربر نمایش داده می‌شود.
+متن اصلی اعلان یا محتوای پیش‌فرض پیام.
 
 `url`
 String
-آدرس مقصد هنگام کلیک کاربر روی اعلان (می‌تواند لینک پویا به رکورد فرم یا داشبورد باشد).
-
-`recipientUserId`
-Number
-شناسه عددی کاربر گیرنده پیام در سیستم (مانند `101`).
-
-`recipientRoleId`
-Number
-شناسه عددی نقش کاربری سازمانی (مانند `12`) برای ارسال همگانی به اعضای آن نقش.
-
-`icon`
-String
-آدرس URL مستقیم تصویر نمایه اعلان (PNG / JPG / SVG).
+آدرس مقصد هنگام کلیک کاربر روی اعلان (مخصوص پرتال و وب‌پوش؛ در سایر رویه‌ها رشته خالی `""` قرار می‌گیرد).
 
 `sendTo`
 Array
-آرایه‌ای از گیرندگان و کانال‌ها، منحصراً در متد `sendNotifications`.
-
-`NotificationGroupId`
-Number
-شناسه عددی گروه اطلاع‌رسانی (اختیاری؛ پیش‌فرض: گروه سیستمی پورتال).
-
-**دسترسی به absoluteMethodHelper:** شیء `absoluteMethodHelper` یک Object سراسری در محدوده اجرای Custom JS فرم‌ها و فرایندهای GraphBPMS است و نیازی به تعریف مجدد ندارد.
-
- 
-
-### متد چندگانه `sendNotifications` و ساختار `sendTo`
-
-انعطاف‌پذیرترین متد اطلاع‌رسانی پلتفرم `sendNotifications` است. این متد عنوان، متن و آدرس مشترک را دریافت می‌کند و از طریق آرایه `sendTo` تعیین می‌کند چه گیرندگانی از چه کانال‌هایی پیام را دریافت کنند.
+آرایه‌ای از گیرندگان و رویه‌ها که هر آیتم شامل `procedureId` و `parameters` است.
 
 ساختار هر آیتم در آرایه `sendTo`:
 
-- **`procedureId`**: کد رویه (عدد `1` برای Portal، عدد `2` برای OS).
+```
+{
+    procedureId: <شناسه عددی رویه در سیستم>,
+    parameters: {
+        // فیلدهای اختصاصی متناظر با نوع آن رویه
+    }
+}
+```
 
-- **`parameters`**: شامل `RecipientUserId` (یا `RecipientRoleId`)، `Icon` و `NotificationGroupId`.
+### الگوها و مثال‌های کاربردی کدنویسی
 
-مثال: ارسال هم‌زمان اعلان Portal و OS به دو کاربر با شناسه‌های 101 و 102 در گروه اطلاع‌رسانی 6:
+مثال ۱: ارسال هم‌زمان به رویه‌های سیستمی (پرتال و وب‌پوش دسکتاپ)
+
+در رویه‌های ثابت سیستمی (شناسه 1 و 2)، پارامترهای استاندارد شامل `RecipientUserId` (گیرنده کاربر)، `RecipientRoleId` (گیرنده بر مبنای نقش)، `Icon` (آیکون اعلان) و `NotificationGroupId` (گروه اعلان) هستند:
 
 ```
 const result = await absoluteMethodHelper.sendNotifications({
-    subject: "پیام جدید",
-    body: "دیدگاه جدیدی برای شما ثبت شده است.",
+    subject: "پیام جدید سازمانی",
+    body: "دیدگاه جدیدی برای شما ثبت شد.",
     url: "/Dashboard",
     sendTo: [
         {
-            procedureId: 1, // رویه Portal (زنگوله)
+            procedureId: 1, // رویه پرتال (زنگوله)
             parameters: {
                 RecipientRoleId: "",
                 RecipientUserId: 101,
-                Icon: "https://example.com/icon.png",
+                Icon: "https://portal.graphbpms.ir/Content/Images/GraphbpmsLogo.png",
                 NotificationGroupId: 6
             }
         },
         {
-            procedureId: 2, // رویه OS (وب‌پوش)
+            procedureId: 2, // رویه وب‌پوش سیستم‌عامل (OS)
             parameters: {
                 RecipientRoleId: "",
                 RecipientUserId: 101,
-                Icon: "https://example.com/icon.png",
-                NotificationGroupId: 6
-            }
-        },
-        {
-            procedureId: 1,
-            parameters: {
-                RecipientRoleId: "",
-                RecipientUserId: 102,
-                Icon: "https://example.com/icon.png",
-                NotificationGroupId: 6
-            }
-        },
-        {
-            procedureId: 2,
-            parameters: {
-                RecipientRoleId: "",
-                RecipientUserId: 102,
-                Icon: "https://example.com/icon.png",
+                Icon: "https://portal.graphbpms.ir/Content/Images/GraphbpmsLogo.png",
                 NotificationGroupId: 6
             }
         }
@@ -4432,16 +4426,145 @@ const result = await absoluteMethodHelper.sendNotifications({
 });
 ```
 
- 
+مثال ۲: ارسال به رویه‌های پویای مبتنی بر «منبع داده» (مانند پیامک، پیام‌رسان یا ایمیل)
 
-### اعلان زنگوله پورتال (کاربر و نقش)
+فرض کنید در پنل مدیریت رویه‌ها، رویه‌ای از نوع منبع داده برای ارسال پیام ایجاد کرده‌اید که شناسه عددی آن در جدول رویه‌ها مثلاً عدد `X` ثبت شده است. بسته به Provider متصل به آن منبع داده، فیلدهای شیء `parameters` را متناظر با ورودی‌های آن Provider مقداردهی می‌کنید:
 
-اگر فقط می‌خواهید اعلان را در زنگوله پورتال نمایش دهید، به آرایه `sendTo` نیازی ندارید و متدهای اختصاصی زیر خلاصه‌تر هستند.
-
- 
-ارسال به یک کاربر مشخص: `sendNotificationsByPortalProcedure`
+**الف) اگر منبع داده برای ارسال پیامک تنظیم شده باشد:**
 
 ```
+// شناسه رویه پیامک که در مدیریت رویه‌ها ثبت شده است
+const SMS_PROCEDURE_ID = 5; // عدد نمونه بر اساس شناسه ثبت‌شده در سامانه
+
+await absoluteMethodHelper.sendNotifications({
+    subject: "اطلاع‌رسانی پیامکی",
+    body: "متن پیامک",
+    url: "", // در رویه پیامک نقشی ندارد؛ رشته خالی قرار دهید
+    sendTo: [
+        {
+            procedureId: SMS_PROCEDURE_ID,
+            parameters: {
+                // نام فیلدها دقیقاً مطابق متغیرهای Provider منبع داده
+                mobile: "09123456789",
+                message: "GraphBPMS | درخواست شما با موفقیت تأیید شد."
+            }
+        }
+    ]
+});
+```
+
+**ب) اگر منبع داده برای ارسال در پیام‌رسان (نظیر بات بله) تنظیم شده باشد:**
+
+```
+// شناسه رویه بات پیام‌رسان که در مدیریت رویه‌ها ساخته شده است
+const BALE_PROCEDURE_ID = 6; // عدد نمونه بر اساس شناسه ثبت‌شده در سامانه
+
+await absoluteMethodHelper.sendNotifications({
+    subject: "اعلان پیام‌رسان",
+    body: "متن پیام",
+    url: "",
+    sendTo: [
+        {
+            procedureId: BALE_PROCEDURE_ID,
+            parameters: {
+                // پارامترهای ورودی وب‌هوک Provider بله
+                phone_number: "989123456789", // قالب بین‌المللی با پیش‌شماره 98
+                message_data: JSON.stringify({
+                    message: {
+                        text: "🔔 اعلان جدید GraphBPMS:
+جلسه هماهنگی فردا ساعت ۱۰ برگزار خواهد شد."
+                    }
+                })
+            }
+        }
+    ]
+});
+```
+
+**ج) اگر منبع داده برای ارسال پست الکترونیک (Email Gateway) تنظیم شده باشد:**
+
+```
+// شناسه رویه ایمیل که در مدیریت رویه‌ها ساخته شده است
+const EMAIL_PROCEDURE_ID = 4; // عدد نمونه بر اساس شناسه ثبت‌شده در سامانه
+
+await absoluteMethodHelper.sendNotifications({
+    subject: "اعلان رسمی پورتال",
+    body: "متن اعلان",
+    url: "/Dashboard",
+    sendTo: [
+        {
+            procedureId: EMAIL_PROCEDURE_ID,
+            parameters: {
+                // پارامترهای ورودی Provider ایمیل
+                to: "colleague@company.ir",
+                subject: "GraphBPMS | ابلاغیه جدید اداری",
+                body: `
+                    محتوای ایمیل می‌تواند شامل HTML باشد
+                `
+            }
+        }
+    ]
+});
+```
+
+مثال ۳: فراخوانی رویه پویای مبتنی بر «فرآیند» (BPMN Workflow Trigger)
+
+هنگامی که رویه‌ای از نوع **فرآیند** (مانند رویه «ایمیل به مدیران برای اسپرینت جدید») ایجاد می‌شود، فراخوانی آن یک نمونه از فرآیند را در موتور گردش کار استارت می‌زند. فیلدهای شیء `parameters` به عنوان متغیرهای فرآیند (Process Variables) به گره آغازین فرآیند تحویل داده می‌شوند:
+
+```
+// شناسه رویه فرآیندی که در مدیریت رویه‌ها ثبت شده است
+const SPRINT_PROCESS_PROCEDURE_ID = 3; // عدد نمونه بر اساس شناسه ثبت‌شده در سامانه
+
+await absoluteMethodHelper.sendNotifications({
+    subject: "آغاز اسپرینت جدید",
+    body: "اسپرینت جدید تعریف شد و فرآیند اطلاع به مدیران کلید خورد.",
+    url: "/Dashboard",
+    sendTo: [
+        {
+            procedureId: SPRINT_PROCESS_PROCEDURE_ID,
+            parameters: {
+                RecipientRoleId: 12, // ارسال به نقش مدیران در صورت مدل‌سازی مبتنی بر نقش
+                RecipientUserId: 101, // یا کاربر مشخص
+                NotificationGroupId: 6,
+                // متغیرهای ورودی اختصاصی فرآیند:
+                SprintTitle: "اسپرینت ۲۵ - بهینه‌سازی سیستم اعلان‌ها",
+                SprintNumber: 25,
+                StartDate: "1405/09/01",
+                Description: "توضیحات و مستندات مربوط به اسپرینت جدید"
+            }
+        }
+    ]
+});
+```
+
+مثال ۴: ارسال ترکیبی و چندکاناله (Multi-Channel Routing)
+
+یکی از بزرگ‌ترین مزایای ساختار `sendTo` این است که می‌توانید در یک فراخوانی واحد، پیام را به طور هم‌زمان به رویه‌های سیستمی و رویه‌های پویای منبع داده ارسال نمایید:
+
+```
+await absoluteMethodHelper.sendNotifications({
+    subject: "لغو جلسه اضطراری",
+    body: "جلسه هماهنگی ساعت ۱۴ لغو گردید.",
+    url: "/Calendar",
+    sendTo: [
+        // ۱. اعلان درون‌برنامه‌ای زنگوله پرتال
+        { procedureId: 1, parameters: { RecipientUserId: 101, NotificationGroupId: 6 } },
+        // ۲. اعلان وب‌پوش روی سیستم‌عامل
+        { procedureId: 2, parameters: { RecipientUserId: 101, NotificationGroupId: 6 } },
+        // ۳. پیامک فوری به تلفن همراه (رویه منبع داده)
+        { procedureId: 5, parameters: { mobile: "09123456789", message: "GraphBPMS | جلسه ساعت ۱۴ لغو شد." } },
+        // ۴. پیام در پیام‌رسان بله (رویه منبع داده)
+        { procedureId: 6, parameters: { phone_number: "989123456789", message_data: JSON.stringify({ message: { text: "⚠️ جلسه ساعت ۱۴ لغو شد." } }) } }
+    ]
+});
+```
+
+### متدهای میان‌بر اختصاصی (صرفاً برای رویه‌های سیستمی پرتال و OS)
+
+چهار متد میان‌بر اختصاصی برای رویه‌های ثابت سیستمی (پرتال و وب‌پوش) وجود دارد که برای ارسال‌های ساده بدون نیاز به آرایه `sendTo` به کار می‌روند:
+
+```
+// ۱. اعلان زنگوله پرتال به یک کاربر مشخص
 await absoluteMethodHelper.sendNotificationsByPortalProcedure({
     subject: "پیام جدید",
     body: "دیدگاه تازه‌ای برای شما ثبت شده است.",
@@ -4449,114 +4572,112 @@ await absoluteMethodHelper.sendNotificationsByPortalProcedure({
     recipientUserId: 101,
     icon: "https://example.com/notification.png"
 });
-```
 
- 
-ارسال به تمام کاربران یک نقش: `sendNotificationsByPortalProcedureBasedOnRole`
-
-```
+// ۲. اعلان زنگوله پرتال به تمام کاربران یک نقش سازمانی
 await absoluteMethodHelper.sendNotificationsByPortalProcedureBasedOnRole({
     subject: "اطلاعیه واحد",
-    body: "یک اطلاعیه جدید برای نقش شما در سامانه ثبت شده است.",
+    body: "اطلاعیه عمومی برای اعضای نقش امور مالی.",
     url: "/Dashboard",
-    recipientRoleId: 12, // ارسال هم‌زمان برای همه دارندگان نقش 12
+    recipientRoleId: 12,
     icon: "https://example.com/notification.png"
 });
-```
 
- 
-
-### اعلان وب‌پوش OS (کاربر و نقش)
-
-این متدها پیام را مستقیماً از طریق سرویس وب‌پوش مرورگر روی دسکتاپ کاربر (Desktop Notification) ارسال می‌کنند؛ حتی اگر پنجره پورتال فعال نباشد.
-
- 
-وب‌پوش به یک کاربر مشخص: `sendNotificationsByOSProcedure`
-
-```
+// ۳. وب‌پوش دسکتاپ به یک کاربر مشخص
 await absoluteMethodHelper.sendNotificationsByOSProcedure({
     subject: "یادآوری مهم",
-    body: "یک پیام جدید برای شما ثبت شده است.",
+    body: "جلسه شما تا ۱۰ دقیقه دیگر آغاز می‌شود.",
     url: "/Dashboard",
     recipientUserId: 101,
     icon: "https://example.com/notification.png"
 });
-```
 
- 
-وب‌پوش به تمام کاربران یک نقش: `sendNotificationsByOSProcedureBasedOnRole`
-
-```
+// ۴. وب‌پوش دسکتاپ به تمام اعضای یک نقش سازمانی
 await absoluteMethodHelper.sendNotificationsByOSProcedureBasedOnRole({
-    subject: "اطلاعیه فوری نقش",
-    body: "یک کارتابل گروهی جدید به نقش شما ارجاع گردید.",
+    subject: "اطلاعیه نقش",
+    body: "کارتابل جدیدی به نقش شما ارجاع گردید.",
     url: "/Dashboard",
     recipientRoleId: 12,
     icon: "https://example.com/notification.png"
 });
 ```
 
- 
+**محدودیت متدهای میان‌بر:** این چهار متد صرفاً برای رویه ۱ (Portal) و رویه ۲ (OS) پیاده‌سازی شده‌اند و فیلد `NotificationGroupId` را نمی‌پذیرند. برای ارسال به رویه‌های پویا (منبع داده، پیامک، ایمیل، فرآیند) یا تفکیک گروه اعلان، الزامی است از متد جامع `sendNotifications` همراه با ساختار `sendTo` استفاده نمایید.
 
-### سناریوی عملیاتی: اعلان ثبت دیدگاه در تسک
+### معماری و الگوی ارسال مستقیم با AJAX
 
-**صورت مسئله:** وقتی کاربر در یک فرم فرایندی دیدگاهی ثبت می‌کند، می‌خواهیم برای مسئول تسک اعلان زنگوله‌ای ارسال شود که شماره تسک، موضوع فرایند، نام ثبت‌کننده و یک لینک مستقیم به همان رکورد فرم را داشته باشد.
-
-```
-// استخراج داده‌ها از viewModel فرم جاری
-const recipientUserId = 101; // شناسه مسئول تسک
-const taskNumber = viewModel.data().FK_ProcessCreationID();
-const taskTitle = viewModel.data().ImplementationTitle();
-const recordId = viewModel.data().Id();
- 
-// ساخت پیام سفارشی
-const message = "دیدگاهی برای شما در تسک شماره " + taskNumber +
-                " با موضوع " + taskTitle +
-                " توسط کاربر " + userFullName + " ثبت شد.";
- 
-// ایجاد URL جهت باز شدن فرم در حالت فقط‌خواندنی بدون مودال
-const formLink = "/DynamicForm/IndexModalMode?isModal=false" +
-                 "&formId=" + viewModel.gbFormId +
-                 "&recId=" + recordId +
-                 "&isReadOnly=true";
- 
-// ارسال اعلان زنگوله پورتال به مسئول
-await absoluteMethodHelper.sendNotificationsByPortalProcedure({
-    subject: "پیام جدید",
-    body: message,
-    url: formLink,
-    recipientUserId: recipientUserId,
-    icon: "https://example.com/icon.png"
-});
-```
-
-**عدم وجود NotificationGroupId در متدهای اختصاصی:** چهار متد اختصاصی (`ByPortal...` و `ByOS...`) پارامتر مجزای `NotificationGroupId` ندارند. اگر لازم است گروه اعلان را به‌صورت صریح تعیین کنید، از متد پایه `sendNotifications` همراه با ساختار `sendTo` استفاده کنید.
-
- 
-
-### مدیریت اجرای ناهمزمان و کنترل خطا
-
-همه متدهای اطلاع‌رسانی عملیات ارسال را به‌صورت ناهمزمان به وب‌سرویس پورتال انجام می‌دهند؛ بنابراین:
-
-- فراخوانی متدها باید همواره با کلمه کلیدی `await` و داخل تابعی با علامت `async` انجام شود.
-
-- کد وضعیت **HTTP 200** در پاسخ سرور به معنای پذیرش و تحویل اعلان به صف ارسال است.
-
-- متد `sendNotifications` Object پاسخ سرور را برمی‌گرداند؛ اما چهار متد اختصاصی در حالت موفقیت مقداری برنمی‌گردانند (`void`).
-
-- به‌دلیل وابستگی به شبکه و پاسخ سرور، کد خود را حتماً در بلوک `try ... catch` قرار دهید:
+در ماژول‌های مستقل که خارج از کانتینر اصلی فرم اجرا می‌شوند یا نیاز به هندلینگ دسته‌ای (Batching) بدون وابستگی دارند، می‌توانید مستقیماً به اندپوینت رسمی `POST /DynamicNotification/SendNotifications` درخواست ارسال کنید:
 
 ```
-try {
-    await absoluteMethodHelper.sendNotificationsByPortalProcedure({
-        subject: "یادآوری",
-        body: "برای شما اعلان جدیدی ثبت شده است.",
-        url: "/Dashboard",
-        recipientUserId: 101,
-        icon: "https://example.com/icon.png"
+/**
+ * تابع کمکی ارسال اعلان با AJAX و Promise
+ * @param {Object} payload شیء حاوی subject, body, url و sendTo
+ * @returns {Promise}
+ */
+const sendNotificationAjax = payload =>
+    new Promise((resolve, reject) => {
+        $.ajax({
+            url: '/DynamicNotification/SendNotifications',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(payload),
+            success: function(data) {
+                // بررسی ساختار خطای پورتال GraphBPMS
+                const hasError = !!(
+                    data &&
+                    (
+                        data.HasError === true ||
+                        Number(data.HasError) === 1 ||
+                        (
+                            Object.prototype.hasOwnProperty.call(data, 'Content') &&
+                            data.Content === false
+                        )
+                    )
+                );
+
+                if (hasError) {
+                    reject(data);
+                    return;
+                }
+                resolve(data);
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                reject({
+                    status: xhr ? xhr.status : null,
+                    textStatus: textStatus,
+                    errorThrown: errorThrown,
+                    responseText: xhr && xhr.responseText ? xhr.responseText : ''
+                });
+            }
+        });
     });
-    console.log("اعلان با موفقیت ارسال شد.");
+
+### مدیریت اجرای ناهمزمان، کنترل خطا و استانداردهای پایداری
+
+هنگام ارسال اعلان‌ها در کدهای کلاینت، رعایت اصول زیر ضامن پایداری سیستم خواهد بود:
+
+- **استفاده الزامی از `await`:** کلیه متدهای اطلاع‌رسانی شبکه مبتنی بر Promise هستند؛ فراخوانی آنها باید با `await` و درون تابع `async` انجام شود.
+
+- **کد وضعیت HTTP 200:** بازگشت وضعیت 200 از سرور به معنای پذیرش و تحویل درخواست به صف پردازش پورتال است. تحویل فیزیکی به درگاه‌های مخابراتی یا سرورهای خارجی به وضعیت شبکه آن سرویس‌دهنده‌ها بستگی دارد.
+
+- **ایزولاسیون خطا با بلوک `try ... catch`:** به دلیل وابستگی کانال‌های خارجی (پیامک، ایمیل، وب‌هوک) به سرویس‌دهنده‌های ثالث، خطای شبکه یا قطعی یکی از این درگاه‌ها هرگز نباید مانع از ثبت رکورد فرم اصلی شود؛ بنابراین فراخوانی را همیشه در بلوک `try ... catch` ایزوله نمایید:
+
+`try {
+    const response = await absoluteMethodHelper.sendNotifications({
+        subject: "اعلان سیستمی",
+        body: "عملیات با موفقیت انجام شد.",
+        url: "/Dashboard",
+        sendTo: [
+            {
+                procedureId: 1,
+                parameters: { RecipientUserId: 101, NotificationGroupId: 6 }
+            }
+        ]
+    });
+    console.log("اعلان با موفقیت به صف پورتال تحویل شد:", response);
 } catch (error) {
-    console.error("خطا در فراخوانی سرویس اعلان:", error);
+    // خطای ارسال ثبت می‌شود اما روند ذخیره‌سازی داده‌های اصلی فرم مختل نمی‌گردد
+    console.warn("خطا در ارسال اعلان:", error);
 }
 ```
+
+`
